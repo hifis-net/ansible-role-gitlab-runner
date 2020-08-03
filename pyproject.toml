@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2020 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2020 Helmholtz-Zentrum Dresden - Rossendorf (HZDR)
+#
+# SPDX-License-Identifier: Apache-2.0
+
+[tool.poetry]
+name = "gitlab-ci-openstack"
+version = "0.1.0"
+description = "This role provides a setup for GitLab CI in Openstack."
+authors = ["Tobias Huste <t.huste@hzdr.de>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+ansible = "^2.9.11"
+
+[tool.poetry.dev-dependencies]
+ansible-lint = "^4.2.0"
+yamllint = "^1.24.2"
+reuse = "^0.11.1"
+molecule = {version = "^3.0.6", extras = ["docker"]}
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
