@@ -32,9 +32,14 @@ validate:
   script:
     - poetry run molecule lint
 
+test-debian10:
+  variables:
+    MOLECULE_IMAGE: registry.gitlab.com/hifis/docker/systemd/debian:10
+  extends: .moleculetest
+
 test-ubuntu20.04:
   variables:
-    MOLECUEL_DISTRO: ubuntu:20.04
+    MOLECULE_IMAGE: jrei/systemd-ubuntu:20.04
   extends: .moleculetest
 
 .moleculetest:

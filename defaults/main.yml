@@ -4,4 +4,4 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-# defaults file for gitlab-ci-openstack
+gitlab_runner_version: 13.2.2

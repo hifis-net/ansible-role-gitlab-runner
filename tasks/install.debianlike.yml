@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2020 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2020 Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
+#
+# SPDX-License-Identifier: Apache-2.0
+
+---
+- name: Install debian-archive-keyring and apt-transport-https
+  apt: pkg={{ packages }} state=present update_cache=true
+  vars:
+    packages:
+    - debian-archive-keyring
+    - apt-transport-https
+    - gnupg
+- name: Add runner/gitlab-runner GPG key
+  apt_key:
+    data: "{{ lookup('file', 'apt.gpg') }}"
+    state: present
+- name: Add packages repository packages.gitlab.com/runner/gitlab-runner
+  template:
+    src: gitlab-runner.list.j2
+    dest: /etc/apt/sources.list.d/gitlab-runner.list
+    owner: root
+    group: root
+    mode: '0644'
+- name: Use APT pinning for Debian os
+  copy:
+    src: pin-gitlab-runner.pref
+    dest: /etc/apt/preferences.d/pin-gitlab-runner.pref
+    owner: root
+    group: root
+    mode: '0644'
+- name: Install gitlab-runner
+  apt:
+    name: gitlab-runner={{ gitlab_runner_version }}
+    state: present
+    update_cache: yes
+...

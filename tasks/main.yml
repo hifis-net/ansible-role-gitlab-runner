@@ -4,4 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-# tasks file for gitlab-ci-openstack
+- include: install.debianlike.yml
+  when: ansible_os_family == "Debian"
+
+...

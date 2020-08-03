@@ -9,4 +9,4 @@
   tasks:
     - name: "Include gitlab-ci-openstack"
       include_role:
-        name: "gitlab-ci-openstack"
+        name: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
