@@ -17,8 +17,8 @@ variables:
   # Ansible refuses to read from a world-writeable folder
   - chmod 0750 $CI_PROJECT_DIR
   - pip install -U pip
-  - pip install --ignore-installed pipenv
-  - pipenv install --dev
+  - pip install --ignore-installed poetry
+  - poetry install
 
 include:
   - project: hifis/gitlab-ci-templates
@@ -30,7 +30,7 @@ validate:
   before_script:
     - *before_script
   script:
-    - pipenv run molecule lint
+    - poetry run molecule lint
 
 test-ubuntu20.04:
   variables:
@@ -51,9 +51,7 @@ test-ubuntu20.04:
     - python3 --version
     - *before_script
   script:
-    - pipenv run molecule test
-  tags:
-    - performance
+    - poetry run molecule test
 
 ...
   
