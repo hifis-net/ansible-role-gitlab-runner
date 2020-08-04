@@ -45,6 +45,10 @@ test-ubuntu20.04:
 .moleculetest:
   stage: test
   image: docker:latest
+  variables:
+    POETRY_VIRTUALENVS_PATH: $CI_PROJECT_DIR/.cache/venv
+    POETRY_CACHE_DIR: $CI_PROJECT_DIR/.cache/poetry
+    PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
   services:
     - docker:dind
   before_script:
@@ -56,7 +60,10 @@ test-ubuntu20.04:
     - python3 --version
     - *before_script
   script:
-    - poetry run molecule test
+    - poetry run molecule test    
+  cache:
+    paths:
+      - .cache 
 
 ...
   
