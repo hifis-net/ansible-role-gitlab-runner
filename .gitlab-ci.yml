@@ -21,7 +21,7 @@ variables:
   - poetry install
 
 include:
-  - project: hifis/gitlab-ci-templates
+  - project: hifis/templates/gitlab-ci
     file: /templates/reuse-compliance.yml
 
 validate:
