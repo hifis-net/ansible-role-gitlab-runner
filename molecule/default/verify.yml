@@ -11,6 +11,20 @@
       package_facts:
         manager: auto
 
+    - name: Gather service facts
+      service_facts:
+
+    - name: Assert that docker is installed
+      assert:
+        that:
+          - "'docker-ce' in ansible_facts.packages"
+
+    - name: Assert that Docker systemd service is running
+      assert:
+        that:
+          - "ansible_facts.services['docker.service'].state == 'running'"
+          - "ansible_facts.services['docker.service'].status == 'enabled'"
+
     - name: Assert that Gitlab-Runner is installed
       assert:
         that:

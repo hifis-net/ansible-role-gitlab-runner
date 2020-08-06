@@ -30,5 +30,8 @@ galaxy_info:
     - cd
     - openstack
 
-dependencies: []
+dependencies:
+  - role: geerlingguy.docker
+    vars:
+      docker_install_compose: false
 ...
