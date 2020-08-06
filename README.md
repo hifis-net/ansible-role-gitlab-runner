@@ -23,6 +23,11 @@ gitlab_runner_version: 13.2.2
 ```
 The version of GitLab-Runner to install.
 
+```yaml
+gitlab_runner_apt_repo: "deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main"
+```
+The repository URL where to install the packages from.
+
 Dependencies
 ------------
 

@@ -4,24 +4,28 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-- name: Install debian-archive-keyring and apt-transport-https
-  apt: pkg={{ packages }} state=present update_cache=true
-  vars:
-    packages:
-    - debian-archive-keyring
-    - apt-transport-https
-    - gnupg
+- name: Install GitLab-Runner dependencies
+  apt:
+    pkg:
+      - debian-archive-keyring
+      - apt-transport-https
+      - gnupg
+    state: present
+    update_cache: yes
+
 - name: Add runner/gitlab-runner GPG key
   apt_key:
-    data: "{{ lookup('file', 'apt.gpg') }}"
+    url: https://packages.gitlab.com/runner/gitlab-runner/gpgkey
     state: present
+
 - name: Add packages repository packages.gitlab.com/runner/gitlab-runner
-  template:
-    src: gitlab-runner.list.j2
-    dest: /etc/apt/sources.list.d/gitlab-runner.list
-    owner: root
-    group: root
+  apt_repository:
+    repo: "{{ gitlab_runner_apt_repo }}"
+    state: present
     mode: '0644'
+    filename: gitlab-runner
+    update_cache: yes
+
 - name: Use APT pinning for Debian os
   copy:
     src: pin-gitlab-runner.pref
@@ -29,9 +33,12 @@
     owner: root
     group: root
     mode: '0644'
+  when: ansible_distribution == 'Debian'
+
 - name: Install gitlab-runner
   apt:
-    name: gitlab-runner={{ gitlab_runner_version }}
+    name: "{{ gitlab_runner_package_name }}"
     state: present
     update_cache: yes
+
 ...

@@ -4,4 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-gitlab_runner_version: 13.2.2
+gitlab_runner_version: ""
+
+gitlab_runner_apt_repo: "deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main"

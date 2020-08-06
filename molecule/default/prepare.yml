@@ -14,6 +14,6 @@
             name:
               - sudo              # for `become` privilege escalation
               - iproute2          # for gathering network facts
-              - ca-certificates   # for Redis download
+              - ca-certificates   # for Gitlab-Runner download
             state: present
             update_cache: yes

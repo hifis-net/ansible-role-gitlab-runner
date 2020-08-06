@@ -19,7 +19,10 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-      - focal
+        - focal
+    - name: Debian
+      versions:
+        - buster
 
   galaxy_tags:
     - gitlab
