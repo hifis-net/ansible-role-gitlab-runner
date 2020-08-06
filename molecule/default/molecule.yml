@@ -24,5 +24,10 @@ provisioner:
   playbooks:
     prepare: prepare.yml
     converge: converge.yml
+  inventory:
+    hosts:
+      all:
+        vars:
+          gitlab_runner_version: 13.2.2
 verifier:
   name: ansible
