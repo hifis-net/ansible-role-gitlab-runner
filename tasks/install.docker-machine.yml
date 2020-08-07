@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-- name: Download docker-machine binary from github.com/tobiashuste/machine
+- name: Download docker-machine binary
   become: true
   get_url:
     url: "{{ docker_machine_binary_url }}"
