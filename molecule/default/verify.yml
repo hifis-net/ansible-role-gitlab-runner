@@ -25,6 +25,13 @@
           - "ansible_facts.services['docker.service'].state == 'running'"
           - "ansible_facts.services['docker.service'].status == 'enabled'"
 
+    - name: Check that docker-machine is properly installed
+      command:
+        cmd: docker-machine version
+      changed_when: false
+      register: machine_version
+      failed_when: "'0.16.2-gitlab.4' not in machine_version.stdout"
+
     - name: Assert that Gitlab-Runner is installed
       assert:
         that:
