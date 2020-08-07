@@ -4,4 +4,11 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-# tasks file for gitlab-ci-openstack
+- name: Set OS family dependent variables
+  include_vars: "{{ ansible_os_family|lower }}.yml"
+
+- include: install.debianlike.yml
+  become: yes
+  when: ansible_os_family == "Debian"
+
+...

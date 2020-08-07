@@ -4,4 +4,4 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-# vars file for gitlab-ci-openstack
+gitlab_runner_package_name: "{{ 'gitlab-runner=' + gitlab_runner_version if gitlab_runner_version else 'gitlab-runner'}}"

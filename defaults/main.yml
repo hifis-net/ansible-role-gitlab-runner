@@ -4,4 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-# defaults file for gitlab-ci-openstack
+gitlab_runner_version: ""
+
+gitlab_runner_apt_repo: "deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main"

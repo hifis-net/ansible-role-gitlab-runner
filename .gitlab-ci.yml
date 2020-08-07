@@ -32,14 +32,23 @@ validate:
   script:
     - poetry run molecule lint
 
+test-debian10:
+  variables:
+    MOLECULE_IMAGE: registry.gitlab.com/hifis/docker/systemd/debian:10
+  extends: .moleculetest
+
 test-ubuntu20.04:
   variables:
-    MOLECUEL_DISTRO: ubuntu:20.04
+    MOLECULE_IMAGE: jrei/systemd-ubuntu:20.04
   extends: .moleculetest
 
 .moleculetest:
   stage: test
   image: docker:latest
+  variables:
+    POETRY_VIRTUALENVS_PATH: $CI_PROJECT_DIR/.cache/venv
+    POETRY_CACHE_DIR: $CI_PROJECT_DIR/.cache/poetry
+    PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
   services:
     - docker:dind
   before_script:
@@ -51,7 +60,10 @@ test-ubuntu20.04:
     - python3 --version
     - *before_script
   script:
-    - poetry run molecule test
+    - poetry run molecule test    
+  cache:
+    paths:
+      - .cache 
 
 ...
   
