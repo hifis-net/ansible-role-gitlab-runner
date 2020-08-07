@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2020 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2020 Helmholtz-Zentrum Dresden - Rossendorf (HZDR)
+#
+# SPDX-License-Identifier: Apache-2.0
+
+---
+- name: Download docker-machine binary from github.com/tobiashuste/machine
+  become: true
+  get_url:
+    url: "{{ docker_machine_binary_url }}"
+    dest: /usr/local/bin/docker-machine
+    mode: '0755'
+    checksum: "{{ docker_machine_binary_checksum }}"
+
+...
