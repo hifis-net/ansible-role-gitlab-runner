@@ -31,7 +31,9 @@ The repository URL where to install the packages from.
 Dependencies
 ------------
 
-None
+GitLab-Runner for Openstack depends on `docker-machine` requiring docker to be available on the system.
+
+- Docker - [geerlingguy.docker](https://galaxy.ansible.com/geerlingguy/docker)
 
 Example Playbook
 ----------------
