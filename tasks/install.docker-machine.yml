@@ -4,12 +4,11 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-- name: Download docker-machine binary
-  become: true
+- name: Download and install docker-machine binary
   get_url:
-    url: "{{ docker_machine_binary_url }}"
+    url: "{{ gitlab_runner_docker_machine_binary_url }}"
     dest: /usr/local/bin/docker-machine
     mode: '0755'
-    checksum: "{{ docker_machine_binary_checksum }}"
+    checksum: "{{ gitlab_runner_docker_machine_binary_checksum }}"
 
 ...

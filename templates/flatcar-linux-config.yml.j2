@@ -1,0 +1,44 @@
+{#
+# SPDX-FileCopyrightText: 2020 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2020 Helmholtz-Zentrum Dresden - Rossendorf (HZDR)
+#
+# SPDX-License-Identifier: Apache-2.0
+#}
+passwd:
+  users:
+    - name: core
+      ssh_authorized_keys:
+        - {{ gitlab_runner_ssh_authorized_key['content'] }}
+storage:
+  files:
+    - filesystem: root
+      path: /etc/resolv.conf
+      mode: 0644
+      contents:
+        inline: |
+{% for nameserver in gitlab_runner_namerservers %}
+          nameserver {{ nameserver }}
+{% endfor %}
+locksmith:
+  reboot_strategy: "off"
+systemd:
+  units:
+    - name: binfmt-init.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Initialize binfmt_misc support.
+        After=docker.service network-online.target
+
+        [Service]
+        Type=simple
+        Restart=on-failure
+        TimeoutStartSec=0
+        ExecStartPre=/usr/bin/docker pull multiarch/qemu-user-static:register
+        ExecStart=/usr/bin/docker run --rm --privileged multiarch/qemu-user-static:register --reset
+
+        [Install]
+        WantedBy=multi-user.target
+docker:
+  flags:
+    - --mtu={{ gitlab_runner_mtu }}

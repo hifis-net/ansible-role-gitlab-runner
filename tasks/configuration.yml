@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2020 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2020 Helmholtz-Zentrum Dresden - Rossendorf (HZDR)
+#
+# SPDX-License-Identifier: Apache-2.0
+
+---
+
+- name: Create SSH key pair for communicating with Runners.
+  command: ssh-keygen -q -t rsa -b 4096 -f /etc/gitlab-runner/gitlab_runner_key -C "" -N ""
+  args:
+    creates: /etc/gitlab-runner/gitlab_runner_key
+
+- name: Download and install container-linux-config-transpiler
+  get_url:
+    url: "{{ gitlab_runner_transpiler_binary_url }}"
+    dest: /usr/local/bin/ct
+    mode: '0755'
+    checksum: "{{ gitlab_runner_transpiler_binary_checksum }}"
+
+- name: Read the content of the SSH public key
+  slurp:
+    src: /etc/gitlab-runner/gitlab_runner_key.pub
+  register: gitlab_runner_ssh_authorized_key
+
+- name: Place the container linux configuration on the host
+  vars:
+    gitlab_runner_ssh_authorized_key: "{{ gitlab_runner_ssh_authorized_key['content'] }}"
+  template:
+    src: flatcar-linux-config.yml.j2
+    dest: /etc/gitlab-runner/flatcar-linux-config.yml
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Transpile ignition.json from the container linux config
+  command: ct -in-file /etc/gitlab-runner/flatcar-linux-config.yml -out-file /etc/gitlab-runner/ignition.json
+  args:
+    creates: /etc/gitlab-runner/ignition.json
+...
