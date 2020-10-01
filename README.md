@@ -31,15 +31,44 @@ The repository URL where to install the packages from.
 
 ### Docker-machine variables
 ```yaml
-docker_machine_binary_url: "https://github.com/tobiashuste/machine/releases/download/v0.16.2-gitlab.4.fork.1/docker-machine-Linux-x86_64"
+gitlab_runner_docker_machine_binary_url: "https://github.com/tobiashuste/machine/releases/download/v0.16.2-gitlab.4.fork.1/docker-machine-Linux-x86_64"
 ```
 The URL where to download the docker-machine binary file from.
 
 ```yaml
-docker_machine_binary_checksum: "sha256:f83d54161a4b50fdde9916fbeeb57f429e536d8f0a64feec05ac08f2177ab748"
+gitlab_runner_docker_machine_binary_checksum: "sha256:f83d54161a4b50fdde9916fbeeb57f429e536d8f0a64feec05ac08f2177ab748"
 ```
-The checksum of the downloaded docker-machine binary. This must correspond to the file download via the
-`docker_machine_binary_url` variable.
+The checksum of the downloaded docker-machine binary. This must correspond to the file downloaded via the
+`gitlab_runner_docker_machine_binary_url` variable.
+
+### Flatcar Linux configuration
+```yaml
+gitlab_runner_transpiler_binary_url: https://github.com/coreos/container-linux-config-transpiler/releases/download/v0.9.0/ct-v0.9.0-x86_64-unknown-linux-gnu
+```
+The URL to the configuration transpiler binary that shall be used.
+
+```yaml
+gitlab_runner_transpiler_binary_checksum: "sha256:31f4c3bd2219ba82b743bcbb4afab34a3e11e8a6512cefef407d9b6da0192adb"
+```
+The checksum of the download transpiler binary. This must correspond to the file
+downloaded via the `gitlab_runner_transpiler_binary_url` variable.
+
+```yaml
+gitlab_runner_namerservers:
+    - 9.9.9.9
+    - 149.112.112.112
+```
+The DNS nameservers to be used by the Openstack Flatcar virtual machine.
+
+```yaml
+gitlab_runner_mtu: 1450
+```
+Configure the MTU (Maximum Transmission Unit) for the docker daemon in Flatcar
+linux running in Openstack. The default of 1450 is proven to work for default
+Openstack configurations. If you have a different setup, feel free to update
+this value.  
+**Please note:** This value can cause strange network issues if not configured
+properly.
 
 Dependencies
 ------------

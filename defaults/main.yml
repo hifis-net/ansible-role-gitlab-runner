@@ -17,7 +17,7 @@ gitlab_runner_transpiler_binary_url: https://github.com/coreos/container-linux-c
 gitlab_runner_transpiler_binary_checksum: "sha256:31f4c3bd2219ba82b743bcbb4afab34a3e11e8a6512cefef407d9b6da0192adb"
 
 gitlab_runner_namerservers:
-    - 8.8.8.8
-    - 8.8.4.4
+    - 9.9.9.9
+    - 149.112.112.112
 
 gitlab_runner_mtu: 1450
