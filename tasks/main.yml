@@ -17,4 +17,12 @@
 - include: configuration.yml
   become: yes
 
+- include: register.yml
+  become: yes
+  when: gitlab_runner.registration_token is defined and gitlab_runner.registration_token|length > 0
+  loop: "{{ gitlab_runner_list }}"
+  loop_control:
+    index_var: gitlab_runner_index
+    loop_var: gitlab_runner
+
 ...

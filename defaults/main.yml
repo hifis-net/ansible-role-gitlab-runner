@@ -21,3 +21,5 @@ gitlab_runner_namerservers:
     - 149.112.112.112
 
 gitlab_runner_mtu: 1450
+
+gitlab_runner_list: []
