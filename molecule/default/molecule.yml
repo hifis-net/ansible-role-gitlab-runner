@@ -36,7 +36,7 @@ provisioner:
               url: "https://gitlab.com"
               description: "Molecule test runner"
               registration_token: ${REGISTRATION_TOKEN}
-              executor: docker+machine
+              executor: "docker+machine"
               docker_image: "python:3.8"
               tags: ["docker", "hifis"]
               run_untagged: False
