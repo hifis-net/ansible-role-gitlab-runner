@@ -39,7 +39,6 @@ provisioner:
               executor: "docker+machine"
               docker_image: "python:3.8"
               tags: ["docker", "hifis"]
-              run_untagged: False
               locked: True
               machine_driver: "openstack"
               machine_name: "auto-scale-%s"
