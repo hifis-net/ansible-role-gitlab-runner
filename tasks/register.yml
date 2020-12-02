@@ -23,8 +23,10 @@
     --limit "{{ gitlab_runner.limit | default(0) }}"
     --output-limit "{{ gitlab_runner.output_limit | default(4096) }}"
     --locked="{{ gitlab_runner.locked | default(true) }}"
+    {% if gitlab_runner.executor is match("docker.*") %}
     --docker-image "{{ gitlab_runner.docker_image | default('debian:latest') }}"
     --docker-privileged="{{ gitlab_runner.docker_privileged | default(false) }}"
+    {% endif %}
     {% if gitlab_runner.executor == "docker+machine" %}
     --machine-machine-driver "{{ gitlab_runner.machine_driver }}"
     --machine-machine-name "{{ gitlab_runner.machine_name }}"
