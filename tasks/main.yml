@@ -24,7 +24,6 @@
     - gitlab_runner.registration_token | length > 0
   loop: "{{ gitlab_runner_list }}"
   loop_control:
-    index_var: gitlab_runner_index
     loop_var: gitlab_runner
 
 ...
