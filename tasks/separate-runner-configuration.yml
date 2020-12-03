@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2020 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2020 Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
+#
+# SPDX-License-Identifier: Apache-2.0
+
+---
+
+- name: Create temporary runner configuration file
+  tempfile:
+    state: file
+    path: "{{ tmp_runner_config_dir.path }}"
+    prefix: "gitlab-runner.{{ runner_config_index }}"
+  register: tmp_runner_config_file
+  check_mode: no
+  changed_when: false
+
+- name: Copy isolated runner configuration
+  copy:
+    dest: "{{ tmp_runner_config_file.path }}"
+    content: "{{ runner_config }}"
+  check_mode: no
+  changed_when: false
+
+- name: Update separated runner configuration
+  include_tasks: update-runner-configuration.yml
+  when:
+    - ('name = "' + gitlab_runner.name + '"') in runner_config
+  loop: "{{ gitlab_runner_list }}"
+  loop_control:
+    loop_var: gitlab_runner
+
+...

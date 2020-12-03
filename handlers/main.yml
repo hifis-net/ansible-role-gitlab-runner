@@ -4,4 +4,10 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-# handlers file for gitlab-ci-openstack
+
+- name: Restart GitLab-Runner
+  service:
+    name: gitlab-runner
+    state: restarted
+
+...

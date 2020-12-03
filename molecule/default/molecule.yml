@@ -31,6 +31,7 @@ provisioner:
       all:
         vars:
           gitlab_runner_version: 13.6.0
+          gitlab_runner_concurrent: 4
           gitlab_runner_list:
             - name: "test01"
               url: "https://gitlab.com"
