@@ -26,8 +26,7 @@
           - "ansible_facts.services['docker.service'].status == 'enabled'"
 
     - name: Check that docker-machine is properly installed
-      command:
-        cmd: docker-machine version
+      command: docker-machine version
       changed_when: false
       register: machine_version
       failed_when: "'0.16.2-gitlab.6' not in machine_version.stdout"
@@ -55,3 +54,19 @@
         path: /etc/gitlab-runner/gitlab_runner_key
       register: ssh_key
       failed_when: not ssh_key.stat.isreg or ssh_key.stat.mode != "0600"
+
+    - name: Assert that the runner was registered successfully
+      command: gitlab-runner list
+      changed_when: false
+      register: runners
+      failed_when: "'test01' not in runners.stderr"
+
+    - name: Assert that the verify command is successful
+      command: gitlab-runner verify
+      changed_when: false
+      register: runners_verify
+      failed_when: runners_verify.rc != 0
+
+    - name: Unregister GitLab-Runner
+      command: gitlab-runner unregister --all-runners
+      changed_when: false

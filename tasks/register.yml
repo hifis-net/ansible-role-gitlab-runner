@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2020 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2020 Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
+#
+# SPDX-License-Identifier: Apache-2.0
+
+---
+- name: Identify which runners are registered
+  command: gitlab-runner list
+  register: configured_runners
+  changed_when: False
+  check_mode: no
+
+- name: Register Runner in GitLab
+  command: >
+    gitlab-runner register
+    --non-interactive
+    --url "{{ gitlab_runner.url }}"
+    --registration-token  "{{ gitlab_runner.registration_token }}"
+    --description "{{ gitlab_runner.name }}"
+    --tag-list "{{ gitlab_runner.tags | default([]) | join(',') }}"
+    --run-untagged="{{ gitlab_runner.run_untagged | default(gitlab_runner.tags | default([]) | length == 0) }}"
+    --executor "{{ gitlab_runner.executor | default('docker') }}"
+    --limit "{{ gitlab_runner.limit | default(0) }}"
+    --output-limit "{{ gitlab_runner.output_limit | default(4096) }}"
+    --locked="{{ gitlab_runner.locked | default(true) }}"
+    {% if gitlab_runner.executor is match("docker.*") %}
+    --docker-image "{{ gitlab_runner.docker_image | default('debian:latest') }}"
+    --docker-privileged="{{ gitlab_runner.docker_privileged | default(false) }}"
+    {% endif %}
+    {% if gitlab_runner.executor == "docker+machine" %}
+    --machine-machine-driver "{{ gitlab_runner.machine_driver }}"
+    --machine-machine-name "{{ gitlab_runner.machine_name }}"
+    {% for option in gitlab_runner.machine_options %}
+    --machine-machine-options "{{ option }}"
+    {% endfor %}
+    {% endif %}
+  when: gitlab_runner.name not in configured_runners.stderr
+  no_log: True
+
+...

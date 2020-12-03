@@ -30,6 +30,33 @@ provisioner:
     hosts:
       all:
         vars:
-          gitlab_runner_version: 13.2.2
+          gitlab_runner_version: 13.6.0
+          gitlab_runner_list:
+            - name: "test01"
+              url: "https://gitlab.com"
+              description: "Molecule test runner"
+              registration_token: ${REGISTRATION_TOKEN}
+              executor: "docker+machine"
+              docker_image: "python:3.8"
+              tags: ["docker", "hifis"]
+              locked: True
+              machine_driver: "openstack"
+              machine_name: "auto-scale-%s"
+              machine_options:
+                - "openstack-auth-url=https://openstack.example:5000/v3"
+                - "openstack-image-id=73f07dd3-fa8b-468f-b6bc-b0cd4510f5d0"
+                - "openstack-flavor-name=m1.small"
+                - "openstack-net-id=7834deeb-8bd5-4fc7-b35b-24035d8f47a7"
+                - "openstack-username=gitlab-runner"
+                - "openstack-password=secret"
+                - "openstack-tenant-id=123456"
+                - "openstack-domain-name=default"
+                - "openstack-ssh-user=core"
+                - "openstack-sec-groups=Internal"
+                - "openstack-keypair-name=runners-internal"
+                - "openstack-private-key-file=/etc/gitlab-runner/gitlab_runner_key"
+                - "openstack-user-data-file=/etc/gitlab-runner/flatcar-linux-config.yml"
+                - "openstack-active-timeout=300"
+                - "engine-registry-mirror=https://registry-mirror.example"
 verifier:
   name: ansible
