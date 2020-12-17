@@ -17,4 +17,76 @@
   notify:
     - Restart GitLab-Runner
 
+- name: Set output_limit value
+  lineinfile:
+    dest: "{{ tmp_runner_config_file.path }}"
+    regexp: '^\s*output_limit =.*'
+    line: '  output_limit = {{ gitlab_runner.output_limit | default(4096) }}'
+    state: present
+    insertafter: '^\s*output_limit ='
+    backrefs: no
+  check_mode: no
+  notify:
+    - Restart GitLab-Runner
+
+- name: Set url value
+  lineinfile:
+    dest: "{{ tmp_runner_config_file.path }}"
+    regexp: '^(\s*)url =.*'
+    line: '\1url = "{{ gitlab_runner.url }}"'
+    state: present
+    backrefs: yes
+  check_mode: no
+  notify:
+    - Restart GitLab-Runner
+
+- name: Set executor value
+  lineinfile:
+    dest: "{{ tmp_runner_config_file.path }}"
+    regexp: '^(\s*)executor =.*'
+    line: '\1executor = "{{ gitlab_runner.executor }}"'
+    state: present
+    backrefs: yes
+  check_mode: no
+  notify:
+    - Restart GitLab-Runner
+
+# Configure [runners.docker] section
+- name: Configure [runners.docker] section
+  block:
+    - name: Set default docker image
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)image =.*'
+        line: '\1image = "{{ gitlab_runner.docker_image }}"'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+
+    - name: Configure privileged mode
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)privileged =.*'
+        line: '\1privileged = "{{ gitlab_runner.docker_privileged | default(false) }}"'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+
+    - name: Set output_limit value
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^\s*output_limit =.*'
+        line: '  output_limit = {{ gitlab_runner.output_limit | default(4096) }}'
+        state: present
+        insertafter: '^\s*output_limit ='
+        backrefs: no
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+  when: '"docker" in gitlab_runner.executor'
+
 ...
