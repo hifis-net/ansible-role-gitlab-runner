@@ -26,4 +26,7 @@
   loop_control:
     loop_var: gitlab_runner
 
+- include: update-configuration.yml
+  become: yes
+
 ...

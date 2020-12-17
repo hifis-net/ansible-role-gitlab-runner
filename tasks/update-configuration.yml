@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2020 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2020 Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
+#
+# SPDX-License-Identifier: Apache-2.0
+
+---
+
+# Isolate runner specific configuration
+- name: Get base64 encoded runner configuration
+  slurp:
+    src: "{{ gitlab_runner_config_path }}"
+  register: runner_config_base64
+
+- name: "Create a temporary working directory"
+  tempfile:
+    state: directory
+    suffix: gitlab-runner-configs
+  register: tmp_runner_config_dir
+  check_mode: no
+  changed_when: false
+
+- name: "Split runner configuration"
+  set_fact:
+    runner_configs: "{{ (runner_config_base64['content'] | b64decode).split('[[runners]]\n') }}"
+
+- name: "Update configuration for each runner individually"
+  include_tasks: separate-runner-configuration.yml
+  loop: "{{ runner_configs }}"
+  loop_control:
+    loop_var: runner_config
+    index_var: runner_config_index
+
+- name: Merge individual files back into a single configuration file
+  assemble:
+    src: "{{ tmp_runner_config_dir.path }}"
+    dest: "{{ gitlab_runner_config_path }}"
+    delimiter: "[[runners]]\n"
+    backup: yes
+    validate: "gitlab-runner verify -c %s"
+    owner: "{{ gitlab_runner_config_owner | default('root') }}"
+    group: "{{ gitlab_runner_config_group | default('root') }}"
+    mode: 0600
+
+...
