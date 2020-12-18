@@ -17,4 +17,95 @@
   notify:
     - Restart GitLab-Runner
 
+- name: Set output_limit value
+  lineinfile:
+    dest: "{{ tmp_runner_config_file.path }}"
+    regexp: '^\s*output_limit =.*'
+    line: '  output_limit = {{ gitlab_runner.output_limit | default(4096) }}'
+    state: present
+    insertafter: '^\s*limit ='
+    backrefs: no
+  check_mode: no
+  notify:
+    - Restart GitLab-Runner
+
+- name: Set url value
+  lineinfile:
+    dest: "{{ tmp_runner_config_file.path }}"
+    regexp: '^(\s*)url =.*'
+    line: '\1url = "{{ gitlab_runner.url }}"'
+    state: present
+    backrefs: yes
+  check_mode: no
+  notify:
+    - Restart GitLab-Runner
+
+- name: Set executor value
+  lineinfile:
+    dest: "{{ tmp_runner_config_file.path }}"
+    regexp: '^(\s*)executor =.*'
+    line: '\1executor = "{{ gitlab_runner.executor }}"'
+    state: present
+    backrefs: yes
+  check_mode: no
+  notify:
+    - Restart GitLab-Runner
+
+- name: Configure [runners.docker] section
+  block:
+    - name: Set default docker image
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)image =.*'
+        line: '\1image = "{{ gitlab_runner.docker_image }}"'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: Configure privileged mode
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)privileged =.*'
+        line: '\1privileged = {{ gitlab_runner.docker_privileged | default(false) | to_json }}'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+  when: '"docker" in gitlab_runner.executor'
+
+- name: Configure [runners.machine] section
+  block:
+    - name: Configure docker-machine driver
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)MachineDriver =.*'
+        line: '\1MachineDriver = "{{ gitlab_runner.machine_driver }}"'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: Configure docker-machine name
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)MachineName =.*'
+        line: '\1MachineName = "{{ gitlab_runner.machine_name }}"'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: Configure docker-machine options
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)MachineOptions =.*'
+        line: '\1MachineOptions = {{ gitlab_runner.machine_options | to_json }}'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+  when: 'gitlab_runner.executor == "docker+machine"'
 ...
