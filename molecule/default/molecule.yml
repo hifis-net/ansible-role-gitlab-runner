@@ -59,5 +59,11 @@ provisioner:
                 - "openstack-user-data-file=/etc/gitlab-runner/flatcar-linux-config.yml"
                 - "openstack-active-timeout=300"
                 - "engine-registry-mirror=https://registry-mirror.example"
+              cache_type: "s3"
+              cache_server_address: "https://cache.example"
+              cache_access_key: "key"
+              cache_secret_key: "secret"
+              cache_bucket_name: "bucket"
+              cache_insecure: false
 verifier:
   name: ansible
