@@ -23,7 +23,7 @@
     regexp: '^\s*output_limit =.*'
     line: '  output_limit = {{ gitlab_runner.output_limit | default(4096) }}'
     state: present
-    insertafter: '^\s*output_limit ='
+    insertafter: '^\s*limit ='
     backrefs: no
   check_mode: no
   notify:
