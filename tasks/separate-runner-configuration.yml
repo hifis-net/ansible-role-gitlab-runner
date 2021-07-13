@@ -18,6 +18,9 @@
   copy:
     dest: "{{ tmp_runner_config_file.path }}"
     content: "{{ runner_config }}"
+    owner: "root"
+    group: "root"
+    mode: "0600"
   check_mode: no
   changed_when: false
 

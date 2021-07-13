@@ -5,6 +5,8 @@
 
 ---
 galaxy_info:
+  role_name: gitlab_runner_role
+  namespace: hifis
   author: HIFIS Software team
   description: Install GitLab CI in Openstack
   company: Helmholtz Association
