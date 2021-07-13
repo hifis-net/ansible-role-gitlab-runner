@@ -119,7 +119,6 @@
         line: '    Type = "{{ gitlab_runner.cache_type }}"'
         state: present
         insertafter: '^\s*\[runners.cache\]'
-        backrefs: yes
       check_mode: no
       notify:
         - Restart GitLab-Runner
@@ -130,7 +129,6 @@
         line: '      ServerAddress = "{{ gitlab_runner.cache_server_address }}"'
         state: present
         insertafter: '^\s*\[runners.cache.s3\]'
-        backrefs: yes
       check_mode: no
       notify:
         - Restart GitLab-Runner
@@ -141,7 +139,6 @@
         line: '      AccessKey = "{{ gitlab_runner.cache_access_key }}"'
         state: present
         insertafter: '^(\s*)ServerAddress =.*'
-        backrefs: yes
       check_mode: no
       notify:
         - Restart GitLab-Runner
@@ -152,7 +149,6 @@
         line: '      SecretKey = "{{ gitlab_runner.cache_secret_key }}"'
         state: present
         insertafter: '^(\s*)AccessKey =.*'
-        backrefs: yes
       check_mode: no
       notify:
         - Restart GitLab-Runner
@@ -163,7 +159,6 @@
         line: '      BucketName = "{{ gitlab_runner.cache_bucket_name }}"'
         state: present
         insertafter: '^(\s*)SecretKey =.*'
-        backrefs: yes
       check_mode: no
       notify:
         - Restart GitLab-Runner
@@ -174,7 +169,6 @@
         line: '      Insecure = {{ gitlab_runner.cache_insecure }}'
         state: present
         insertafter: '^(\s*)BucketName =.*'
-        backrefs: yes
       check_mode: no
       notify:
         - Restart GitLab-Runner
