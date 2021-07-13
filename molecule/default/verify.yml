@@ -29,7 +29,7 @@
       command: docker-machine version
       changed_when: false
       register: machine_version
-      failed_when: "'0.16.2-gitlab.6' not in machine_version.stdout"
+      failed_when: "'0.16.2-gitlab.12' not in machine_version.stdout"
 
     - name: Assert that Gitlab-Runner is installed
       assert:

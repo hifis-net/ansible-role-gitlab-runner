@@ -8,9 +8,9 @@ gitlab_runner_version: ""
 
 gitlab_runner_apt_repo: "deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main"
 
-gitlab_runner_docker_machine_binary_url: "https://gitlab-docker-machine-downloads.s3.amazonaws.com/v0.16.2-gitlab.6/docker-machine"
+gitlab_runner_docker_machine_binary_url: "https://gitlab-docker-machine-downloads.s3.amazonaws.com/v0.16.2-gitlab.12/docker-machine-Linux-x86_64"
 
-gitlab_runner_docker_machine_binary_checksum: "sha256:a331e94cfe926f442e2b311abda241d62e88d6a19f7ee9a65c1f362a7a009d57"
+gitlab_runner_docker_machine_binary_checksum: "sha256:0c9c659318fabe54cff460b6bb1d92f2a987dffd7de03d6ccc17d6449d4871f9"
 
 gitlab_runner_transpiler_binary_url: https://github.com/coreos/container-linux-config-transpiler/releases/download/v0.9.0/ct-v0.9.0-x86_64-unknown-linux-gnu
 
