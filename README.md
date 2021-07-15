@@ -177,7 +177,7 @@ gitlab_runner_list:
         - "openstack-sec-groups=Internal"
         - "openstack-keypair-name=runners-internal"
         - "openstack-private-key-file=/etc/gitlab-runner/gitlab_runner_key"
-        - "openstack-user-data-file=/etc/gitlab-runner/flatcar-linux-config.yml"
+        - "openstack-user-data-file=/etc/gitlab-runner/ignition.json"
         - "openstack-active-timeout=300"
         - "engine-registry-mirror=https://registry-mirror.example"
 ```
