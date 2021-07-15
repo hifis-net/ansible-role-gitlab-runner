@@ -108,4 +108,68 @@
       notify:
         - Restart GitLab-Runner
   when: 'gitlab_runner.executor == "docker+machine"'
+
+- name: Configure [runners.cache] section
+  when: 'gitlab_runner.cache_type == "s3"'
+  block:
+    - name: Configure cache type
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)Type =.*'
+        line: '    Type = "{{ gitlab_runner.cache_type }}"'
+        state: present
+        insertafter: '^\s*\[runners.cache\]'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: Configure S3 server address
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)ServerAddress =.*'
+        line: '      ServerAddress = "{{ gitlab_runner.cache_server_address }}"'
+        state: present
+        insertafter: '^\s*\[runners.cache.s3\]'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: Configure S3 access key
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)AccessKey =.*'
+        line: '      AccessKey = "{{ gitlab_runner.cache_access_key }}"'
+        state: present
+        insertafter: '^(\s*)ServerAddress =.*'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: Configure S3 secret key
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)SecretKey =.*'
+        line: '      SecretKey = "{{ gitlab_runner.cache_secret_key }}"'
+        state: present
+        insertafter: '^(\s*)AccessKey =.*'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: Configure S3 bucket name
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)BucketName =.*'
+        line: '      BucketName = "{{ gitlab_runner.cache_bucket_name }}"'
+        state: present
+        insertafter: '^(\s*)SecretKey =.*'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: Configure S3 insecure
+      lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)Insecure =.*'
+        line: '      Insecure = {{ gitlab_runner.cache_insecure }}'
+        state: present
+        insertafter: '^(\s*)BucketName =.*'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
 ...
