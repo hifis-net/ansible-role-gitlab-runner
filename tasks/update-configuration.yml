@@ -5,6 +5,18 @@
 
 ---
 
+# Global configuration
+- name: "Set concurrent value"
+  ansible.builtin.lineinfile:
+    dest: "{{ gitlab_runner_config_path }}"
+    regexp: '^(\s*)concurrent =.*'
+    line: '\1concurrent = {{ gitlab_runner_concurrent }}'
+    state: present
+    backrefs: yes
+  check_mode: no
+  notify:
+    - Restart GitLab-Runner
+
 # Isolate runner specific configuration
 - name: Get base64 encoded runner configuration
   slurp:
