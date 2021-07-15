@@ -32,6 +32,13 @@ gitlab_runner_apt_repo: "deb https://packages.gitlab.com/runner/gitlab-runner/{{
 
 The repository URL where to install the packages from.
 
+```yaml
+gitlab_runner_concurrent: 1
+```
+
+Limits how many jobs can run concurrently. The maximum number is all defined runners.
+`0` does not mean unlimited.
+
 ### Docker-machine variables
 
 ```yaml
