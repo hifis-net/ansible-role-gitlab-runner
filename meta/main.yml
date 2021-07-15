@@ -32,6 +32,9 @@ galaxy_info:
     - cd
     - openstack
 
+collections:
+  - community.crypto
+
 dependencies:
   - role: geerlingguy.docker
     vars:

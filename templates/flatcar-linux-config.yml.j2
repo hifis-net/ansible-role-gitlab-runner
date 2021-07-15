@@ -8,7 +8,7 @@ passwd:
   users:
     - name: core
       ssh_authorized_keys:
-        - {{ gitlab_runner_ssh_authorized_key['content'] }}
+        - {{ gitlab_runner_ssh_key.public_key }}
 storage:
   files:
     - filesystem: root

@@ -5,10 +5,11 @@
 
 ---
 
-- name: Create SSH key pair for communicating with Runners.
-  command: ssh-keygen -q -t rsa -b 4096 -f /etc/gitlab-runner/gitlab_runner_key -C "" -N ""
-  args:
-    creates: /etc/gitlab-runner/gitlab_runner_key
+- name: "Create SSH key pair for communicating with Runners."
+  community.crypto.openssh_keypair:
+    path: "/etc/gitlab-runner/gitlab_runner_key"
+    type: "ed25519"
+  register: gitlab_runner_ssh_key
 
 - name: Download and install container-linux-config-transpiler
   get_url:
@@ -17,14 +18,7 @@
     mode: '0755'
     checksum: "{{ gitlab_runner_transpiler_binary_checksum }}"
 
-- name: Read the content of the SSH public key
-  slurp:
-    src: /etc/gitlab-runner/gitlab_runner_key.pub
-  register: gitlab_runner_ssh_authorized_key
-
 - name: Place the container linux configuration on the host
-  vars:
-    gitlab_runner_ssh_authorized_key: "{{ gitlab_runner_ssh_authorized_key['content'] }}"
   template:
     src: flatcar-linux-config.yml.j2
     dest: /etc/gitlab-runner/flatcar-linux-config.yml
