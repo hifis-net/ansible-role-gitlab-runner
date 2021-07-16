@@ -107,6 +107,7 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `executor`             | `docker`                        | Specify, the runner [executor](https://docs.gitlab.com/runner/executors/#selecting-the-executor). |
 | `environment`          | `["DOCKER_TLS_CERTDIR=/certs"]` | Append or overwrite environment variables.                                                        |
 | `docker_image`         | `"python:3.8"`                  | Specify the default docker image to be used. Required for `docker` and `docker+machine` executor. |
+| `docker_volumes        | `["/cache", "/certs/client"]`   | Additional volumes that should be mounted. Same syntax as the Docker -v flag.                     |
 | `run_untagged`         | `False`                         | Specify, if the runner can run jobs without tags.                                                 |
 | `locked`               | `True`                          | Specify, whether the runner is locked to the current project.                                     |
 | `machine_driver`       | `"openstack"`                   | The driver to use when creating the machine via `docker-machine`.                                 |
@@ -131,6 +132,7 @@ gitlab_runner_list:
       executor: "docker"
       environment: ["CI_CPUS=8", "DOCKER_TLS_CERTDIR=/certs"]
       docker_image: "python:3.8"
+      docker_volumes: ["/cache", "/certs/client"]
       run_untagged: False
       locked: True
       # Optional cache configuration, only S3 is supported for now
@@ -161,6 +163,7 @@ gitlab_runner_list:
       registration_token: "REGISTRATION_TOKEN"
       executor: "docker+machine"
       docker_image: "python:3.8"
+      docker_volumes: ["/cache", "/certs/client"]
       tags: ["docker", "hifis"]
       run_untagged: False
       locked: True

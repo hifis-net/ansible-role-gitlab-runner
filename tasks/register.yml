@@ -29,6 +29,9 @@
     {% if gitlab_runner.executor is match("docker.*") %}
     --docker-image "{{ gitlab_runner.docker_image | default('debian:latest') }}"
     --docker-privileged="{{ gitlab_runner.docker_privileged | default(false) }}"
+    {% for volume in gitlab_runner.docker_volumes %}
+    --docker-volumes "{{ volume }}"
+    {% endfor %}
     {% endif %}
     {% if gitlab_runner.executor == "docker+machine" %}
     --machine-machine-driver "{{ gitlab_runner.machine_driver }}"
