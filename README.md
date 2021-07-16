@@ -97,6 +97,14 @@ this value.
 **Please note:** This value can cause strange network issues if not configured
 properly.
 
+```yaml
+gitlab_runner_ssh_key: "ssh-rsa AAAAB3NzaC1yc2... user@host"
+```
+
+The (optional) SSH public key used for communicating with Runners. If this is
+left empty the role creates a new SSH key pair at
+`/etc/gitlab-runner/gitlab_runner_key(.pub)`.
+
 ### GitLab-Runner registration
 
 In order to register a runner with the GitLab instance of your choice, you need

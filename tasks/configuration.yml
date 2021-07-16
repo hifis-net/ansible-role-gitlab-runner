@@ -4,11 +4,17 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-- name: "Create SSH key pair for communicating with Runners."
-  community.crypto.openssh_keypair:
-    path: "/etc/gitlab-runner/gitlab_runner_key"
-    type: "ed25519"
-  register: gitlab_runner_ssh_key
+- when: gitlab_runner_ssh_key|length == 0
+  block:
+    - name: "Create SSH key pair for communicating with Runners."
+      community.crypto.openssh_keypair:
+        path: "/etc/gitlab-runner/gitlab_runner_key"
+        type: "ed25519"
+      register: gitlab_runner_ssh_keypair
+
+    - name: "Set SSH public key fact"
+      ansible.builtin.set_fact:
+        gitlab_runner_ssh_key: "{{ gitlab_runner_ssh_keypair.public_key }}"
 
 - name: Download and install container-linux-config-transpiler
   ansible.builtin.get_url:
