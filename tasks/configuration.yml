@@ -12,7 +12,7 @@
         type: "ed25519"
       register: gitlab_runner_ssh_keypair
 
-    - name: "Set SSH public key fact"
+    - name: "Get SSH public key from generated keypair."
       ansible.builtin.set_fact:
         gitlab_runner_ssh_key: "{{ gitlab_runner_ssh_keypair.public_key }}"
 
