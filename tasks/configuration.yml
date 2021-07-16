@@ -28,4 +28,12 @@
   notify:
     - "Transpile the flatcar linux configuration"
 
+- name: "Check if ignition.json is available and create it in any case"
+  ansible.builtin.stat:
+    path: "/etc/gitlab-runner/ignition.json"
+  register: ignition_exists
+  changed_when: not ignition_exists.stat.exists
+  notify:
+    - "Transpile the flatcar linux configuration"
+
 ...
