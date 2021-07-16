@@ -51,6 +51,17 @@
   notify:
     - Restart GitLab-Runner
 
+- name: "Configure environment variables"
+  ansible.builtin.lineinfile:
+    dest: "{{ tmp_runner_config_file.path }}"
+    regexp: '^(\s*)environment =.*'
+    line: '\1environment = {{ gitlab_runner.environment | default([]) | to_json }}'
+    state: present
+    backrefs: yes
+  check_mode: no
+  notify:
+    - Restart GitLab-Runner
+
 - name: Configure [runners.docker] section
   block:
     - name: Set default docker image
