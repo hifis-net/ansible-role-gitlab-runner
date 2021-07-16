@@ -97,26 +97,27 @@ Each list entry corresponds to one registered GitLab-Runner.
 Below table lists and describes all available configuration options you can
 specify for registering your GitLab-Runner with this Ansible role.
 
-| Key                    | Example                    | Description                                                                                       |
-|------------------------|----------------------------|---------------------------------------------------------------------------------------------------|
-| `name`                 | `"my-docker-runner"`       | The name of the registered runner.                                                                |
-| `url`                  | `"https://gitlab.com"`     | The URL of the GitLab instance you want to register the runner with.                              |
-| `description`          | `"My first Docker runner"` | Description of the runner.                                                                        |
-| `registration_token`   | `"MY_SECURE_TOKEN"`        | The registration token required to register the runner.                                           |
-| `tags`                 | `["docker", "hifis"]`      | List of runner tags.                                                                              |
-| `executor`             | `docker`                   | Specify, the runner [executor](https://docs.gitlab.com/runner/executors/#selecting-the-executor). |
-| `docker_image`         | `"python:3.8"`             | Specify the default docker image to be used. Required for `docker` and `docker+machine` executor. |
-| `run_untagged`         | `False`                    | Specify, if the runner can run jobs without tags.                                                 |
-| `locked`               | `True`                     | Specify, whether the runner is locked to the current project.                                     |
-| `machine_driver`       | `"openstack"`              | The driver to use when creating the machine via `docker-machine`.                                 |
-| `machine_name`         | `"auto-scale-%s"`          | The machine name template. (You need to include `%s`).                                            |
-| `machine_options`      | See the machine example.   | Additional machine creation options.                                                              |
-| `cache_type`           | `"s3"`                     | Type of caching to use. Currently only `s3` is supported by this role.                            |
-| `cache_server_address` | `"https://s3.hifis.net"`   | A `host:port` for the S3-compatible server.                                                       |
-| `cache_access_key`     | `"key"`                    | The access key specified for your S3 instance..                                                   |
-| `cache_secret_key`     | `"secret"`                 | The secret key specified for your S3 instance.                                                    |
-| `cache_bucket_name`    | `"bucket-name"`            | Name of the storage bucket where cache is stored.                                                 |
-| `cache_insecure`       | `"false"`                  | Set to `"true"` if the S3 service is available by HTTP. Default is `"false"`.                     |
+| Key                    | Example                         | Description                                                                                       |
+|------------------------|---------------------------------|---------------------------------------------------------------------------------------------------|
+| `name`                 | `"my-docker-runner"`            | The name of the registered runner.                                                                |
+| `url`                  | `"https://gitlab.com"`          | The URL of the GitLab instance you want to register the runner with.                              |
+| `description`          | `"My first Docker runner"`      | Description of the runner.                                                                        |
+| `registration_token`   | `"MY_SECURE_TOKEN"`             | The registration token required to register the runner.                                           |
+| `tags`                 | `["docker", "hifis"]`           | List of runner tags.                                                                              |
+| `executor`             | `docker`                        | Specify, the runner [executor](https://docs.gitlab.com/runner/executors/#selecting-the-executor). |
+| `environment`          | `["DOCKER_TLS_CERTDIR=/certs"]` | Append or overwrite environment variables.                                                        |
+| `docker_image`         | `"python:3.8"`                  | Specify the default docker image to be used. Required for `docker` and `docker+machine` executor. |
+| `run_untagged`         | `False`                         | Specify, if the runner can run jobs without tags.                                                 |
+| `locked`               | `True`                          | Specify, whether the runner is locked to the current project.                                     |
+| `machine_driver`       | `"openstack"`                   | The driver to use when creating the machine via `docker-machine`.                                 |
+| `machine_name`         | `"auto-scale-%s"`               | The machine name template. (You need to include `%s`).                                            |
+| `machine_options`      | See the machine example.        | Additional machine creation options.                                                              |
+| `cache_type`           | `"s3"`                          | Type of caching to use. Currently only `s3` is supported by this role.                            |
+| `cache_server_address` | `"https://s3.hifis.net"`        | A `host:port` for the S3-compatible server.                                                       |
+| `cache_access_key`     | `"key"`                         | The access key specified for your S3 instance..                                                   |
+| `cache_secret_key`     | `"secret"`                      | The secret key specified for your S3 instance.                                                    |
+| `cache_bucket_name`    | `"bucket-name"`                 | Name of the storage bucket where cache is stored.                                                 |
+| `cache_insecure`       | `"false"`                       | Set to `"true"` if the S3 service is available by HTTP. Default is `"false"`.                     |
  
 #### Docker Example
 
@@ -128,6 +129,7 @@ gitlab_runner_list:
       registration_token: ${REGISTRATION_TOKEN}
       tags: ["docker", "hifis"]
       executor: "docker"
+      environment: ["CI_CPUS=8", "DOCKER_TLS_CERTDIR=/certs"]
       docker_image: "python:3.8"
       run_untagged: False
       locked: True
