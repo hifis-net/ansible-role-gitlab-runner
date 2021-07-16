@@ -88,7 +88,7 @@
       ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)volumes =.*'
-        line: '\1volumes = {{ gitlab_runner.docker_volumes | to_json }}'
+        line: '\1volumes = {{ gitlab_runner.docker_volumes | default([]) | to_json }}'
         state: present
         backrefs: yes
       check_mode: no
