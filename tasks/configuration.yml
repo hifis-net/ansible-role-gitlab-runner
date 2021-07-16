@@ -25,9 +25,7 @@
     owner: root
     group: root
     mode: 0644
+  notify:
+    - "Transpile the flatcar linux configuration"
 
-- name: Transpile ignition.json from the container linux config
-  ansible.builtin.command: ct -in-file /etc/gitlab-runner/flatcar-linux-config.yml -out-file /etc/gitlab-runner/ignition.json
-  args:
-    creates: /etc/gitlab-runner/ignition.json
 ...
