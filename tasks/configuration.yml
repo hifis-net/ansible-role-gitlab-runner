@@ -12,14 +12,14 @@
   register: gitlab_runner_ssh_key
 
 - name: Download and install container-linux-config-transpiler
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ gitlab_runner_transpiler_binary_url }}"
     dest: /usr/local/bin/ct
     mode: '0755'
     checksum: "{{ gitlab_runner_transpiler_binary_checksum }}"
 
 - name: Place the container linux configuration on the host
-  template:
+  ansible.builtin.template:
     src: flatcar-linux-config.yml.j2
     dest: /etc/gitlab-runner/flatcar-linux-config.yml
     owner: root
@@ -27,7 +27,7 @@
     mode: 0644
 
 - name: Transpile ignition.json from the container linux config
-  command: ct -in-file /etc/gitlab-runner/flatcar-linux-config.yml -out-file /etc/gitlab-runner/ignition.json
+  ansible.builtin.command: ct -in-file /etc/gitlab-runner/flatcar-linux-config.yml -out-file /etc/gitlab-runner/ignition.json
   args:
     creates: /etc/gitlab-runner/ignition.json
 ...

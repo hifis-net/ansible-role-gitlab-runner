@@ -19,12 +19,12 @@
 
 # Isolate runner specific configuration
 - name: Get base64 encoded runner configuration
-  slurp:
+  ansible.builtin.slurp:
     src: "{{ gitlab_runner_config_path }}"
   register: runner_config_base64
 
 - name: "Create a temporary working directory"
-  tempfile:
+  ansible.builtin.tempfile:
     state: directory
     suffix: gitlab-runner-configs
   register: tmp_runner_config_dir
@@ -32,18 +32,18 @@
   changed_when: false
 
 - name: "Split runner configuration"
-  set_fact:
+  ansible.builtin.set_fact:
     runner_configs: "{{ (runner_config_base64['content'] | b64decode).split('[[runners]]\n') }}"
 
 - name: "Update configuration for each runner individually"
-  include_tasks: separate-runner-configuration.yml
+  ansible.builtin.include_tasks: separate-runner-configuration.yml
   loop: "{{ runner_configs }}"
   loop_control:
     loop_var: runner_config
     index_var: runner_config_index
 
 - name: Merge individual files back into a single configuration file
-  assemble:
+  ansible.builtin.assemble:
     src: "{{ tmp_runner_config_dir.path }}"
     dest: "{{ gitlab_runner_config_path }}"
     delimiter: "[[runners]]\n"

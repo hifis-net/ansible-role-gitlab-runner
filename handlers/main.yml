@@ -6,7 +6,7 @@
 ---
 
 - name: Restart GitLab-Runner
-  service:
+  ansible.builtin.service:
     name: gitlab-runner
     state: restarted
 

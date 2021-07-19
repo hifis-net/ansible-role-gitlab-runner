@@ -10,7 +10,7 @@
     - when: ansible_os_family == 'Debian'
       block:
         - name: Install missing dependencies
-          apt:
+          ansible.builtin.apt:
             name:
               - sudo              # for `become` privilege escalation
               - iproute2          # for gathering network facts
