@@ -77,9 +77,11 @@ provisioner:
     host_vars:
       instance_gitlab_ci_openstack_1:
         gitlab_runner_install_docker: true
-        gitlab_runner_ssh_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA06QQpxOB+2B3zglmWpThe384s0a7t15SW3S0ZmZqOk user@host"
+        gitlab_runner_ssh_public_key: "test_key.pub"
+        gitlab_runner_ssh_private_key: "test_key"
       instance_gitlab_ci_openstack_2:
         gitlab_runner_install_docker: false
-        gitlab_runner_ssh_key: ""
+        gitlab_runner_ssh_public_key: ""
+        gitlab_runner_ssh_private_key: ""
 verifier:
   name: ansible

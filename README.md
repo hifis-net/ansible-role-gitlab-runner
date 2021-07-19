@@ -98,12 +98,25 @@ this value.
 properly.
 
 ```yaml
-gitlab_runner_ssh_key: "ssh-rsa AAAAB3NzaC1yc2... user@host"
+gitlab_runner_ssh_public_key: "./files/id_ed25519.pub"
+gitlab_runner_ssh_private_key: "./files/id_ed25519"
 ```
 
-The (optional) SSH public key used for communicating with Runners. If this is
-left empty the role creates a new SSH key pair at
-`/etc/gitlab-runner/gitlab_runner_key(.pub)`.
+The (optional) file path to the SSH key pair on the Ansible controller used for
+communicating with Runners. If this is left empty the role creates a new SSH
+key pair at `/etc/gitlab-runner/gitlab_runner_key(.pub)`.
+
+```yaml
+gitlab_runner_ssh_key_type: "ed25519"
+```
+Specifies the type of SSH key to create. The possible values are `dsa`,
+`ecdsa`, `ed25519` (default), or `rsa`.
+
+```yaml
+gitlab_runner_ssh_private_key_path: "/etc/gitlab-runner/gitlab_runner_key"
+gitlab_runner_ssh_public_key_path: "/etc/gitlab-runner/gitlab_runner_key.pub"
+```
+The file paths to the SSH key pair on the Runner host.
 
 ### GitLab-Runner registration
 
