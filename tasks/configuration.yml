@@ -4,7 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ---
-
 - name: "Create SSH key pair for communicating with Runners."
   community.crypto.openssh_keypair:
     path: "/etc/gitlab-runner/gitlab_runner_key"
@@ -15,7 +14,7 @@
   ansible.builtin.get_url:
     url: "{{ gitlab_runner_transpiler_binary_url }}"
     dest: /usr/local/bin/ct
-    mode: '0755'
+    mode: "0755"
     checksum: "{{ gitlab_runner_transpiler_binary_checksum }}"
 
 - name: Place the container linux configuration on the host
@@ -36,4 +35,36 @@
   notify:
     - "Transpile the flatcar linux configuration"
 
-...
+- name: "Check if ignition.json is up-to-date"
+  block:
+    - name: "Create temporary directory"
+      ansible.builtin.tempfile:
+        state: "directory"
+        suffix: "ignition"
+      register: temp_directory
+      changed_when: false
+      check_mode: no
+    - name: "Dry-run of transpile the flatcar linux configuration"
+      ansible.builtin.command: "ct -in-file /etc/gitlab-runner/flatcar-linux-config.yml -out-file {{ (temp_directory.path, 'ignition.json') | path_join }}"
+      changed_when: false
+      check_mode: no
+    - name: "Stat temporary ignition.json file"
+      ansible.builtin.stat:
+        path: "{{ (temp_directory.path, 'ignition.json') | path_join }}"
+      register: "temp_ignition_stats"
+      changed_when:
+        - temp_ignition_stats.stat.checksum != ignition_exists.stat.checksum
+        - temp_ignition_stats.stat.mode != ignition_exists.stat.mode
+        - temp_iginition_stats.stat.uid != ignition_exists.stat.uid
+        - temp_iginition_stats.stat.gid != temp_iginition_stats.stat.gid
+      check_mode: no
+      notify:
+        - "Transpile the flatcar linux configuration"
+  always:
+    - name: "Remove temporary directory"
+      ansible.builtin.file:
+        path: "{{ temp_directory.path }}"
+        state: absent
+      changed_when: false
+      check_mode: no
+  when: ignition_exists.stat.exists
