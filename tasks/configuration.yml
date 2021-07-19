@@ -35,7 +35,11 @@
   notify:
     - "Transpile the flatcar linux configuration"
 
+# This block is required to prepare for possible updates of the transpiler
+# tool resulting in a different result. Also this helps to fix any kind of
+# manual manipulation.
 - name: "Check if ignition.json is up-to-date"
+  when: ignition_exists.stat.exists
   block:
     - name: "Create temporary directory"
       ansible.builtin.tempfile:
@@ -44,10 +48,12 @@
       register: temp_directory
       changed_when: false
       check_mode: no
+
     - name: "Dry-run of transpile the flatcar linux configuration"
       ansible.builtin.command: "ct -in-file /etc/gitlab-runner/flatcar-linux-config.yml -out-file {{ (temp_directory.path, 'ignition.json') | path_join }}"
       changed_when: false
       check_mode: no
+
     - name: "Stat temporary ignition.json file"
       ansible.builtin.stat:
         path: "{{ (temp_directory.path, 'ignition.json') | path_join }}"
@@ -60,6 +66,7 @@
       check_mode: no
       notify:
         - "Transpile the flatcar linux configuration"
+
   always:
     - name: "Remove temporary directory"
       ansible.builtin.file:
@@ -67,4 +74,3 @@
         state: absent
       changed_when: false
       check_mode: no
-  when: ignition_exists.stat.exists
