@@ -90,7 +90,7 @@
     - name: Assert that SSH public key exists in flatcar linux config
       ansible.builtin.assert:
         that:
-          - flatcar_linux_config.stdout.find(gitlab_runner_ssh_key | regex_escape()) != -1
+          - flatcar_linux_config.stdout.find(gitlab_runner_ssh_key) != -1
 
     - name: Assert that the runner was registered successfully
       ansible.builtin.command: gitlab-runner list
