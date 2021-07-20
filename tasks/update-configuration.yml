@@ -37,6 +37,7 @@
 
 - name: "Update configuration for each runner individually"
   ansible.builtin.include_tasks: separate-runner-configuration.yml
+  no_log: true
   loop: "{{ runner_configs }}"
   loop_control:
     loop_var: runner_config
