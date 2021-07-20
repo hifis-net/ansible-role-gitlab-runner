@@ -11,7 +11,14 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
+  - name: instance_gitlab_ci_openstack_1
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest
+    pre_build_image: true
+    privileged: true
+    override_command: false
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: instance_gitlab_ci_openstack_2
     image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest
     pre_build_image: true
     privileged: true
@@ -30,7 +37,7 @@ provisioner:
     hosts:
       all:
         vars:
-          gitlab_runner_version: 13.6.0
+          gitlab_runner_version: 14.0.1
           gitlab_runner_concurrent: 4
           gitlab_runner_list:
             - name: "test01"
@@ -67,5 +74,8 @@ provisioner:
               cache_secret_key: "secret"
               cache_bucket_name: "bucket"
               cache_insecure: "false"
+    host_vars:
+      instance_gitlab_ci_openstack_2:
+        gitlab_runner_install_docker: false
 verifier:
   name: ansible
