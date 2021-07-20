@@ -5,6 +5,9 @@
 
 ---
 
+- name: "Transpile the flatcar linux configuration"
+  ansible.builtin.command: "ct -in-file /etc/gitlab-runner/flatcar-linux-config.yml -out-file /etc/gitlab-runner/ignition.json"
+
 - name: Restart GitLab-Runner
   ansible.builtin.service:
     name: gitlab-runner
