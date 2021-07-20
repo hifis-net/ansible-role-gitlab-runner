@@ -109,8 +109,8 @@ key pair at `/etc/gitlab-runner/gitlab_runner_key(.pub)`.
 ```yaml
 gitlab_runner_ssh_key_type: "ed25519"
 ```
-Specifies the type of SSH key to create. The possible values are `dsa`,
-`ecdsa`, `ed25519` (default), or `rsa`.
+Specifies the type of SSH key to create. The possible values are `ed25519`
+(default), `ecdsa` or `rsa`.
 
 ```yaml
 gitlab_runner_ssh_private_key_path: "/etc/gitlab-runner/gitlab_runner_key"
