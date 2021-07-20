@@ -57,11 +57,40 @@
       register: ignition
       failed_when: not ignition.stat.isreg
 
-    - name: Assert that SSH keypair was created
-      ansible.builtin.stat:
-        path: /etc/gitlab-runner/gitlab_runner_key
-      register: ssh_key
-      failed_when: not ssh_key.stat.isreg or ssh_key.stat.mode != "0600"
+    # Determine generated SSH public key
+    - when: gitlab_runner_ssh_public_key | default("") | length == 0 or gitlab_runner_ssh_public_key | default("") | length == 0
+      block:
+        - name: Assert that SSH key pair was created
+          ansible.builtin.stat:
+            path: /etc/gitlab-runner/gitlab_runner_key
+          register: ssh_key
+          failed_when: not ssh_key.stat.isreg or ssh_key.stat.mode != "0600"
+
+        - name: Read generated SSH public key
+          ansible.builtin.command: cat /etc/gitlab-runner/gitlab_runner_key.pub
+          register: generated_pub_key
+          changed_when: false
+
+        - name: Store generated SSH public key in variable
+          ansible.builtin.set_fact:
+            gitlab_runner_ssh_key: "{{ generated_pub_key.stdout | trim }}"
+
+    - name: Store predefined SSH public key in variable
+      ansible.builtin.set_fact:
+        gitlab_runner_ssh_key: "{{ lookup('file', gitlab_runner_ssh_public_key) | trim }}"
+      when:
+        - gitlab_runner_ssh_public_key | default("") | length > 0
+        - gitlab_runner_ssh_private_key | default("") | length > 0
+
+    - name: Read flatcar linux config
+      ansible.builtin.command: cat /etc/gitlab-runner/flatcar-linux-config.yml
+      register: flatcar_linux_config
+      changed_when: false
+
+    - name: Assert that SSH public key exists in flatcar linux config
+      ansible.builtin.assert:
+        that:
+          - flatcar_linux_config.stdout.find(gitlab_runner_ssh_key) != -1
 
     - name: Assert that the runner was registered successfully
       ansible.builtin.command: gitlab-runner list

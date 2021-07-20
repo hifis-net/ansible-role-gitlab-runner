@@ -97,6 +97,27 @@ this value.
 **Please note:** This value can cause strange network issues if not configured
 properly.
 
+```yaml
+gitlab_runner_ssh_public_key: "./files/id_ed25519.pub"
+gitlab_runner_ssh_private_key: "./files/id_ed25519"
+```
+
+The (optional) file path to the SSH key pair on the Ansible controller used for
+communicating with Runners. If this is left empty the role creates a new SSH
+key pair at `/etc/gitlab-runner/gitlab_runner_key(.pub)`.
+
+```yaml
+gitlab_runner_ssh_key_type: "ed25519"
+```
+Specifies the type of SSH key to create. The possible values are `ed25519`
+(default), `ecdsa` or `rsa`.
+
+```yaml
+gitlab_runner_ssh_private_key_path: "/etc/gitlab-runner/gitlab_runner_key"
+gitlab_runner_ssh_public_key_path: "/etc/gitlab-runner/gitlab_runner_key.pub"
+```
+The file paths to the SSH key pair on the Runner host.
+
 ### GitLab-Runner registration
 
 In order to register a runner with the GitLab instance of your choice, you need
