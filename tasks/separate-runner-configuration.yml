@@ -6,7 +6,7 @@
 ---
 
 - name: Create temporary runner configuration file
-  tempfile:
+  ansible.builtin.tempfile:
     state: file
     path: "{{ tmp_runner_config_dir.path }}"
     prefix: "gitlab-runner.{{ runner_config_index }}"
@@ -15,7 +15,7 @@
   changed_when: false
 
 - name: Copy isolated runner configuration
-  copy:
+  ansible.builtin.copy:
     dest: "{{ tmp_runner_config_file.path }}"
     content: "{{ runner_config }}"
     owner: "root"
@@ -25,7 +25,7 @@
   changed_when: false
 
 - name: Update separated runner configuration
-  include_tasks: update-runner-configuration.yml
+  ansible.builtin.include_tasks: update-runner-configuration.yml
   when:
     - ('name = "' + gitlab_runner.name + '"') in runner_config
   loop: "{{ gitlab_runner_list }}"

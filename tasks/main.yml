@@ -5,20 +5,20 @@
 
 ---
 - name: Set OS family dependent variables
-  include_vars: "{{ ansible_os_family|lower }}.yml"
+  ansible.builtin.include_vars: "{{ ansible_os_family|lower }}.yml"
 
-- include: install.docker-machine.yml
-  become: yes
+- name: "Include docker-machine tasks"
+  ansible.builtin.include_tasks: install.docker-machine.yml
 
-- include: install.debianlike.yml
-  become: yes
+- name: "Include installation tasks for Debian-like OS"
+  ansible.builtin.include_tasks: install.debianlike.yml
   when: ansible_os_family == "Debian"
 
-- include: configuration.yml
-  become: yes
+- name: "Include tasks to configure the system"
+  ansible.builtin.include_tasks: configuration.yml
 
-- include: register.yml
-  become: yes
+- name: "Include tasks to register the runner"
+  ansible.builtin.include_tasks: register.yml
   when:
     - gitlab_runner.registration_token | default('')
     - gitlab_runner.registration_token | length > 0
@@ -26,7 +26,7 @@
   loop_control:
     loop_var: gitlab_runner
 
-- include: update-configuration.yml
-  become: yes
+- name: "Include tasks to update an existing runner configuration"
+  ansible.builtin.include_tasks: update-configuration.yml
 
 ...

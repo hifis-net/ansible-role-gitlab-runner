@@ -6,7 +6,7 @@
 ---
 
 - name: Set concurrent limit value
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: "{{ tmp_runner_config_file.path }}"
     regexp: '^\s*limit =.*'
     line: '  limit = {{ gitlab_runner.limit | default(0) }}'
@@ -18,7 +18,7 @@
     - Restart GitLab-Runner
 
 - name: Set output_limit value
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: "{{ tmp_runner_config_file.path }}"
     regexp: '^\s*output_limit =.*'
     line: '  output_limit = {{ gitlab_runner.output_limit | default(4096) }}'
@@ -30,7 +30,7 @@
     - Restart GitLab-Runner
 
 - name: Set url value
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: "{{ tmp_runner_config_file.path }}"
     regexp: '^(\s*)url =.*'
     line: '\1url = "{{ gitlab_runner.url }}"'
@@ -41,7 +41,7 @@
     - Restart GitLab-Runner
 
 - name: Set executor value
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: "{{ tmp_runner_config_file.path }}"
     regexp: '^(\s*)executor =.*'
     line: '\1executor = "{{ gitlab_runner.executor }}"'
@@ -65,7 +65,7 @@
 - name: Configure [runners.docker] section
   block:
     - name: Set default docker image
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)image =.*'
         line: '\1image = "{{ gitlab_runner.docker_image }}"'
@@ -75,7 +75,7 @@
       notify:
         - Restart GitLab-Runner
     - name: Configure privileged mode
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)privileged =.*'
         line: '\1privileged = {{ gitlab_runner.docker_privileged | default(false) | to_json }}'
@@ -99,7 +99,7 @@
 - name: Configure [runners.machine] section
   block:
     - name: Configure docker-machine driver
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)MachineDriver =.*'
         line: '\1MachineDriver = "{{ gitlab_runner.machine_driver }}"'
@@ -109,7 +109,7 @@
       notify:
         - Restart GitLab-Runner
     - name: Configure docker-machine name
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)MachineName =.*'
         line: '\1MachineName = "{{ gitlab_runner.machine_name }}"'
@@ -119,7 +119,7 @@
       notify:
         - Restart GitLab-Runner
     - name: Configure docker-machine options
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)MachineOptions =.*'
         line: '\1MachineOptions = {{ gitlab_runner.machine_options | to_json }}'
@@ -134,7 +134,7 @@
   when: 'gitlab_runner.cache_type == "s3"'
   block:
     - name: Configure cache type
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)Type =.*'
         line: '    Type = "{{ gitlab_runner.cache_type }}"'
@@ -144,7 +144,7 @@
       notify:
         - Restart GitLab-Runner
     - name: Configure S3 server address
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)ServerAddress =.*'
         line: '      ServerAddress = "{{ gitlab_runner.cache_server_address }}"'
@@ -154,7 +154,7 @@
       notify:
         - Restart GitLab-Runner
     - name: Configure S3 access key
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)AccessKey =.*'
         line: '      AccessKey = "{{ gitlab_runner.cache_access_key }}"'
@@ -164,7 +164,7 @@
       notify:
         - Restart GitLab-Runner
     - name: Configure S3 secret key
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)SecretKey =.*'
         line: '      SecretKey = "{{ gitlab_runner.cache_secret_key }}"'
@@ -174,7 +174,7 @@
       notify:
         - Restart GitLab-Runner
     - name: Configure S3 bucket name
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)BucketName =.*'
         line: '      BucketName = "{{ gitlab_runner.cache_bucket_name }}"'
@@ -184,7 +184,7 @@
       notify:
         - Restart GitLab-Runner
     - name: Configure S3 insecure
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)Insecure =.*'
         line: '      Insecure = {{ gitlab_runner.cache_insecure }}'
