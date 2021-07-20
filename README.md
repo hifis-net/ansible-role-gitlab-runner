@@ -39,6 +39,15 @@ gitlab_runner_concurrent: 1
 Limits how many jobs can run concurrently. The maximum number is all defined runners.
 `0` does not mean unlimited.
 
+```yaml
+gitlab_runner_install_docker: true
+```
+
+Decide wether to install Docker via
+[geerlingguy.docker](https://galaxy.ansible.com/geerlingguy/docker) role.
+Docker is required for the `docker` executor but not for the
+`docker+machine` executor.
+
 ### Docker-machine variables
 
 ```yaml

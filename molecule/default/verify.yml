@@ -15,11 +15,19 @@
       ansible.builtin.service_facts:
 
     - name: Assert that docker is installed
+      when: gitlab_runner_install_docker
       ansible.builtin.assert:
         that:
           - "'docker-ce' in ansible_facts.packages"
 
+    - name: Assert that docker is not installed
+      when: not gitlab_runner_install_docker
+      ansible.builtin.assert:
+        that:
+          - "'docker-ce' not in ansible_facts.packages"
+
     - name: Assert that Docker systemd service is running
+      when: gitlab_runner_install_docker
       ansible.builtin.assert:
         that:
           - "ansible_facts.services['docker.service'].state == 'running'"
