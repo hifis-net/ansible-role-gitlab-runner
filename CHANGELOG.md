@@ -16,9 +16,9 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
-## Unreleased
+## [0.1.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.1.0) - 2021-07-20
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/359ac4d5e6371452d5488fcf7daa3a43d935ddc1...main)
+[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/359ac4d5e6371452d5488fcf7daa3a43d935ddc1...v0.1.0)
 
 ### Added
 Initial release of the Ansible GitLab-Runner Role.
