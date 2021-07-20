@@ -28,6 +28,7 @@
   ansible.builtin.include_tasks: update-runner-configuration.yml
   when:
     - ('name = "' + gitlab_runner.name + '"') in runner_config
+  no_log: true
   loop: "{{ gitlab_runner_list }}"
   loop_control:
     loop_var: gitlab_runner
