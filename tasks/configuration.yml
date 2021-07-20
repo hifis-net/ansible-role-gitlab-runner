@@ -60,9 +60,6 @@
       register: "temp_ignition_stats"
       changed_when:
         - temp_ignition_stats.stat.checksum != ignition_exists.stat.checksum
-        - temp_ignition_stats.stat.mode != ignition_exists.stat.mode
-        - temp_iginition_stats.stat.uid != ignition_exists.stat.uid
-        - temp_iginition_stats.stat.gid != temp_iginition_stats.stat.gid
       check_mode: no
       notify:
         - "Transpile the flatcar linux configuration"
