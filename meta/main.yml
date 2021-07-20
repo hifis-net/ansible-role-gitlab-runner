@@ -5,16 +5,13 @@
 
 ---
 galaxy_info:
-  role_name: gitlab_runner_role
+  role_name: gitlab_runner
   namespace: hifis
   author: HIFIS Software team
   description: Install GitLab CI in Openstack
   company: Helmholtz Association
-
-  # If the issue tracker for your role is not on github, uncomment the
-  # next line and provide a value
   issue_tracker_url: https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/issues
-
+  github_branch: main
   license: Apache-2.0
   min_ansible_version: 2.9
 
@@ -28,6 +25,7 @@ galaxy_info:
 
   galaxy_tags:
     - gitlab
+    - runner
     - ci
     - cd
     - openstack
