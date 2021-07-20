@@ -75,6 +75,8 @@ provisioner:
               cache_bucket_name: "bucket"
               cache_insecure: "false"
     host_vars:
+      instance_gitlab_ci_openstack_1:
+        gitlab_runner_install_docker: true
       instance_gitlab_ci_openstack_2:
         gitlab_runner_install_docker: false
 verifier:
