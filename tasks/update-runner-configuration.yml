@@ -98,6 +98,46 @@
 
 - name: Configure [runners.machine] section
   block:
+    - name: "Configure idle count"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)IdleCount =.*'
+        line: '    IdleCount = {{ gitlab_runner.machine_idle_count | default(0) }}'
+        state: present
+        insertafter: '^\s*\[runners.machine\]'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: "Configure idle time"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)IdleTime =.*'
+        line: '    IdleTime = {{ gitlab_runner.machine_idle_time | default(0) }}'
+        state: present
+        insertafter: '^\s*IdleCount =.*'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: "Configure max growth rate"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)MaxGrowthRate =.*'
+        line: '    MaxGrowthRate = {{ gitlab_runner.machine_max_growth_rate | default(0) }}'
+        state: present
+        insertafter: '^\s*IdleTime =.*'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: "Configure max builds per machine"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)MaxBuilds =.*'
+        line: '    MaxBuilds = {{ gitlab_runner.machine_max_builds | default(0) }}'
+        state: present
+        insertafter: '^\s*MaxGrowthRate =.*'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
     - name: Configure docker-machine driver
       ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
