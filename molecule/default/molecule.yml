@@ -37,7 +37,7 @@ provisioner:
     hosts:
       all:
         vars:
-          gitlab_runner_version: 14.0.1
+          gitlab_runner_version: 14.1.0
           gitlab_runner_concurrent: 4
           gitlab_runner_list:
             - name: "test01"
