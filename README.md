@@ -21,7 +21,7 @@ Role Variables
 ### GitLab-Runner variables
 
 ```yaml
-gitlab_runner_version: 13.2.2
+gitlab_runner_version: 14.1.0
 ```
 
 The version of GitLab-Runner to install.

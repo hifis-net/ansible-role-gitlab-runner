@@ -25,6 +25,11 @@ Group your changes into these categories:
   ([!36](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/36)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
 
+### Changed
+* Reference latest version of gitlab-runner throughout the role
+  ([!38](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/38)
+  by [tobiashuste](https://gitlab.com/tobiashuste)).
+
 ## [0.1.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.1.0) - 2021-07-20
 
 [List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/359ac4d5e6371452d5488fcf7daa3a43d935ddc1...v0.1.0)
