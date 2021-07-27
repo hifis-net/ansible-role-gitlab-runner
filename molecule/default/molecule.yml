@@ -50,6 +50,10 @@ provisioner:
               docker_image: "python:3.8"
               tags: ["docker", "hifis"]
               locked: True
+              machine_idle_count: 5
+              machine_idle_time: 7200
+              machine_max_builds: 4
+              machine_max_growth_rate: 2
               machine_driver: "openstack"
               machine_name: "auto-scale-%s"
               machine_options:

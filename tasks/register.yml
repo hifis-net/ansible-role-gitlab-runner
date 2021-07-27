@@ -36,6 +36,10 @@
     {% if gitlab_runner.executor == "docker+machine" %}
     --machine-machine-driver "{{ gitlab_runner.machine_driver }}"
     --machine-machine-name "{{ gitlab_runner.machine_name }}"
+    --machine-idle-nodes "{{ gitlab_runner.machine_idle_count | default(0) }}"
+    --machine-idle-time "{{ gitlab_runner.machine_idle_time | default(0) }}"
+    --machine-max-builds "{{ gitlab_runner.machine_max_builds | default(0) }}"
+    --machine-max-growth-rate "{{ gitlab_runner.machine_max_growth_rate | default(0) }}"
     {% for option in gitlab_runner.machine_options %}
     --machine-machine-options "{{ option }}"
     {% endfor %}
