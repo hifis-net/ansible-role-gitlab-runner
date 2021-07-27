@@ -17,6 +17,18 @@
 - name: "Include tasks to configure the system"
   ansible.builtin.include_tasks: configuration.yml
 
+- name: "Ignition configuration must be generated before docker-machine init"
+  ansible.builtin.meta: "flush_handlers"
+
+- name: "Initialize docker-machine"
+  ansible.builtin.include_tasks: "docker-machine-init.yml"
+  when:
+    - "gitlab_runner.executor == 'docker+machine'"
+  no_log: true
+  loop: "{{ gitlab_runner_list }}"
+  loop_control:
+    loop_var: gitlab_runner
+
 - name: "Include tasks to register the runner"
   ansible.builtin.include_tasks: register.yml
   when:
