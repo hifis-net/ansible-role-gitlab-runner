@@ -16,9 +16,9 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
-## Unreleased
+## [0.2.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.2.0) - 2021-07-28
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.1.0...main)
+[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.1.0...v0.2.0)
 
 ### Added
 * Allow to configure autoscaling parameters
