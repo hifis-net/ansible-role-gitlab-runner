@@ -24,6 +24,9 @@ Group your changes into these categories:
 * Allow to configure autoscaling parameters
   ([!36](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/36)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
+* Create a test machine via docker-machine once
+  ([!39](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/39)
+  by [tobiashuste](https://gitlab.com/tobiashuste)).
 
 ### Changed
 * Reference latest version of gitlab-runner throughout the role
