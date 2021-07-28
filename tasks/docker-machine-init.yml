@@ -21,6 +21,7 @@
       ansible.builtin.command: "docker-machine create -d {{ gitlab_runner.machine_driver }} {{ machine_options }} test"
       register: "creation_cmd"
       changed_when: "creation_cmd.rc == 0"
+      tags: "notest"
   
   always:
     - name: "Remove the VM"
@@ -29,4 +30,5 @@
       register: "removal_cmd"
       changed_when: "removal_cmd.rc == 0"
       failed_when: false
+      tags: "notest"
 ...
