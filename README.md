@@ -140,6 +140,7 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `docker_volumes`          | `["/cache", "/certs/client"]`   | Additional volumes that should be mounted. Same syntax as the Docker -v flag.                          |
 | `run_untagged`            | `False`                         | Specify, if the runner can run jobs without tags.                                                      |
 | `locked`                  | `True`                          | Specify, whether the runner is locked to the current project.                                          |
+| `limit`                   | `0`                             | Limit how many jobs can be handled concurrently by this token. Default is `0` (no limit).              |
 | `machine_driver`          | `"openstack"`                   | The driver to use when creating the machine via `docker-machine`.                                      |
 | `machine_name`            | `"auto-scale-%s"`               | The machine name template. (You need to include `%s`).                                                 |
 | `machine_options`         | See the machine example.        | Additional machine creation options.                                                                   |
@@ -169,6 +170,7 @@ gitlab_runner_list:
       docker_volumes: ["/cache", "/certs/client"]
       run_untagged: False
       locked: True
+      limit: 5
       # Optional cache configuration, only S3 is supported for now
       cache_type: "s3"
       cache_server_address: "https://cache.example"

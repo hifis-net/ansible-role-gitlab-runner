@@ -33,6 +33,11 @@ Group your changes into these categories:
   ([!37](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/37)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
 
+### Fixed
+* Document the `limit` parameter
+  ([!40](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/40)
+  by [tobiashuste](https://gitlab.com/tobiashuste)).
+
 ## [0.1.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.1.0) - 2021-07-20
 
 [List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/359ac4d5e6371452d5488fcf7daa3a43d935ddc1...v0.1.0)

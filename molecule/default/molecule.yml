@@ -50,6 +50,7 @@ provisioner:
               docker_image: "python:3.8"
               tags: ["docker", "hifis"]
               locked: True
+              limit: 10
               machine_idle_count: 5
               machine_idle_time: 7200
               machine_max_builds: 4
