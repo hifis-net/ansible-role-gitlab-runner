@@ -22,7 +22,7 @@
       register: "creation_cmd"
       changed_when: "creation_cmd.rc == 0"
       tags: "notest"
-  
+
   always:
     - name: "Remove the VM"
       when: "not ansible_check_mode"
