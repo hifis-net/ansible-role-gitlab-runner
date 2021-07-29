@@ -44,7 +44,7 @@
     --machine-machine-options "{{ option }}"
     {% endfor %}
     {% endif %}
-    {% if gitlab_runner.cache_type == "s3" %}
+    {% if (gitlab_runner.cache_type | default("")) == "s3" %}
     --cache-type "{{ gitlab_runner.cache_type }}"
     --cache-s3-server-address "{{ gitlab_runner.cache_server_address }}"
     --cache-s3-access-key "{{ gitlab_runner.cache_access_key }}"
