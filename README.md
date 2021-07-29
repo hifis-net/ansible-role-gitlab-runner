@@ -87,6 +87,12 @@ gitlab_runner_namerservers:
 The DNS nameservers to be used by the Openstack Flatcar virtual machine.
 
 ```yaml
+gitlab_runner_registry_mirror: "https://registry-mirror.example"
+```
+
+(Optional) The Docker registry mirror to be used.
+
+```yaml
 gitlab_runner_mtu: 1450
 ```
 
@@ -236,6 +242,32 @@ This project focuses on providing the best integration with Openstack but is
 probably not limited to that.
 The Openstack driver lists all possible configuration options that can be
 specified via `machine_options`: https://docs.docker.com/machine/drivers/openstack/
+
+Docker-in-Docker if MTU other than 1500
+---------------------------------------
+If the Docker-MTU does not match 1500 which is very often the case for
+Openstack installations, certain additional configuration is required.
+Please make sure to add
+
+```
+"engine-opt=mtu={{ gitlab_runner_mtu }}"
+```
+
+to the list of your runner's `machine_options`.
+`gitlab_runner_mtu` needs to be set to the correct value.
+
+Also you can configure Docker-in-Docker to make use of a registry mirror by
+setting `gitlab_runner_registry_mirror` to the required value.
+This is optional.
+
+To make this all work you finally need to mount a file in your runner volume
+configuration by adding
+
+```
+"/opt/docker/daemon.json:/etc/docker/daemon.json:ro"
+```
+
+to the list of configured `volumes`.
 
 Dependencies
 ------------
