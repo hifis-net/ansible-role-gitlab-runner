@@ -16,7 +16,9 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
-## Unreleased
+## [0.2.2](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.2.2) - 2021-07-30
+
+[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.1...v0.2.2)
 
 ### Fixed
 
