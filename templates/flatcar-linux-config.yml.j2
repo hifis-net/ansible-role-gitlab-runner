@@ -25,11 +25,11 @@ storage:
       contents:
         inline: |
           {
-            {% if gitlab_runner_registry_mirror is defined %}
+{% if gitlab_runner_registry_mirror is defined %}
             "registry-mirrors": [
               "{{ gitlab_runner_registry_mirror }}"
             ],
-            {% endif %}
+{% endif %}
             "mtu": {{ gitlab_runner_mtu }}
           }
 locksmith:
@@ -44,11 +44,13 @@ systemd:
         After=docker.service network-online.target
 
         [Service]
-        Type=simple
+        Type=oneshot
         Restart=on-failure
-        TimeoutStartSec=0
+        RemainAfterExit=true
         ExecStartPre=/usr/bin/docker pull multiarch/qemu-user-static:register
         ExecStart=/usr/bin/docker run --rm --privileged multiarch/qemu-user-static:register --reset
+        Restart=on-failure
+        RestartSec=15
 
         [Install]
         WantedBy=multi-user.target
