@@ -16,11 +16,12 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
-## Unreleased
+## [0.2.1](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.2.1) - 2021-07-30
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.0...main)
+[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.0...v0.2.1)
 
 ## Fixed
+
 * Correctly configure MTU and registry mirror for Docker-in-Docker
   ([!43](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/43)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
