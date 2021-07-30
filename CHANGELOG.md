@@ -24,6 +24,9 @@ Group your changes into these categories:
 * Correctly configure MTU and registry mirror for Docker-in-Docker
   ([!43](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/43)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
+* Fix bug when `cache_type` is undefined
+  ([!42](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/42)
+  by [tobiashuste](https://gitlab.com/tobiashuste)).
 
 ## [0.2.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.2.0) - 2021-07-28
 
