@@ -16,11 +16,19 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
+## Unreleased
+
+### Fixed
+
+* Fix failing binfmt-init.service for multiarch support
+  ([!44](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/44)
+  by [tobiashuste](https://gitlab.com/tobiashuste)).
+
 ## [0.2.1](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.2.1) - 2021-07-30
 
 [List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.0...v0.2.1)
 
-## Fixed
+### Fixed
 
 * Correctly configure MTU and registry mirror for Docker-in-Docker
   ([!43](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/43)
