@@ -20,6 +20,12 @@ Group your changes into these categories:
 
 [List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.2...main)
 
+### Added
+
+* Add support for docker `tls_verify` parameter
+  ([!46](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/46)
+  by [Normo](https://gitlab.com/Normo)).
+
 ### Changed
 
 * Bump geerlingguy.docker to version 4.1.1
