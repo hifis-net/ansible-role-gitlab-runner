@@ -84,6 +84,16 @@
       check_mode: no
       notify:
         - Restart GitLab-Runner
+    - name: "Configure TLS verification of connections to docker daemon"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)tls_verify =.*'
+        line: '\1tls_verify = {{ gitlab_runner.docker_tls_verify | default(false) | to_json }}'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
     - name: "Configure docker volumes"
       ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
