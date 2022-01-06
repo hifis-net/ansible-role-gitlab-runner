@@ -37,7 +37,7 @@ provisioner:
     hosts:
       all:
         vars:
-          gitlab_runner_version: 14.1.0
+          gitlab_runner_version: 14.6.0
           gitlab_runner_concurrent: 4
     host_vars:
       instance_gitlab_ci_openstack_1:
