@@ -17,3 +17,19 @@
               - ca-certificates   # for Gitlab-Runner download
             state: present
             update_cache: yes
+    - when: ansible_distribution == 'Debian'
+      block:
+        - name: "Install missing dependencies"
+          ansible.builtin.apt:
+            name:
+              - "iptables"
+            state: "present"
+            update_cache: yes
+        - name: "Use legacy iptables"
+          community.general.alternatives:
+            name: "iptables"
+            path: "/usr/sbin/iptables-legacy"
+        - name: "Use legacy ip6tables"
+          community.general.alternatives:
+            name: "ip6tables"
+            path: "/usr/sbin/ip6tables-legacy"
