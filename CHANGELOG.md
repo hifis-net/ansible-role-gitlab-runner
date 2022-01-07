@@ -20,6 +20,12 @@ Group your changes into these categories:
 
 [List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.2...main)
 
+### Changed
+
+* Bump geerlingguy.docker to version 4.1.1
+  ([!48](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/48)
+  by [Normo](https://gitlab.com/Normo)).
+
 ### Fixed
 
 * Fix debian docker issue in GitLab CI and bump runner version in tests
