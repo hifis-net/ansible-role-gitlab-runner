@@ -12,9 +12,9 @@ gitlab_runner_docker_machine_binary_url: "https://gitlab-docker-machine-download
 
 gitlab_runner_docker_machine_binary_checksum: "sha256:0c9c659318fabe54cff460b6bb1d92f2a987dffd7de03d6ccc17d6449d4871f9"
 
-gitlab_runner_transpiler_binary_url: https://github.com/kinvolk/container-linux-config-transpiler/releases/download/v0.9.1/ct-v0.9.1-x86_64-unknown-linux-gnu
+gitlab_runner_transpiler_binary_url: https://github.com/flatcar-linux/container-linux-config-transpiler/releases/download/v0.9.2/ct-v0.9.2-x86_64-unknown-linux-gnu
 
-gitlab_runner_transpiler_binary_checksum: "sha256:5112b5c3376de24bccbab050906f8c4923532f1a4da393b46c59c7fcc9563c8d"
+gitlab_runner_transpiler_binary_checksum: "sha256:eba1dae93e19276dbf0a5370e35e967e686e2ed4d08e1725ce305b4226733f72"
 
 gitlab_runner_install_docker: true
 

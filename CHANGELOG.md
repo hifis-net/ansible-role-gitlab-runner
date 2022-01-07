@@ -25,6 +25,9 @@ Group your changes into these categories:
 * Bump geerlingguy.docker to version 4.1.1
   ([!48](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/48)
   by [Normo](https://gitlab.com/Normo)).
+* Bump container linux config transpiler to v0.9.2
+  ([!47](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/47)
+  by [Normo](https://gitlab.com/Normo)).
 
 ### Fixed
 
