@@ -5,18 +5,15 @@ SPDX-FileCopyrightText: 2020 Helmholtz-Zentrum Dresden - Rossendorf (HZDR)
 SPDX-License-Identifier: Apache-2.0
 -->
 
-GitLab CI Openstack
-===================
+# GitLab CI Openstack
 
 This Ansible role provides a setup for GitLab CI in Openstack.
 
-Requirements
-------------
+## Requirements
 
 None.
 
-Role Variables
---------------
+## Role Variables
 
 ### GitLab-Runner variables
 
@@ -144,6 +141,8 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `environment`             | `["DOCKER_TLS_CERTDIR=/certs"]` | Append or overwrite environment variables.                                                             |
 | `docker_image`            | `"python:3.8"`                  | Specify the default docker image to be used. Required for `docker` and `docker+machine` executor.      |
 | `docker_volumes`          | `["/cache", "/certs/client"]`   | Additional volumes that should be mounted. Same syntax as the Docker -v flag.                          |
+| `docker_privileged`       | `False`                         | Specify, if the container runs in privileged mode (insecure). Default is `False`.                      |
+| `docker_tls_verify`       | `True`                          | Specify, if TLS connections to the Docker daemon should be verified. Default is `False`.               |
 | `run_untagged`            | `False`                         | Specify, if the runner can run jobs without tags.                                                      |
 | `locked`                  | `True`                          | Specify, whether the runner is locked to the current project.                                          |
 | `limit`                   | `0`                             | Limit how many jobs can be handled concurrently by this token. Default is `0` (no limit).              |
@@ -243,8 +242,8 @@ probably not limited to that.
 The Openstack driver lists all possible configuration options that can be
 specified via `machine_options`: https://docs.docker.com/machine/drivers/openstack/
 
-Docker-in-Docker if MTU other than 1500
----------------------------------------
+## Docker-in-Docker if MTU other than 1500
+
 If the Docker-MTU does not match 1500 which is very often the case for
 Openstack installations, certain additional configuration is required.
 Please make sure to add
@@ -269,15 +268,13 @@ configuration by adding
 
 to the list of configured `volumes`.
 
-Dependencies
-------------
+## Dependencies
 
 GitLab-Runner for Openstack depends on `docker-machine` requiring docker to be available on the system.
 
 - Docker - [geerlingguy.docker](https://galaxy.ansible.com/geerlingguy/docker)
 
-Example Playbook
-----------------
+## Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
@@ -285,12 +282,10 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - { role: username.rolename, x: 42 }
 
-License
--------
+## License
 
 [Apache-2.0](LICENSES/Apache-2.0.txt)
 
-Author Information
-------------------
+## Author Information
 
 This role was created by [HIFIS Software Services](https://software.hifis.net/).
