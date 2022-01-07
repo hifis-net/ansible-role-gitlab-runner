@@ -16,6 +16,16 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
+## Unreleased
+
+[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.2...main)
+
+### Fixed
+
+* Fix debian docker issue in GitLab CI and bump runner version in tests
+  ([!49](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/49)
+  by [tobiashuste](https://gitlab.com/tobiashuste)).
+
 ## [0.2.2](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.2.2) - 2021-07-30
 
 [List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.1...v0.2.2)
