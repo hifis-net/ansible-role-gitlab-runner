@@ -34,6 +34,9 @@ Group your changes into these categories:
 * Bump container linux config transpiler to v0.9.2
   ([!47](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/47)
   by [Normo](https://gitlab.com/Normo)).
+* Bump Python dependencies to the latest version
+  ([!50](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/50)
+  by [tobiashuste](https://gitlab.com/tobiashuste)).
 
 ### Fixed
 
