@@ -16,6 +16,16 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
+## [0.4.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.4.0) - 2022-03-03
+
+[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.3.0...v0.4.0)
+
+### Changed
+
+* Allow to update the installed GPG keys
+  ([!52](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/52)
+  by [tobiashuste](https://gitlab.com/tobiashuste)).
+
 ## [0.3.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.3.0) - 2022-01-11
 
 [List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.2...v0.3.0)
