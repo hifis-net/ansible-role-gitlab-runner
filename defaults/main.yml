@@ -8,6 +8,10 @@ gitlab_runner_version: ""
 
 gitlab_runner_apt_repo: "deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main"
 
+gitlab_gpg_key_id: "F6403F6544A38863DAA0B6E03F01618A51312F3F"
+
+gitlab_gpg_old_key_ids: []
+
 gitlab_runner_docker_machine_binary_url: "https://gitlab-docker-machine-downloads.s3.amazonaws.com/v0.16.2-gitlab.12/docker-machine-Linux-x86_64"
 
 gitlab_runner_docker_machine_binary_checksum: "sha256:0c9c659318fabe54cff460b6bb1d92f2a987dffd7de03d6ccc17d6449d4871f9"
