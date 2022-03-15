@@ -8,6 +8,8 @@ gitlab_runner_version: ""
 
 gitlab_runner_apt_repo: "deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main"
 
+gitlab_runner_deb_file: ""
+
 gitlab_gpg_key_id: "F6403F6544A38863DAA0B6E03F01618A51312F3F"
 
 gitlab_gpg_old_key_ids: []
