@@ -16,6 +16,16 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
+## Unreleased
+
+[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.4.0...main)
+
+### Added
+
+* Add support for optionally installing gitlab-runner via a `.deb` file
+  ([!53](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/53)
+  by [tobiashuste](https://gitlab.com/tobiashuste)).
+
 ## [0.4.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.4.0) - 2022-03-03
 
 [List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.3.0...v0.4.0)
