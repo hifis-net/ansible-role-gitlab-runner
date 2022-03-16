@@ -27,6 +27,13 @@ The version of GitLab-Runner to install.
 gitlab_runner_apt_repo: "deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main"
 ```
 
+If this is specified the package will be installed from a `.deb`-file.
+If `://` is in the path, Ansible will attempt to download deb before installing.
+
+```yaml
+gitlab_runner_deb_file: ""
+```
+
 Identifier of GPG key that was used to sign the packages.
 
 ```yaml

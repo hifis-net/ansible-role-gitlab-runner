@@ -37,10 +37,11 @@ provisioner:
     hosts:
       all:
         vars:
-          gitlab_runner_version: 14.6.0
           gitlab_runner_concurrent: 4
     host_vars:
       instance_gitlab_ci_openstack_1:
+        gitlab_runner_version: "14.8.2~beta.1.g2ba60a95"
+        gitlab_runner_deb_file: "https://gitlab.com/hifis/gitlab-runner/-/package_files/31816472/download"
         gitlab_runner_install_docker: true
         gitlab_runner_ssh_public_key: "test_key.pub"
         gitlab_runner_ssh_private_key: "test_key"
@@ -57,6 +58,7 @@ provisioner:
             locked: True
             limit: 10
       instance_gitlab_ci_openstack_2:
+        gitlab_runner_version: "14.8.2"
         gitlab_runner_install_docker: false
         gitlab_runner_ssh_public_key: ""
         gitlab_runner_ssh_private_key: ""
