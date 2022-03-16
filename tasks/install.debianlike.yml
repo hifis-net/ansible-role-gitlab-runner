@@ -56,6 +56,7 @@
 - name: Install gitlab-runner from a .deb file
   ansible.builtin.apt:
     deb: "{{ gitlab_runner_deb_file }}"
+    allow_downgrade: yes
   when: gitlab_runner_deb_file | length > 0
 
 ...
