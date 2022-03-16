@@ -16,6 +16,16 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
+## [0.5.1](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.5.1) - 2022-03-17
+
+[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.5.0...v0.5.1)
+
+### Fixed
+
+* Fix install from deb file if version is older than installed
+  ([!55](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/55)
+  by [tobiashuste](https://gitlab.com/tobiashuste)).
+
 ## [0.5.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.5.0) - 2022-03-16
 
 [List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.4.0...v0.5.0)
