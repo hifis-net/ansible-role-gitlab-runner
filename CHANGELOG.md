@@ -16,9 +16,9 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
-## Unreleased
+## [0.5.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.5.0) - 2022-03-16
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.4.0...main)
+[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.4.0...v0.5.0)
 
 ### Added
 
