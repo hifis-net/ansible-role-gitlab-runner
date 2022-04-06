@@ -1,0 +1,42 @@
+---
+name: CI
+'on':
+  pull_request:
+  push:
+
+env:
+  PY_COLORS: 1
+  ANSIBLE_FORCE_COLOR: 1
+  POETRY_VIRTUALENVS_PATH: ~/.cache/venv
+  POETRY_CACHE_DIR: ~/.cache/poetry
+  PIP_CACHE_DIR: ~/.cache/pip
+
+jobs:
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v3
+        id: setup-python
+        with:
+          python-version: '3.9'
+          
+      - name: Restore Python dependency cache.
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache
+          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-pipenv-${{ hashFiles('poetry.lock') }}
+
+      - name: Install poetry.
+        run: pip3 install poetry
+
+      - name: Install dependencies via poetry.
+        run: poetry install
+
+      - name: Lint code.
+        run: poetry run molecule lint
