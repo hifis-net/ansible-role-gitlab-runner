@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2022 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2022 Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
+#
+# SPDX-License-Identifier: Apache-2.0
+
 ---
 name: CI
 'on':
@@ -30,7 +35,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.cache
-          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-pipenv-${{ hashFiles('poetry.lock') }}
+          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-poetry-${{ hashFiles('poetry.lock') }}
 
       - name: Install poetry.
         run: pip3 install poetry
@@ -40,3 +45,31 @@ jobs:
 
       - name: Lint code.
         run: poetry run molecule lint
+
+  license_compliance:
+    name: Check license compliance with reuse.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v3
+        id: setup-python
+        with:
+          python-version: '3.9'
+          
+      - name: Restore Python dependency cache.
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache
+          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-poetry-${{ hashFiles('poetry.lock') }}
+      
+      - name: Install poetry.
+        run: pip3 install poetry
+
+      - name: Install dependencies via poetry.
+        run: poetry install
+
+      - name: Lint code.
+        run: poetry run reuse lint
