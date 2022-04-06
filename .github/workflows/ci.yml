@@ -25,23 +25,8 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v3
 
-      - name: Set up Python 3.
-        uses: actions/setup-python@v3
-        id: setup-python
-        with:
-          python-version: '3.9'
-          
-      - name: Restore Python dependency cache.
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache
-          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-poetry-${{ hashFiles('poetry.lock') }}
-
-      - name: Install poetry.
-        run: pip3 install poetry
-
-      - name: Install dependencies via poetry.
-        run: poetry install
+      - name: Prepare the job environment.
+        uses: ./.github/workflows/prepare-action
 
       - name: Lint code.
         run: poetry run molecule lint
@@ -53,23 +38,31 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v3
 
-      - name: Set up Python 3.
-        uses: actions/setup-python@v3
-        id: setup-python
-        with:
-          python-version: '3.9'
-          
-      - name: Restore Python dependency cache.
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache
-          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-poetry-${{ hashFiles('poetry.lock') }}
-      
-      - name: Install poetry.
-        run: pip3 install poetry
-
-      - name: Install dependencies via poetry.
-        run: poetry install
+      - name: Prepare the job environment.
+        uses: ./.github/workflows/prepare-action
 
       - name: Lint code.
         run: poetry run reuse lint
+
+  test:
+    name: Run Molecule tests.
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        distro:
+          - ubuntu2004
+          - debian10
+
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v3
+
+      - name: Prepare the job environment.
+        uses: ./.github/workflows/prepare-action
+
+      - name: Run Molecule tests.
+        run: poetry run molecule test
+        env:
+          MOLECULE_DISTRO: ${{ matrix.distro }}
+          REGISTRATION_TOKEN: ${{ secrets.registration_token }}

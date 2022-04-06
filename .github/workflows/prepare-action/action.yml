@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2022 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2022 Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
+#
+# SPDX-License-Identifier: Apache-2.0
+
+---
+name: Install dependencies and prepare the environment.
+description: Install the necessary dependencies for jobs.
+runs:
+  using: composite
+  steps:
+    - name: Set up Python 3.
+      uses: actions/setup-python@v3
+      id: setup-python
+      with:
+        python-version: '3.9'
+        
+    - name: Restore Python dependency cache.
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache
+        key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-poetry-${{ hashFiles('poetry.lock') }}
+
+    - name: Install poetry.
+      run: pip3 install poetry
+      shell: bash
+
+    - name: Install dependencies via poetry.
+      run: poetry install
+      shell: bash
