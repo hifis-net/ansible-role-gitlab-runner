@@ -5,9 +5,13 @@
 
 ---
 name: CI
-'on':
+on:
   pull_request:
   push:
+    branches:
+      - "main"
+    tags:
+      - "v*.*.*"
 
 env:
   PY_COLORS: 1
