@@ -16,6 +16,16 @@ Group your changes into these categories:
 
 `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
+## Unreleased
+
+[List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.5.1...main)
+
+### Changed
+
+* Implement full lint and test workflow via GitHub Actions
+  ([!1](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/1)
+  by [tobiashuste](https://github.com/tobiashuste)).
+
 ## [0.5.1](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.5.1) - 2022-03-17
 
 [List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.5.0...v0.5.1)
