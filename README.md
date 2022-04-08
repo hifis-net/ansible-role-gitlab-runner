@@ -7,6 +7,12 @@ SPDX-License-Identifier: Apache-2.0
 
 # GitLab CI Openstack
 
+[![CI](https://github.com/hifis-net/ansible-role-gitlab-runner/actions/workflows/ci.yml/badge.svg)](https://github.com/hifis-net/ansible-role-gitlab-runner/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/hifis-net/ansible-role-gitlab-runner/blob/main/LICENSE.md)
+[![Ansible Galaxy Role](https://img.shields.io/ansible/role/55703?color=orange)](https://galaxy.ansible.com/hifis/gitlab_runner)
+[![Ansible Galaxy Quality Score](https://img.shields.io/ansible/quality/55703)](https://galaxy.ansible.com/hifis/gitlab_runner)
+[![GitLab Release (latest by SemVer)](https://img.shields.io/github/v/release/hifis-net/ansible-role-gitlab-runner?color=blue&sort=semver)](https://github.com/hifis-net/ansible-role-gitlab-runner/releases)
+
 This Ansible role provides a setup for GitLab CI in Openstack.
 
 ## Requirements
