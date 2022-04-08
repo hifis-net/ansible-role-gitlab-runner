@@ -16,9 +16,6 @@ on:
 env:
   PY_COLORS: 1
   ANSIBLE_FORCE_COLOR: 1
-  POETRY_VIRTUALENVS_PATH: ~/.cache/venv
-  POETRY_CACHE_DIR: ~/.cache/poetry
-  PIP_CACHE_DIR: ~/.cache/pip
 
 jobs:
 

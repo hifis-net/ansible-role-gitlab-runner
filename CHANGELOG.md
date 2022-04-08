@@ -23,7 +23,10 @@ Group your changes into these categories:
 ### Changed
 
 * Implement full lint and test workflow via GitHub Actions
-  ([!1](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/1)
+  ([\#1](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/1)
+  by [tobiashuste](https://github.com/tobiashuste)).
+* Use the caching feature of the `setup-python` action
+  ([\#10](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/10)
   by [tobiashuste](https://github.com/tobiashuste)).
 
 ## [0.5.1](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.5.1) - 2022-03-17

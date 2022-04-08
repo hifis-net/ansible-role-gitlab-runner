@@ -9,21 +9,16 @@ description: Install the necessary dependencies for jobs.
 runs:
   using: composite
   steps:
+    - name: Install poetry.
+      run: pipx install poetry
+      shell: bash
+
     - name: Set up Python 3.
       uses: actions/setup-python@v3
       id: setup-python
       with:
         python-version: '3.9'
-        
-    - name: Restore Python dependency cache.
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache
-        key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-poetry-${{ hashFiles('poetry.lock') }}
-
-    - name: Install poetry.
-      run: pip3 install poetry
-      shell: bash
+        cache: 'poetry'
 
     - name: Install dependencies via poetry.
       run: poetry install
