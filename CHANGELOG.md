@@ -20,6 +20,12 @@ Group your changes into these categories:
 
 [List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.5.1...main)
 
+### Added
+
+* Add badges to README
+  ([\#12](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/12)
+  by [tobiashuste](https://github.com/tobiashuste)).
+
 ### Changed
 
 * Implement full lint and test workflow via GitHub Actions
