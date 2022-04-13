@@ -92,11 +92,17 @@
         that:
           - flatcar_linux_config.stdout.find(gitlab_runner_ssh_key) != -1
 
+    - name: Store registration token environment variable as Ansible fact.
+      ansible.builtin.set_fact:
+        gitlab_runner_registration_token: "{{ lookup('env', 'REGISTRATION_TOKEN') }}"
+
     - name: Assert that the runner was registered successfully
       ansible.builtin.command: gitlab-runner list
       changed_when: false
       register: runners
       failed_when: "'test01' not in runners.stderr"
+      # Do not verify runner registration in forks
+      when: "gitlab_runner_registration_token | length > 0"
 
     - name: Assert that the verify command is successful
       ansible.builtin.command: gitlab-runner verify
@@ -107,3 +113,5 @@
     - name: Unregister GitLab-Runner
       ansible.builtin.command: gitlab-runner unregister --all-runners
       changed_when: false
+      # Do not verify runner registration in forks
+      when: "gitlab_runner_registration_token | length > 0"
