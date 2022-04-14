@@ -269,7 +269,7 @@ tls = ["pyOpenSSL (>=17.5.0)", "cryptography (>=3.4.7)", "idna (>=2.0.0)"]
 
 [[package]]
 name = "enrich"
-version = "1.2.6"
+version = "1.2.7"
 description = "enrich"
 category = "dev"
 optional = false
@@ -340,37 +340,35 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "molecule"
-version = "3.5.2"
+version = "3.6.1"
 description = "Molecule aids in the development and testing of Ansible roles"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
-ansible-compat = ">=0.5.0"
+ansible-compat = ">=1.0.0"
 cerberus = ">=1.3.1,<1.3.3 || >1.3.3,<1.3.4 || >1.3.4"
 click = ">=8.0,<9"
 click-help-colors = ">=0.9"
 cookiecutter = ">=1.7.3"
-enrich = ">=1.2.5"
+enrich = ">=1.2.7"
 Jinja2 = ">=2.11.3"
 molecule-docker = {version = ">=1.0.0", optional = true, markers = "extra == \"docker\""}
 packaging = "*"
 paramiko = ">=2.5.0,<3"
 pluggy = ">=0.7.1,<2.0"
-PyYAML = ">=5.1,<6"
+PyYAML = ">=5.1"
 rich = ">=9.5.1"
-selinux = {version = "*", markers = "sys_platform == \"linux\" or sys_platform == \"linux2\""}
-subprocess-tee = ">=0.3.5"
 
 [package.extras]
 ansible = ["ansible (>=2.10)"]
 ansible-base = ["ansible-base (>=2.10)"]
 docker = ["molecule-docker (>=1.0.0)"]
-docs = ["Sphinx (>=4.0.2)", "simplejson (>=3.17.2)", "sphinx-ansible-theme (>=0.8.0,<0.9.0)", "sphinx-notfound-page (>=0.7.1)"]
+docs = ["Sphinx (>=4.3.2,<4.4.0)", "simplejson (>=3.17.2)", "sphinx-ansible-theme (>=0.8.0,<0.10.0)", "sphinx-notfound-page (>=0.7.1)"]
 lint = ["flake8 (>=3.8.4)", "pre-commit (>=2.10.1)", "yamllint"]
 podman = ["molecule-podman (>=1.0.1)"]
-test = ["ansi2html (>=1.6.0)", "pexpect (>=4.8.0,<5)", "pytest-cov (>=2.10.1)", "pytest-html (>=3.0.0)", "pytest-mock (>=3.3.1)", "pytest-plus (>=0.2)", "pytest-testinfra (>=6.1.0)", "pytest-xdist (>=2.1.0)", "pytest (>=6.1.2)"]
+test = ["ansi2html (>=1.6.0)", "coverage (>=6.2)", "filelock", "pexpect (>=4.8.0,<5)", "pytest-cov (>=2.10.1)", "pytest-html (>=3.0.0)", "pytest-mock (>=3.3.1)", "pytest-plus (>=0.2)", "pytest-testinfra (>=6.1.0)", "pytest-xdist (>=2.1.0)", "pytest (>=6.1.2)"]
 windows = ["pywinrm"]
 
 [[package]]
@@ -723,7 +721,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "acfa7c9c743855d543c2d32a50b6b230019df3255e9ed6d2424f8cf58000eadf"
+content-hash = "6e204916eb505f30a9d5cb4d319af041e5c19408b7034db8132858a3e1a2a474"
 
 [metadata.files]
 ansible = [
@@ -886,8 +884,8 @@ docker = [
     {file = "docker-5.0.3.tar.gz", hash = "sha256:d916a26b62970e7c2f554110ed6af04c7ccff8e9f81ad17d0d40c75637e227fb"},
 ]
 enrich = [
-    {file = "enrich-1.2.6-py3-none-any.whl", hash = "sha256:ed0b3ac33495cc95f1ccafaf6c7ec0a0fcabb20f7f7a90121f37eb83a85bf82b"},
-    {file = "enrich-1.2.6.tar.gz", hash = "sha256:0e99ff57d87f7b5def0ca79917e88fb9351aa0d52e228ee38bff7cd858315fe4"},
+    {file = "enrich-1.2.7-py3-none-any.whl", hash = "sha256:f29b2c8c124b4dbd7c975ab5c3568f6c7a47938ea3b7d2106c8a3bd346545e4f"},
+    {file = "enrich-1.2.7.tar.gz", hash = "sha256:0a2ab0d2931dff8947012602d1234d2a3ee002d9a355b5d70be6bf5466008893"},
 ]
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
@@ -977,8 +975,8 @@ markupsafe = [
     {file = "MarkupSafe-2.0.1.tar.gz", hash = "sha256:594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"},
 ]
 molecule = [
-    {file = "molecule-3.5.2-py3-none-any.whl", hash = "sha256:b174c2974897791e1681723d16f3744700e071f6d1e3df9cf9a07d35c6df0552"},
-    {file = "molecule-3.5.2.tar.gz", hash = "sha256:c82af099e5c0998d7eb16a3bf65ed5a4edd97e3824fb938ce01bf064a46ce0ca"},
+    {file = "molecule-3.6.1-py3-none-any.whl", hash = "sha256:f7f57d6b3b775e876bea2a46e368eee72d391e163f8175acf29fef797a280248"},
+    {file = "molecule-3.6.1.tar.gz", hash = "sha256:3b7d5ba2978c15a034df8c7aa59dec5436f7d3260d1f9db2c78ae14ae3a9deeb"},
 ]
 molecule-docker = [
     {file = "molecule-docker-1.1.0.tar.gz", hash = "sha256:e15133395f10dbf60f75125aae7145f47747fc7158f2317698885013796252bf"},
