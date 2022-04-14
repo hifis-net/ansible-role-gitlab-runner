@@ -40,8 +40,8 @@ provisioner:
           gitlab_runner_concurrent: 4
     host_vars:
       instance_gitlab_ci_openstack_1:
-        gitlab_runner_version: "14.8.2~beta.1.g2ba60a95"
-        gitlab_runner_deb_file: "https://gitlab.com/hifis/gitlab-runner/-/package_files/31816472/download"
+        gitlab_runner_version: "14.9.1"
+        gitlab_runner_deb_file: "https://packages.gitlab.com/runner/gitlab-runner/packages/ubuntu/focal/gitlab-runner_14.9.1_amd64.deb/download.deb"
         gitlab_runner_install_docker: true
         gitlab_runner_ssh_public_key: "test_key.pub"
         gitlab_runner_ssh_private_key: "test_key"
