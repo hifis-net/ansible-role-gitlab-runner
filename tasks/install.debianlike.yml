@@ -53,10 +53,16 @@
         state: present
         update_cache: yes
 
+- name: Gather the package facts
+  ansible.builtin.package_facts:
+    manager: auto
+
 - name: Install gitlab-runner from a .deb file
   ansible.builtin.apt:
     deb: "{{ gitlab_runner_deb_file }}"
     allow_downgrade: yes
-  when: gitlab_runner_deb_file | length > 0
-
+  when:
+    - gitlab_runner_deb_file | length > 0
+    - "'gitlab-runner' not in ansible_facts.packages or
+      ansible_facts.packages['gitlab-runner'][0].version is version(gitlab_runner_version, 'ne')"
 ...
