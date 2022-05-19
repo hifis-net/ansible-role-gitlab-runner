@@ -578,7 +578,7 @@ test = ["commentjson", "packaging", "pytest"]
 
 [[package]]
 name = "reuse"
-version = "0.14.0"
+version = "1.0.0"
 description = "reuse is a tool for compliance with the REUSE recommendations."
 category = "dev"
 optional = false
@@ -721,7 +721,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "c81da92d2ed9cd0efa80a967f520be2f8e0cbfcd212bdd9e2b8afc9e0d252208"
+content-hash = "103a40c4c036b039c44b900b457355be53ebaf37c1155c28eec60c9d1a112135"
 
 [metadata.files]
 ansible = [
@@ -1101,8 +1101,8 @@ resolvelib = [
     {file = "resolvelib-0.5.5.tar.gz", hash = "sha256:123de56548c90df85137425a3f51eb93df89e2ba719aeb6a8023c032758be950"},
 ]
 reuse = [
-    {file = "reuse-0.14.0-py3-none-any.whl", hash = "sha256:3062b1b23e0219a3d275a14fec74ac0dc64992c9fbefe6099103f174b945d43f"},
-    {file = "reuse-0.14.0.tar.gz", hash = "sha256:771dbf42cbae63c97557aafdc3472a698cf34d1e3e1eb3b08dc77881d2c604e1"},
+    {file = "reuse-1.0.0-py3-none-any.whl", hash = "sha256:e2605e796311c424465d741ea2a1e1ad03bbb90b921d74750119c331ca5af46e"},
+    {file = "reuse-1.0.0.tar.gz", hash = "sha256:db3022be2d87f69c8f508b928023de3026f454ce17d01e22f770f7147ac1e8d4"},
 ]
 rich = [
     {file = "rich-10.16.2-py3-none-any.whl", hash = "sha256:c59d73bd804c90f747c8d7b1d023b88f2a9ac2454224a4aeaf959b21eeb42d03"},
