@@ -5,9 +5,9 @@ SPDX-FileCopyrightText: 2021 Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
 SPDX-License-Identifier: Apache-2.0
 -->
 
-## [0.5.1](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.5.1) - 2022-03-17
+## [0.5.1](https://github.com/hifis-net/ansible-role-gitlab-runner/releases/v0.5.1) - 2022-03-17
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.5.0...v0.5.1)
+[List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.5.0...v0.5.1)
 
 ### Fixed
 
@@ -15,9 +15,9 @@ SPDX-License-Identifier: Apache-2.0
   ([!55](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/55)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
 
-## [0.5.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.5.0) - 2022-03-16
+## [0.5.0](https://github.com/hifis-net/ansible-role-gitlab-runner/releases/v0.5.0) - 2022-03-16
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.4.0...v0.5.0)
+[List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.4.0...v0.5.0)
 
 ### Added
 
@@ -25,9 +25,9 @@ SPDX-License-Identifier: Apache-2.0
   ([!53](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/53)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
 
-## [0.4.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.4.0) - 2022-03-03
+## [0.4.0](https://github.com/hifis-net/ansible-role-gitlab-runner/releases/v0.4.0) - 2022-03-03
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.3.0...v0.4.0)
+[List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.3.0...v0.4.0)
 
 ### Changed
 
@@ -35,9 +35,9 @@ SPDX-License-Identifier: Apache-2.0
   ([!52](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/52)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
 
-## [0.3.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.3.0) - 2022-01-11
+## [0.3.0](https://github.com/hifis-net/ansible-role-gitlab-runner/releases/v0.3.0) - 2022-01-11
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.2...v0.3.0)
+[List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.2.2...v0.3.0)
 
 ### Added
 
@@ -63,9 +63,9 @@ SPDX-License-Identifier: Apache-2.0
   ([!49](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/49)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
 
-## [0.2.2](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.2.2) - 2021-07-30
+## [0.2.2](https://github.com/hifis-net/ansible-role-gitlab-runner/releases/v0.2.2) - 2021-07-30
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.1...v0.2.2)
+[List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.2.1...v0.2.2)
 
 ### Fixed
 
@@ -73,9 +73,9 @@ SPDX-License-Identifier: Apache-2.0
   ([!44](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/44)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
 
-## [0.2.1](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.2.1) - 2021-07-30
+## [0.2.1](https://github.com/hifis-net/ansible-role-gitlab-runner/releases/v0.2.1) - 2021-07-30
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.2.0...v0.2.1)
+[List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.2.0...v0.2.1)
 
 ### Fixed
 
@@ -86,9 +86,9 @@ SPDX-License-Identifier: Apache-2.0
   ([!42](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/42)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
 
-## [0.2.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.2.0) - 2021-07-28
+## [0.2.0](https://github.com/hifis-net/ansible-role-gitlab-runner/releases/v0.2.0) - 2021-07-28
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/v0.1.0...v0.2.0)
+[List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.1.0...v0.2.0)
 
 ### Added
 * Allow to configure autoscaling parameters
@@ -111,9 +111,9 @@ SPDX-License-Identifier: Apache-2.0
   ([!40](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/merge_requests/40)
   by [tobiashuste](https://gitlab.com/tobiashuste)).
 
-## [0.1.0](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/releases/v0.1.0) - 2021-07-20
+## [0.1.0](https://github.com/hifis-net/ansible-role-gitlab-runner/releases/v0.1.0) - 2021-07-20
 
-[List of commits](https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/compare/359ac4d5e6371452d5488fcf7daa3a43d935ddc1...v0.1.0)
+[List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/359ac4d5e6371452d5488fcf7daa3a43d935ddc1...v0.1.0)
 
 ### Added
 Initial release of the Ansible GitLab-Runner Role.
