@@ -5,38 +5,36 @@
 
 ---
 galaxy_info:
-  role_name: gitlab_runner
-  namespace: hifis
-  author: HIFIS Software team
-  description: Install GitLab CI in Openstack
-  company: Helmholtz Association
-  issue_tracker_url: https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/issues
-  github_branch: main
-  license: Apache-2.0
-  min_ansible_version: 2.9
+  role_name: "gitlab_runner"
+  author: "hifis"
+  description: "Install GitLab CI in Openstack"
+  company: "Helmholtz Association"
+  issue_tracker_url: "https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/issues"
+  license: "Apache-2.0"
+  min_ansible_version: "2.9"
 
   platforms:
-    - name: Ubuntu
+    - name: "Ubuntu"
       versions:
-        - focal
-    - name: Debian
+        - "focal"
+    - name: "Debian"
       versions:
-        - buster
+        - "buster"
 
   galaxy_tags:
-    - gitlab
-    - runner
-    - ci
-    - cd
-    - openstack
+    - "gitlab"
+    - "runner"
+    - "ci"
+    - "cd"
+    - "openstack"
 
 collections:
-  - community.crypto
+  - "community.crypto"
 
 dependencies:
-  - role: geerlingguy.docker
-    version: 4.1.1
-    when: gitlab_runner_install_docker
+  - role: "geerlingguy.docker"
+    version: "4.1.1"
+    when: "gitlab_runner_install_docker"
     vars:
       docker_install_compose: false
 ...
