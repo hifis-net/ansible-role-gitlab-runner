@@ -17,7 +17,7 @@ ansible = "^5.7.1"
 [tool.poetry.dev-dependencies]
 ansible-lint = "^6.0.2"
 yamllint = "^1.26.3"
-reuse = "^0.14.0"
+reuse = "^1.0.0"
 molecule = {version = "^3.6.1", extras = ["docker"]}
 
 [build-system]
