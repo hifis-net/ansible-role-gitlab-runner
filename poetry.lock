@@ -11,17 +11,19 @@ ansible-core = ">=2.12.5,<2.13.0"
 
 [[package]]
 name = "ansible-compat"
-version = "2.0.4"
+version = "2.1.0"
 description = "Ansible compatibility goodies"
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
+jsonschema = ">=4.5.1"
 PyYAML = "*"
 subprocess-tee = ">=0.3.5"
 
 [package.extras]
+docs = ["sphinx-autobuild (>=0.7.1,<1.0)", "sphinx (>=4.2.0,<5.0)", "sphinx-ansible-theme", "myst-parser"]
 test = ["coverage", "flaky", "pip-tools", "pytest", "pytest-markdown", "pytest-mock", "pytest-plus"]
 
 [[package]]
@@ -41,17 +43,17 @@ resolvelib = ">=0.5.3,<0.6.0"
 
 [[package]]
 name = "ansible-lint"
-version = "6.2.1"
+version = "6.3.0"
 description = "Checks playbooks for practices and behavior that could potentially be improved"
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
-ansible-compat = ">=2.0.4"
+ansible-compat = ">=2.1.0"
 ansible-core = ">=2.12.0"
 enrich = ">=1.2.6"
-jsonschema = ">=4.5.1"
+jsonschema = ">=4.6.0"
 packaging = "*"
 pytest = "*"
 pyyaml = "*"
@@ -364,7 +366,7 @@ jinja2 = "*"
 
 [[package]]
 name = "jsonschema"
-version = "4.5.1"
+version = "4.6.0"
 description = "An implementation of JSON Schema validation for Python"
 category = "dev"
 optional = false
@@ -377,7 +379,7 @@ pyrsistent = ">=0.14.0,<0.17.0 || >0.17.0,<0.17.1 || >0.17.1,<0.17.2 || >0.17.2"
 
 [package.extras]
 format = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3987", "uri-template", "webcolors (>=1.11)"]
-format_nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3986-validator (>0.1.0)", "uri-template", "webcolors (>=1.11)"]
+format-nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3986-validator (>0.1.0)", "uri-template", "webcolors (>=1.11)"]
 
 [[package]]
 name = "license-expression"
@@ -850,22 +852,22 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "f385a98cff705f8ea976b4167ab7ef6cb9066c075b4442af0ab2352abadd38ac"
+content-hash = "71c3643a9f139727437d29695f0ee75efc878072dd24feb1b195c969316f3ece"
 
 [metadata.files]
 ansible = [
     {file = "ansible-5.8.0.tar.gz", hash = "sha256:fa056476201f40625fb36d95c5041ef463880be18be5c73b998b57b401967863"},
 ]
 ansible-compat = [
-    {file = "ansible-compat-2.0.4.tar.gz", hash = "sha256:3d5fb21c1ff069e84ac5fc17f6c8d2261c2a7b299986be810d339dfc77c128a9"},
-    {file = "ansible_compat-2.0.4-py3-none-any.whl", hash = "sha256:f19d10c69b6fc869a7984454d729c1948903bc952c388ee1fea984a87bc56e6b"},
+    {file = "ansible-compat-2.1.0.tar.gz", hash = "sha256:62bae1bb5c20663d5ee1bfec04f073c08be721040af9ef5bddc7904e6678d184"},
+    {file = "ansible_compat-2.1.0-py3-none-any.whl", hash = "sha256:4ef7350fa1e768719a6df0239474bab5733c8910627ed6e3ec1be5381d710d17"},
 ]
 ansible-core = [
     {file = "ansible-core-2.12.5.tar.gz", hash = "sha256:1ccc9944f101331adad1ed40d5ac66a8149133052ae34db0267a74aa73beebb3"},
 ]
 ansible-lint = [
-    {file = "ansible-lint-6.2.1.tar.gz", hash = "sha256:ca0deee5835cbfaf9bba182758688a88a0b9c6852b32b15e77e4b0376c21bc1f"},
-    {file = "ansible_lint-6.2.1-py3-none-any.whl", hash = "sha256:06eb5c97a2f847a6cf8db74269a749bb67df1da429e0e9a51efc84ef3b6ed1fa"},
+    {file = "ansible-lint-6.3.0.tar.gz", hash = "sha256:f57f520ae5d810ce062157dc7d633990ad2fbec81bbbb34ccc4ce3a0c21fcd38"},
+    {file = "ansible_lint-6.3.0-py3-none-any.whl", hash = "sha256:144b61a43fb9bad9fb19529105a98c87b8b84c99519290209dc624231f5b70ca"},
 ]
 arrow = [
     {file = "arrow-1.2.2-py3-none-any.whl", hash = "sha256:d622c46ca681b5b3e3574fcb60a04e5cc81b9625112d5fb2b44220c36c892177"},
@@ -1048,8 +1050,8 @@ jinja2-time = [
     {file = "jinja2_time-0.2.0-py2.py3-none-any.whl", hash = "sha256:d3eab6605e3ec8b7a0863df09cc1d23714908fa61aa6986a845c20ba488b4efa"},
 ]
 jsonschema = [
-    {file = "jsonschema-4.5.1-py3-none-any.whl", hash = "sha256:71b5e39324422543546572954ce71c67728922c104902cb7ce252e522235b33f"},
-    {file = "jsonschema-4.5.1.tar.gz", hash = "sha256:7c6d882619340c3347a1bf7315e147e6d3dae439033ae6383d6acb908c101dfc"},
+    {file = "jsonschema-4.6.0-py3-none-any.whl", hash = "sha256:1c92d2db1900b668201f1797887d66453ab1fbfea51df8e4b46236689c427baf"},
+    {file = "jsonschema-4.6.0.tar.gz", hash = "sha256:9d6397ba4a6c0bf0300736057f649e3e12ecbc07d3e81a0dacb72de4e9801957"},
 ]
 license-expression = [
     {file = "license-expression-30.0.0.tar.gz", hash = "sha256:ad638292aa8493f84354909b517922cb823582c2ce2c4d880e42544a86bea8dd"},
