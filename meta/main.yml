@@ -9,7 +9,7 @@ galaxy_info:
   author: "hifis"
   description: "Install GitLab CI in Openstack"
   company: "Helmholtz Association"
-  issue_tracker_url: "https://gitlab.com/hifis/ansible/gitlab-ci-openstack/-/issues"
+  issue_tracker_url: "https://github.com/hifis-net/ansible-role-gitlab-runner/issues"
   license: "Apache-2.0"
   min_ansible_version: "2.9"
 
