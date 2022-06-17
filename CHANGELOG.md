@@ -1,14 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/HEAD)
+## [v0.6.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v0.6.0) (2022-06-17)
 
-[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.5.1...HEAD)
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.5.1...v0.6.0)
 
 **Implemented enhancements:**
 
+- Link issue\_tracker URL to GitHub [\#31](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/31)
 - Add badges to README [\#11](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/11)
 - Implement a daily scheduled run of the CI pipeline [\#6](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/6)
 - Update dependencies via Dependabot [\#5](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/5)
+- Migrate changelog to github-changelog-generator [\#21](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/21) ([tobiashuste](https://github.com/tobiashuste))
 - Skip runner registration in molecule test run [\#14](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/14) ([tobiashuste](https://github.com/tobiashuste))
 - Add badges to README [\#12](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/12) ([tobiashuste](https://github.com/tobiashuste))
 - Use caching feature of setup-python action [\#10](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/10) ([tobiashuste](https://github.com/tobiashuste))
@@ -19,6 +21,14 @@
 
 **Merged pull requests:**
 
+- Bump ansible from 5.8.0 to 5.9.0 [\#34](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/34) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump molecule from 3.6.1 to 4.0.0 [\#33](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/33) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Update issue tracker link in the Galaxy meta information [\#32](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/32) ([tobiashuste](https://github.com/tobiashuste))
+- Bump ansible-lint from 6.2.1 to 6.3.0 [\#29](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/29) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump robertdebock/galaxy-action from 1.2.0 to 1.2.1 [\#27](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/27) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump reuse from 0.14.0 to 1.0.0 [\#26](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/26) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 5.7.1 to 5.8.0 [\#25](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/25) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible-lint from 6.0.2 to 6.2.1 [\#24](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/24) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump ansible from 5.7.0 to 5.7.1 [\#19](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/19) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump ansible from 5.6.0 to 5.7.0 [\#18](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/18) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump molecule from 3.5.2 to 3.6.1 [\#17](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/17) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -27,13 +37,6 @@
 - fixes\(\#5\): added dependabot.yml [\#8](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/8) ([tharun634](https://github.com/tharun634))
 - fixes\(\#6\): CI daily run [\#7](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/7) ([tharun634](https://github.com/tharun634))
 - Implement full lint and test workflow via GitHub Actions [\#1](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/1) ([tobiashuste](https://github.com/tobiashuste))
-
-<!--
-SPDX-FileCopyrightText: 2021 Helmholtz Centre for Environmental Research (UFZ)
-SPDX-FileCopyrightText: 2021 Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
-
-SPDX-License-Identifier: Apache-2.0
--->
 
 ## [0.5.1](https://github.com/hifis-net/ansible-role-gitlab-runner/releases/v0.5.1) - 2022-03-17
 
