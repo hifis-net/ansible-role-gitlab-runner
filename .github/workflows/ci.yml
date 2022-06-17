@@ -61,7 +61,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Enable lingering required for podman and systemd in GH Actions.
-        run: sudo loginctl enable-linger 1001
+        run: sudo loginctl enable-linger $UID
 
       - name: Prepare the job environment.
         uses: ./.github/workflows/prepare-action
