@@ -1,10 +1,3 @@
-<!--
-SPDX-FileCopyrightText: 2021 Helmholtz Centre for Environmental Research (UFZ)
-SPDX-FileCopyrightText: 2021 Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
-
-SPDX-License-Identifier: Apache-2.0
--->
-
 ## [0.5.1](https://github.com/hifis-net/ansible-role-gitlab-runner/releases/v0.5.1) - 2022-03-17
 
 [List of commits](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.5.0...v0.5.1)
