@@ -53,9 +53,10 @@ jobs:
       fail-fast: true
       matrix:
         distro:
-          - ubuntu2004
-          - ubuntu2204
-          - debian10
+          - "ghcr.io/hifis-net/ubuntu-systemd:18.04"
+          - "ghcr.io/hifis-net/ubuntu-systemd:20.04"
+          - "ghcr.io/hifis-net/ubuntu-systemd:22.04"
+          - "ghcr.io/hifis-net/debian-systemd:10"
 
     steps:
       - name: Check out the codebase.
@@ -72,7 +73,7 @@ jobs:
       - name: Run Molecule tests.
         run: XDG_RUNTIME_DIR=/run/user/$UID poetry run molecule test
         env:
-          MOLECULE_DISTRO: ${{ matrix.distro }}
+          MOLECULE_IMAGE: ${{ matrix.image }}
           REGISTRATION_TOKEN: ${{ secrets.registration_token }}
 
   release:
