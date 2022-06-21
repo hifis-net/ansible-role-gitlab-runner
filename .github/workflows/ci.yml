@@ -52,7 +52,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        distro:
+        image:
           - "ghcr.io/hifis-net/ubuntu-systemd:18.04"
           - "ghcr.io/hifis-net/ubuntu-systemd:20.04"
           - "ghcr.io/hifis-net/ubuntu-systemd:22.04"
