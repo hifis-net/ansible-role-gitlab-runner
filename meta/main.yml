@@ -17,6 +17,7 @@ galaxy_info:
     - name: "Ubuntu"
       versions:
         - "focal"
+        - "jammy"
     - name: "Debian"
       versions:
         - "buster"

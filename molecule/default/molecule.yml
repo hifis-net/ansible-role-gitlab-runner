@@ -12,14 +12,14 @@ driver:
   name: docker
 platforms:
   - name: instance_gitlab_ci_openstack_1
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest
     pre_build_image: true
     privileged: true
     override_command: false
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: instance_gitlab_ci_openstack_2
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest
     pre_build_image: true
     privileged: true
     override_command: false
@@ -40,8 +40,8 @@ provisioner:
           gitlab_runner_concurrent: 4
     host_vars:
       instance_gitlab_ci_openstack_1:
-        gitlab_runner_version: "14.9.1"
-        gitlab_runner_deb_file: "https://packages.gitlab.com/runner/gitlab-runner/packages/ubuntu/focal/gitlab-runner_14.9.1_amd64.deb/download.deb"
+        gitlab_runner_version: "15.1.0"
+        gitlab_runner_deb_file: "https://packages.gitlab.com/runner/gitlab-runner/packages/ubuntu/jammy/gitlab-runner_15.1.0_amd64.deb/download.deb"
         gitlab_runner_install_docker: true
         gitlab_runner_ssh_public_key: "test_key.pub"
         gitlab_runner_ssh_private_key: "test_key"
@@ -58,7 +58,7 @@ provisioner:
             locked: True
             limit: 10
       instance_gitlab_ci_openstack_2:
-        gitlab_runner_version: "14.8.2"
+        gitlab_runner_version: "15.1.0"
         gitlab_runner_install_docker: false
         gitlab_runner_ssh_public_key: ""
         gitlab_runner_ssh_private_key: ""
