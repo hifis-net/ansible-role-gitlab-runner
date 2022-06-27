@@ -54,6 +54,7 @@ jobs:
       matrix:
         distro:
           - ubuntu2004
+          - ubuntu2204
           - debian10
 
     steps:
