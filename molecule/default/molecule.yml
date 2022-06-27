@@ -9,22 +9,22 @@ dependency:
   options:
     role-file: requirements.yml
 driver:
-  name: docker
+  name: podman
 platforms:
   - name: instance_gitlab_ci_openstack_1
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest
+    image: ${MOLECULE_IMAGE:-ghcr.io/hifis-net/ubuntu-systemd:22.04}
     pre_build_image: true
-    privileged: true
     override_command: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true  # Required to run Docker in Podman
+    systemd: true
+    tty: true
   - name: instance_gitlab_ci_openstack_2
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest
+    image: ${MOLECULE_IMAGE:-ghcr.io/hifis-net/ubuntu-systemd:22.04}
     pre_build_image: true
-    privileged: true
     override_command: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true  # Required to run Docker in Podman
+    systemd: true
+    tty: true
 lint: |
   yamllint --strict --format colored .
   ansible-lint -v --force-color --exclude .cache/ .
