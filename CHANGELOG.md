@@ -1,5 +1,23 @@
 # Changelog
 
+## [v1.0.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.0.0) (2022-06-29)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.6.0...v1.0.0)
+
+**Implemented enhancements:**
+
+- Add support for Debian 11 [\#42](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/42)
+- Add support for Ubuntu 22.04 [\#40](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/40)
+- Switch from molecule-docker to molecule-podman [\#36](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/36)
+- Add support for Debian 11 [\#43](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/43) ([tobiashuste](https://github.com/tobiashuste))
+- Add support for Ubuntu 22.04 [\#41](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/41) ([tobiashuste](https://github.com/tobiashuste))
+- Use molecule-podman instead of molecule-docker [\#37](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/37) ([tobiashuste](https://github.com/tobiashuste))
+
+**Merged pull requests:**
+
+- Install docker-machine version 0.16.2-gitlab.15 [\#44](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/44) ([tobiashuste](https://github.com/tobiashuste))
+- Install container-linux-config-transpiler v0.9.3 [\#39](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/39) ([tobiashuste](https://github.com/tobiashuste))
+
 ## [v0.6.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v0.6.0) (2022-06-17)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.5.1...v0.6.0)
@@ -24,6 +42,7 @@
 - Bump ansible from 5.8.0 to 5.9.0 [\#34](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/34) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump molecule from 3.6.1 to 4.0.0 [\#33](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/33) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Update issue tracker link in the Galaxy meta information [\#32](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/32) ([tobiashuste](https://github.com/tobiashuste))
+- Release version 0.6.0 [\#30](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/30) ([tobiashuste](https://github.com/tobiashuste))
 - Bump ansible-lint from 6.2.1 to 6.3.0 [\#29](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/29) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump robertdebock/galaxy-action from 1.2.0 to 1.2.1 [\#27](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/27) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump reuse from 0.14.0 to 1.0.0 [\#26](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/26) ([dependabot[bot]](https://github.com/apps/dependabot))
