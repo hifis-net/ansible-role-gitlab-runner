@@ -17,6 +17,7 @@
               - ca-certificates   # for Gitlab-Runner download
             state: present
             update_cache: yes
+
     - when: ansible_distribution == 'Debian'
       block:
         - name: "Install missing dependencies"
@@ -33,3 +34,9 @@
           community.general.alternatives:
             name: "ip6tables"
             path: "/usr/sbin/ip6tables-legacy"
+
+    - when: "gitlab_runner_install_docker"
+      name: "Apply geerlingguy.docker role"
+      ansible.builtin.include_role:
+        name: "geerlingguy.docker"
+

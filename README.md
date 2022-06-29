@@ -17,7 +17,10 @@ This Ansible role provides a setup for GitLab CI in Openstack.
 
 ## Requirements
 
-None.
+* [`docker`](https://pypi.org/project/docker/) (Docker SDK for Python)
+  * Only required if the `docker` executor is used.
+  * Can be instelled for instance via
+    [geerlingguy.docker](https://github.com/geerlingguy/ansible-role-docker).
 
 ## Role Variables
 
