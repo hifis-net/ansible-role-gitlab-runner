@@ -30,6 +30,7 @@
     --docker-image "{{ gitlab_runner.docker_image | default('debian:latest') }}"
     --docker-privileged="{{ gitlab_runner.docker_privileged | default(false) }}"
     --docker-tlsverify="{{ gitlab_runner.docker_tls_verify | default(false) }}"
+    --docker-shm-size="{{ gitlab_runner.docker_shm_size | default(0) }}"
     {% for volume in gitlab_runner.docker_volumes | default([]) %}
     --docker-volumes "{{ volume }}"
     {% endfor %}

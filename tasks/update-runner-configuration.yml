@@ -104,6 +104,16 @@
       check_mode: no
       notify:
         - Restart GitLab-Runner
+    - name: "Configure shm_size parameter"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)shm_size =.*'
+        line: '\1shm_size = {{ gitlab_runner.docker_shm_size | default(0) }}'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
   when: '"docker" in gitlab_runner.executor'
 
 - name: Configure [runners.machine] section
