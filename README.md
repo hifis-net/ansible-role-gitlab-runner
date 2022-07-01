@@ -166,6 +166,7 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `environment`             | `["DOCKER_TLS_CERTDIR=/certs"]` | Append or overwrite environment variables.                                                             |
 | `docker_image`            | `"python:3.8"`                  | Specify the default docker image to be used. Required for `docker` and `docker+machine` executor.      |
 | `docker_volumes`          | `["/cache", "/certs/client"]`   | Additional volumes that should be mounted. Same syntax as the Docker -v flag.                          |
+| `docker_shm_size`         | `2147483648`                    | Shared memory size for images (in bytes). Default is 0 resulting in a fallback to the Docker default.  |
 | `docker_privileged`       | `False`                         | Specify, if the container runs in privileged mode (insecure). Default is `False`.                      |
 | `docker_tls_verify`       | `True`                          | Specify, if TLS connections to the Docker daemon should be verified. Default is `False`.               |
 | `run_untagged`            | `False`                         | Specify, if the runner can run jobs without tags.                                                      |
