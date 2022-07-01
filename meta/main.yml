@@ -36,7 +36,6 @@ collections:
 
 dependencies:
   - role: "geerlingguy.docker"
-    version: "4.2.4"
     when: "gitlab_runner_install_docker"
     vars:
       docker_install_compose: false
