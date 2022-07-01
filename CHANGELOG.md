@@ -1,20 +1,33 @@
 # Changelog
 
+## [v1.1.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.1.0) (2022-07-01)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.0.0...v1.1.0)
+
+**Implemented enhancements:**
+
+- Support configuration of shm\_size parameter [\#50](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/50)
+
+**Merged pull requests:**
+
+- Always use the latest version of geerlingguy.docker dependency [\#49](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/49) ([Normo](https://github.com/Normo))
+
 ## [v1.0.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.0.0) (2022-06-29)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v0.6.0...v1.0.0)
 
 **Implemented enhancements:**
 
+- Switch from molecule-docker to molecule-podman [\#36](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/36)
 - Add support for Debian 11 [\#42](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/42)
 - Add support for Ubuntu 22.04 [\#40](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/40)
-- Switch from molecule-docker to molecule-podman [\#36](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/36)
 - Add support for Debian 11 [\#43](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/43) ([tobiashuste](https://github.com/tobiashuste))
 - Add support for Ubuntu 22.04 [\#41](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/41) ([tobiashuste](https://github.com/tobiashuste))
 - Use molecule-podman instead of molecule-docker [\#37](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/37) ([tobiashuste](https://github.com/tobiashuste))
 
 **Merged pull requests:**
 
+- Release version 1.0.0 [\#46](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/46) ([tobiashuste](https://github.com/tobiashuste))
 - Install docker-machine version 0.16.2-gitlab.15 [\#44](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/44) ([tobiashuste](https://github.com/tobiashuste))
 - Install container-linux-config-transpiler v0.9.3 [\#39](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/39) ([tobiashuste](https://github.com/tobiashuste))
 
