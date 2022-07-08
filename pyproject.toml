@@ -16,7 +16,7 @@ ansible = "^5.9.0"
 
 [tool.poetry.dev-dependencies]
 ansible-lint = "^6.3.0"
-yamllint = "^1.26.3"
+yamllint = "^1.27.1"
 reuse = "^1.0.0"
 molecule = {version = "^4.0.0", extras = ["podman"]}
 
