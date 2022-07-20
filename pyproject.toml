@@ -18,7 +18,7 @@ ansible = "^5.9.0"
 ansible-lint = "^6.3.0"
 yamllint = "^1.27.1"
 reuse = "^1.0.0"
-molecule = {version = "^4.0.0", extras = ["podman"]}
+molecule = {version = "^4.0.1", extras = ["podman"]}
 
 [build-system]
 requires = ["poetry>=0.12"]
