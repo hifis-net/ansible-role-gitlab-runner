@@ -50,7 +50,7 @@
     - "Transpile the flatcar linux configuration"
 
 - name: "Check if ignition.json is available and create it in any case"
-  when: "not flatcar_config_task.changed"  # noqa 503
+  when: "not flatcar_config_task.changed"  # noqa no-handler
   ansible.builtin.stat:
     path: "/etc/gitlab-runner/ignition.json"
   register: ignition_exists
@@ -62,7 +62,7 @@
 # tool resulting in a different result. Also this helps to fix any kind of
 # manual manipulation.
 - name: "Check if ignition.json is up-to-date"
-  when: "not flatcar_config_task.changed and ignition_exists.stat.exists"  # noqa 503
+  when: "not flatcar_config_task.changed and ignition_exists.stat.exists"  # noqa no-handler
   block:
     - name: "Create temporary directory"
       ansible.builtin.tempfile:
