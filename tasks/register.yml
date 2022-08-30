@@ -22,7 +22,7 @@
     --executor "{{ gitlab_runner.executor | default('docker') }}"
     {% for env in gitlab_runner.environment | default([]) %}
     --env "{{ env }}"
-    {% endfor%}
+    {% endfor %}
     --limit "{{ gitlab_runner.limit | default(0) }}"
     --output-limit "{{ gitlab_runner.output_limit | default(4096) }}"
     --locked="{{ gitlab_runner.locked | default(true) }}"

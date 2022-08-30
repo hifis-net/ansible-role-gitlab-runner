@@ -5,7 +5,7 @@
 
 ---
 - name: Set OS family dependent variables
-  ansible.builtin.include_vars: "{{ ansible_os_family|lower }}.yml"
+  ansible.builtin.include_vars: "{{ ansible_os_family | lower }}.yml"
 
 - name: "Include docker-machine tasks"
   ansible.builtin.include_tasks: install.docker-machine.yml
