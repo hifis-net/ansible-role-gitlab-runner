@@ -15,9 +15,9 @@
   changed_when: false
 
 - name: Copy isolated runner configuration
-  ansible.builtin.copy:
+  ansible.builtin.template:
+    src: "runner_config.j2"
     dest: "{{ tmp_runner_config_file.path }}"
-    content: "{{ runner_config }}"
     owner: "root"
     group: "root"
     mode: "0600"
