@@ -426,7 +426,7 @@ windows = ["pywinrm"]
 
 [[package]]
 name = "molecule-podman"
-version = "2.0.2"
+version = "2.0.3"
 description = "Molecule aids in the development and testing of Ansible roles"
 category = "dev"
 optional = false
@@ -435,7 +435,7 @@ python-versions = ">=3.8"
 [package.dependencies]
 ansible-compat = ">=2.2.0"
 molecule = ">=4.0.0"
-selinux = {version = "*", markers = "sys_platform == \"linux2\" or sys_platform == \"linux\""}
+selinux = {version = "*", markers = "sys_platform == \"linux\" or sys_platform == \"linux2\""}
 
 [package.extras]
 docs = ["Sphinx", "simplejson", "sphinx-ansible-theme (>=0.2.2)"]
@@ -786,7 +786,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "a8a795151227d91c098aec85bccac8897c6b258b9db8ff2500f2f4ce7be6d2aa"
+content-hash = "aa72bcfd20b5152ae555ddccadb217c21b36755cf04782cdad39c8b84b3b9283"
 
 [metadata.files]
 ansible = [
@@ -1058,8 +1058,8 @@ molecule = [
     {file = "molecule-4.0.1.tar.gz", hash = "sha256:ee10e5463bc9940f9afd9b85812c63eacefea889a99c21274f4054ebe248c3b9"},
 ]
 molecule-podman = [
-    {file = "molecule-podman-2.0.2.tar.gz", hash = "sha256:0bac8bbf40b505b02bbacd0ab1cf4a3cf6d37a0dc4cb81a7a2599846fddde50f"},
-    {file = "molecule_podman-2.0.2-py3-none-any.whl", hash = "sha256:e312a071dfbf170ac7615929ab83ca0208796843d8947004cc1a121943fa9411"},
+    {file = "molecule-podman-2.0.3.tar.gz", hash = "sha256:cea2eacac54f129824530d35469ddd7bff109a94ebcd8408828af8c0dabf5c7a"},
+    {file = "molecule_podman-2.0.3-py3-none-any.whl", hash = "sha256:85d928ab36ab0a2fae57e03eb549dd523c9be36b4b904d050748c27ca72ac07f"},
 ]
 mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
@@ -1127,7 +1127,6 @@ python-dateutil = [
 python-debian = [
     {file = "python-debian-0.1.44.tar.gz", hash = "sha256:65592fe3b64f6c6c93d94e2d2599db5e0c22831d3bcff07cb7b96d3840b1333e"},
     {file = "python_debian-0.1.44-py3-none-any.whl", hash = "sha256:11bd6f01c46da57982bdd66dd595e2d240feb32a85de3fd37c452102fd0337ab"},
-    {file = "python_debian-0.1.44-py3.9.egg", hash = "sha256:1db7ad14168dd137d51545b3d42770758c6530cc2ccdaca703b55d5affad2602"},
 ]
 python-slugify = [
     {file = "python-slugify-6.1.2.tar.gz", hash = "sha256:272d106cb31ab99b3496ba085e3fea0e9e76dcde967b5e9992500d1f785ce4e1"},
