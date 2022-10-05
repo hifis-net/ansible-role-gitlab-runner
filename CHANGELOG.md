@@ -1,5 +1,31 @@
 # Changelog
 
+## [v1.2.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.2.0) (2022-10-05)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.1.0...v1.2.0)
+
+**Fixed bugs:**
+
+- Use template module instead of copy [\#66](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/66) ([tobiashuste](https://github.com/tobiashuste))
+
+**Merged pull requests:**
+
+- Fix GitHub Actions tests [\#72](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/72) ([tobiashuste](https://github.com/tobiashuste))
+- Bump molecule-podman from 2.0.2 to 2.0.3 [\#70](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/70) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible-lint from 6.6.0 to 6.7.0 [\#69](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/69) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible-lint from 6.5.2 to 6.6.0 [\#65](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/65) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 6.3.0 to 6.4.0 [\#64](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/64) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump yamllint from 1.27.1 to 1.28.0 [\#63](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/63) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible-lint from 6.5.1 to 6.5.2 [\#62](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/62) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible-lint from 6.4.0 to 6.5.1 [\#61](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/61) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 6.2.0 to 6.3.0 [\#60](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/60) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 6.1.0 to 6.2.0 [\#58](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/58) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible-lint from 6.3.0 to 6.4.0 [\#57](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/57) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Specify molecule-podman dependency explicitly [\#56](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/56) ([tobiashuste](https://github.com/tobiashuste))
+- Bump molecule from 4.0.0 to 4.0.1 [\#55](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/55) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 5.9.0 to 6.1.0 [\#54](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/54) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump yamllint from 1.26.3 to 1.27.1 [\#53](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/53) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.1.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.1.0) (2022-07-01)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.0.0...v1.1.0)
@@ -10,6 +36,7 @@
 
 **Merged pull requests:**
 
+- Release version 1.1.0 [\#52](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/52) ([tobiashuste](https://github.com/tobiashuste))
 - Always use the latest version of geerlingguy.docker dependency [\#49](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/49) ([Normo](https://github.com/Normo))
 
 ## [v1.0.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.0.0) (2022-06-29)
@@ -24,6 +51,11 @@
 - Add support for Debian 11 [\#43](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/43) ([tobiashuste](https://github.com/tobiashuste))
 - Add support for Ubuntu 22.04 [\#41](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/41) ([tobiashuste](https://github.com/tobiashuste))
 - Use molecule-podman instead of molecule-docker [\#37](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/37) ([tobiashuste](https://github.com/tobiashuste))
+
+**Closed issues:**
+
+- Do not install docker dependency automatically [\#47](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/47)
+- Release version 1.0.0 [\#45](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/45)
 
 **Merged pull requests:**
 
@@ -49,6 +81,10 @@
 **Fixed bugs:**
 
 - CI pipeline in forks fails [\#9](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/9)
+
+**Closed issues:**
+
+- Release version 0.6.0 [\#23](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/23)
 
 **Merged pull requests:**
 
