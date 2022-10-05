@@ -11,14 +11,14 @@ dependency:
 driver:
   name: podman
 platforms:
-  - name: instance_gitlab_ci_openstack_1
+  - name: instancegitlabciopenstack1
     image: ${MOLECULE_IMAGE:-ghcr.io/hifis-net/ubuntu-systemd:22.04}
     pre_build_image: true
     override_command: false
     privileged: true  # Required to run Docker in Podman
     systemd: true
     tty: true
-  - name: instance_gitlab_ci_openstack_2
+  - name: instancegitlabciopenstack2
     image: ${MOLECULE_IMAGE:-ghcr.io/hifis-net/ubuntu-systemd:22.04}
     pre_build_image: true
     override_command: false
@@ -39,9 +39,9 @@ provisioner:
         vars:
           gitlab_runner_concurrent: 4
     host_vars:
-      instance_gitlab_ci_openstack_1:
-        gitlab_runner_version: "15.3.0"
-        gitlab_runner_deb_file: "https://packages.gitlab.com/runner/gitlab-runner/packages/ubuntu/jammy/gitlab-runner_15.3.0_amd64.deb/download.deb"
+      instancegitlabciopenstack1:
+        gitlab_runner_version: "15.4.0"
+        gitlab_runner_deb_file: "https://packages.gitlab.com/runner/gitlab-runner/packages/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }}/gitlab-runner_{{ gitlab_runner_version }}_amd64.deb/download.deb"
         gitlab_runner_install_docker: true
         gitlab_runner_ssh_public_key: "test_key.pub"
         gitlab_runner_ssh_private_key: "test_key"
@@ -57,8 +57,8 @@ provisioner:
             tags: ["docker", "hifis"]
             locked: True
             limit: 10
-      instance_gitlab_ci_openstack_2:
-        gitlab_runner_version: "15.3.0"
+      instancegitlabciopenstack2:
+        gitlab_runner_version: "15.4.0"
         gitlab_runner_install_docker: false
         gitlab_runner_ssh_public_key: ""
         gitlab_runner_ssh_private_key: ""
