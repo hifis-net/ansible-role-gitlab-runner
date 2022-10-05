@@ -46,6 +46,29 @@ jobs:
       - name: Lint code.
         run: poetry run reuse lint
 
+  iac-scanning:
+    name: Perform Infrastructure as Code Scanning via KICS
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v3
+
+      - name: Create the  results directory
+        run: mkdir -p results-dir
+
+      - name: Perform KICS scan
+        uses: Checkmarx/kics-github-action@v1.6
+        with:
+          path: 'tasks,templates,vars,defaults,files,handlers'
+          output_path: results-dir
+          platform_type: ansible
+          output_formats: 'sarif'
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: results-dir/results.sarif
+
   test:
     name: Run Molecule tests.
     runs-on: ubuntu-22.04
