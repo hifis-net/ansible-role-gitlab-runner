@@ -63,6 +63,7 @@
     - Restart GitLab-Runner
 
 - name: Configure [runners.docker] section
+  when: '"docker" in gitlab_runner.executor'
   block:
     - name: Set default docker image
       ansible.builtin.lineinfile:
@@ -114,9 +115,9 @@
       check_mode: no
       notify:
         - Restart GitLab-Runner
-  when: '"docker" in gitlab_runner.executor'
 
 - name: Configure [runners.machine] section
+  when: 'gitlab_runner.executor == "docker+machine"'
   block:
     - name: "Configure idle count"
       ansible.builtin.lineinfile:
@@ -188,7 +189,6 @@
       check_mode: no
       notify:
         - Restart GitLab-Runner
-  when: 'gitlab_runner.executor == "docker+machine"'
 
 - name: Configure [runners.cache] section
   when: '(gitlab_runner.cache_type | default("")) == "s3"'
