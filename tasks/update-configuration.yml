@@ -17,6 +17,17 @@
   notify:
     - Restart GitLab-Runner
 
+- name: "Set listen_address value"
+  ansible.builtin.lineinfile:
+    dest: "{{ gitlab_runner_config_path }}"
+    regexp: '^(\s*)listen_address =.*'
+    line: 'listen_address = "{{ gitlab_runner_listen_address }}"'
+    state: present
+    insertafter: '^\s*concurrent =.*'
+  check_mode: no
+  notify:
+    - Restart GitLab-Runner
+
 # Isolate runner specific configuration
 - name: Get base64 encoded runner configuration
   ansible.builtin.slurp:

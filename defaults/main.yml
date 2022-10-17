@@ -32,6 +32,8 @@ gitlab_runner_mtu: 1450
 
 gitlab_runner_config_path: "/etc/gitlab-runner/config.toml"
 
+gitlab_runner_listen_address: ""
+
 gitlab_runner_list: []
 
 gitlab_runner_ssh_private_key_path: "/etc/gitlab-runner/gitlab_runner_key"

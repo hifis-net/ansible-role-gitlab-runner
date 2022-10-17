@@ -110,6 +110,14 @@
       register: runners_verify
       failed_when: runners_verify.rc != 0
 
+    - name: "Assert that metrics endpoint is activated"
+      when: "gitlab_runner_listen_address is defined and gitlab_runner_listen_address | length > 0"
+      ansible.builtin.uri:
+        url: "http://{{ gitlab_runner_listen_address }}/metrics"
+        return_content: yes
+      register: "metrics"
+      failed_when: '"# TYPE gitlab_runner_version_info" not in metrics.content'
+
     - name: Unregister GitLab-Runner
       ansible.builtin.command: gitlab-runner unregister --all-runners
       changed_when: false
