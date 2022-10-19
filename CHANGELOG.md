@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.3.1](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.3.1) (2022-10-19)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.3.0...v1.3.1)
+
+**Fixed bugs:**
+
+- Fix touching the runner configuration in check mode [\#88](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/88) ([tobiashuste](https://github.com/tobiashuste))
+
 ## [v1.3.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.3.0) (2022-10-19)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.2.0...v1.3.0)
@@ -10,6 +18,7 @@
 
 **Merged pull requests:**
 
+- Prepare release of version 1.3.0 [\#85](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/85) ([tobiashuste](https://github.com/tobiashuste))
 - Bump molecule from 4.0.1 to 4.0.2 [\#84](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/84) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Allow to configure the listen\_address [\#83](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/83) ([tobiashuste](https://github.com/tobiashuste))
 - Bump ansible-lint from 6.8.1 to 6.8.2 [\#81](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/81) ([dependabot[bot]](https://github.com/apps/dependabot))
