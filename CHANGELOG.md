@@ -1,5 +1,22 @@
 # Changelog
 
+## [v1.3.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.3.0) (2022-10-19)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.2.0...v1.3.0)
+
+**Implemented enhancements:**
+
+- Allow to configure the listen\_address option [\#82](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/82)
+
+**Merged pull requests:**
+
+- Bump molecule from 4.0.1 to 4.0.2 [\#84](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/84) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Allow to configure the listen\_address [\#83](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/83) ([tobiashuste](https://github.com/tobiashuste))
+- Bump ansible-lint from 6.8.1 to 6.8.2 [\#81](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/81) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 6.4.0 to 6.5.0 [\#80](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/80) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible-lint from 6.7.0 to 6.8.1 [\#79](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/79) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Add codeowners [\#77](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/77) ([tobiashuste](https://github.com/tobiashuste))
+
 ## [v1.2.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.2.0) (2022-10-05)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.1.0...v1.2.0)
@@ -10,6 +27,7 @@
 
 **Merged pull requests:**
 
+- Prepare release of version 1.2.0 [\#74](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/74) ([tobiashuste](https://github.com/tobiashuste))
 - Fix GitHub Actions tests [\#72](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/72) ([tobiashuste](https://github.com/tobiashuste))
 - Bump molecule-podman from 2.0.2 to 2.0.3 [\#70](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/70) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump ansible-lint from 6.6.0 to 6.7.0 [\#69](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/69) ([dependabot[bot]](https://github.com/apps/dependabot))
