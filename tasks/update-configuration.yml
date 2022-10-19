@@ -13,7 +13,6 @@
     line: '\1concurrent = {{ gitlab_runner_concurrent }}'
     state: present
     backrefs: yes
-  check_mode: no
   notify:
     - Restart GitLab-Runner
 
@@ -24,7 +23,6 @@
     line: 'listen_address = "{{ gitlab_runner_listen_address }}"'
     state: present
     insertafter: '^\s*concurrent =.*'
-  check_mode: no
   notify:
     - Restart GitLab-Runner
 
