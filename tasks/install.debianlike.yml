@@ -38,14 +38,14 @@
         filename: gitlab-runner
         update_cache: yes
 
-    - name: Use APT pinning for Debian os
-      ansible.builtin.copy:
-        src: pin-gitlab-runner.pref
-        dest: /etc/apt/preferences.d/pin-gitlab-runner.pref
-        owner: root
-        group: root
+    - name: "Use APT pinning for Debian os"
+      ansible.builtin.template:
+        src: "pin-gitlab-runner.pref.j2"
+        dest: "/etc/apt/preferences.d/pin-gitlab-runner.pref"
+        owner: "root"
+        group: "root"
         mode: '0644'
-      when: ansible_distribution == 'Debian'
+      when: "ansible_distribution == 'Debian'"
 
     - name: Install gitlab-runner
       ansible.builtin.apt:
