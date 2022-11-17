@@ -55,6 +55,9 @@ provisioner:
             docker_security_opts: ["seccomp=unconfined"]
             docker_volumes: ["/cache", "/certs/client"]
             docker_devices: ["/dev/kfd", "/dev/dri"]
+            docker_cpus: 2
+            docker_gpus: "all"
+            docker_memory: "2g"
             docker_image: "python:3.8"
             tags: ["docker", "hifis"]
             locked: True

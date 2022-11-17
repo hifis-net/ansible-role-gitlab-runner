@@ -135,6 +135,39 @@
       check_mode: no
       notify:
         - Restart GitLab-Runner
+    - name: "Configure cpus parameter"
+      when: "gitlab_runner.docker_cpus is defined"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)cpus =.*'
+        line: '\1cpus = {{ gitlab_runner.docker_cpus }}'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: "Configure memory parameter"
+      when: "gitlab_runner.docker_memory is defined"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)memory =.*'
+        line: '\1memory = {{ gitlab_runner.docker_memory }}'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
+    - name: "Configure gpus parameter"
+      when: "gitlab_runner.docker_gpus is defined"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)gpus =.*'
+        line: '\1gpus = {{ gitlab_runner.docker_gpus }}'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner        
 
 - name: Configure [runners.machine] section
   when: 'gitlab_runner.executor == "docker+machine"'
