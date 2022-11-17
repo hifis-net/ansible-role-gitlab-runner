@@ -169,6 +169,9 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `docker_devices`          | `["/dev/kfd", "/dev/dri"]`      | Add a host device to the container. Same syntax as the Docker `--device` flag.                         |
 | `docker_volumes`          | `["/cache", "/certs/client"]`   | Additional volumes that should be mounted. Same syntax as the Docker -v flag.                          |
 | `docker_shm_size`         | `2147483648`                    | Shared memory size for images (in bytes). Default is 0 resulting in a fallback to the Docker default.  |
+| `docker_cpus`             | `2`                             | Number of CPUs. Unset by default.                                                                      |
+| `docker_memory`           | `2g`                            | Docker container memory limit. Unset by default.                                                       |
+| `docker_gpus`             | `all`                           | Specify GPUs to make available in Docker containers. Unset by default.                                 |
 | `docker_privileged`       | `False`                         | Specify, if the container runs in privileged mode (insecure). Default is `False`.                      |
 | `docker_tls_verify`       | `True`                          | Specify, if TLS connections to the Docker daemon should be verified. Default is `False`.               |
 | `run_untagged`            | `False`                         | Specify, if the runner can run jobs without tags.                                                      |
