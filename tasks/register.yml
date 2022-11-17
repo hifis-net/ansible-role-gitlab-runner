@@ -31,6 +31,9 @@
     --docker-privileged="{{ gitlab_runner.docker_privileged | default(false) }}"
     --docker-tlsverify="{{ gitlab_runner.docker_tls_verify | default(false) }}"
     --docker-shm-size="{{ gitlab_runner.docker_shm_size | default(0) }}"
+    {% for security_opt in gitlab_runner.docker_security_opts | default([]) %}
+    --docker-security-opt "{{ security_opt }}"
+    {% endfor %}
     {% for device in gitlab_runner.docker_devices | default([]) %}
     --docker-devices "{{ device }}"
     {% endfor %}

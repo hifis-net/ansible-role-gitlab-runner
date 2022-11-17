@@ -95,6 +95,16 @@
       check_mode: no
       notify:
         - Restart GitLab-Runner
+    - name: "Configure docker security options"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)security_opts =.*'
+        line: '\1security_opts = {{ gitlab_runner.docker_security_opts | default([]) | to_json }}'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
     - name: "Configure docker devices"
       ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"

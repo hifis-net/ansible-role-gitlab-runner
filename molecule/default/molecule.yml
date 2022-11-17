@@ -52,6 +52,7 @@ provisioner:
             registration_token: ${REGISTRATION_TOKEN}
             executor: "docker"
             environment: ["CI_CPUS=8", "DOCKER_TLS_CERTDIR=/certs"]
+            docker_security_opts: ["seccomp=unconfined"]
             docker_volumes: ["/cache", "/certs/client"]
             docker_devices: ["/dev/kfd", "/dev/dri"]
             docker_image: "python:3.8"
