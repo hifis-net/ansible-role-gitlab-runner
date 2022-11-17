@@ -31,7 +31,7 @@
     --docker-privileged="{{ gitlab_runner.docker_privileged | default(false) }}"
     --docker-tlsverify="{{ gitlab_runner.docker_tls_verify | default(false) }}"
     --docker-shm-size="{{ gitlab_runner.docker_shm_size | default(0) }}"
-    {% if gitlab-runner.docker_cpus is defined %}
+    {% if gitlab_runner.docker_cpus is defined %}
     --docker-cpus="{{ gitlab-runner.docker_cpus }}"
     {% endif %}
     {% if gitlab-runner.docker_memory is defined %}
