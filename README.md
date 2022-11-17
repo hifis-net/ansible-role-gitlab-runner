@@ -165,6 +165,7 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `executor`                | `docker`                        | Specify, the runner [executor](https://docs.gitlab.com/runner/executors/#selecting-the-executor).      |
 | `environment`             | `["DOCKER_TLS_CERTDIR=/certs"]` | Append or overwrite environment variables.                                                             |
 | `docker_image`            | `"python:3.8"`                  | Specify the default docker image to be used. Required for `docker` and `docker+machine` executor.      |
+| `docker_devices`          | `["/dev/kfd", "/dev/dri"]`      | Add a host device to the container. Same syntax as the Docker `--device` flag.                         |
 | `docker_volumes`          | `["/cache", "/certs/client"]`   | Additional volumes that should be mounted. Same syntax as the Docker -v flag.                          |
 | `docker_shm_size`         | `2147483648`                    | Shared memory size for images (in bytes). Default is 0 resulting in a fallback to the Docker default.  |
 | `docker_privileged`       | `False`                         | Specify, if the container runs in privileged mode (insecure). Default is `False`.                      |

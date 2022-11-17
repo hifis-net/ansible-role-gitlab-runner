@@ -95,6 +95,16 @@
       check_mode: no
       notify:
         - Restart GitLab-Runner
+    - name: "Configure docker devices"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)devices =.*'
+        line: '\1devices = {{ gitlab_runner.docker_devices | default([]) | to_json }}'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
     - name: "Configure docker volumes"
       ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
