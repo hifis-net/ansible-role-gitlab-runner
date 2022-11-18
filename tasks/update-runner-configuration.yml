@@ -140,7 +140,7 @@
       ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)cpus =.*'
-        line: '\1cpus = {{ gitlab_runner.docker_cpus }}'
+        line: '\1cpus = "{{ gitlab_runner.docker_cpus }}"'
         state: present
         backrefs: yes
       check_mode: no
@@ -151,7 +151,7 @@
       ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)memory =.*'
-        line: '\1memory = {{ gitlab_runner.docker_memory }}'
+        line: '\1memory = "{{ gitlab_runner.docker_memory }}"'
         state: present
         backrefs: yes
       check_mode: no
@@ -162,7 +162,7 @@
       ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)gpus =.*'
-        line: '\1gpus = {{ gitlab_runner.docker_gpus }}'
+        line: '\1gpus = "{{ gitlab_runner.docker_gpus }}"'
         state: present
         backrefs: yes
       check_mode: no

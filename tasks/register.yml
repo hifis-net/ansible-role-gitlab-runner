@@ -38,7 +38,7 @@
     --docker-memory="{{ gitlab_runner.docker_memory }}"
     {% endif %}
     {% if gitlab_runner.docker_gpus is defined %}
-    --docker-cpus="{{ gitlab_runner.docker_gpus }}"
+    --docker-gpus="{{ gitlab_runner.docker_gpus }}"
     {% endif %}
     {% for security_opt in gitlab_runner.docker_security_opts | default([]) %}
     --docker-security-opt "{{ security_opt }}"
