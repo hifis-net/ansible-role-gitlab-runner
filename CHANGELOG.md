@@ -1,5 +1,28 @@
 # Changelog
 
+## [v1.4.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.4.0) (2022-11-18)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.3.1...v1.4.0)
+
+**Implemented enhancements:**
+
+- Allow to configure cpus, memory and gpus [\#99](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/99)
+- Add support for security\_opt and devices [\#97](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/97)
+
+**Fixed bugs:**
+
+- Configuration touched in check mode [\#87](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/87)
+- Fix issues with newly introduced parameter gpu, memory and cpus [\#101](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/101) ([tobiashuste](https://github.com/tobiashuste))
+- Specify version explicitly in Debian apt pinning [\#92](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/92) ([tobiashuste](https://github.com/tobiashuste))
+
+**Merged pull requests:**
+
+- Allow to configure cpus, memory and gpus [\#100](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/100) ([tobiashuste](https://github.com/tobiashuste))
+- Allow to configure docker devices and security\_opts [\#98](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/98) ([tobiashuste](https://github.com/tobiashuste))
+- Bump ansible-lint from 6.8.2 to 6.8.6 [\#95](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/95) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump molecule from 4.0.2 to 4.0.3 [\#93](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/93) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Use setup-python action version 4 [\#91](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/91) ([tobiashuste](https://github.com/tobiashuste))
+
 ## [v1.3.1](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.3.1) (2022-10-19)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.3.0...v1.3.1)
@@ -7,6 +30,10 @@
 **Fixed bugs:**
 
 - Fix touching the runner configuration in check mode [\#88](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/88) ([tobiashuste](https://github.com/tobiashuste))
+
+**Merged pull requests:**
+
+- Prepare release of version 1.3.1 [\#89](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/89) ([tobiashuste](https://github.com/tobiashuste))
 
 ## [v1.3.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.3.0) (2022-10-19)
 

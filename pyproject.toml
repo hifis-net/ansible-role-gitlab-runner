@@ -5,7 +5,7 @@
 
 [tool.poetry]
 name = "gitlab-ci-openstack"
-version = "1.3.1"
+version = "1.4.0"
 description = "This role provides a setup for GitLab CI in Openstack."
 authors = ["Tobias Huste <t.huste@hzdr.de>"]
 license = "Apache-2.0"
