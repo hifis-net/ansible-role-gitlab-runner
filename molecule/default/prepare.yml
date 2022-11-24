@@ -7,7 +7,8 @@
 - name: Prepare
   hosts: all
   tasks:
-    - when: ansible_os_family == 'Debian'
+    - name: Install necessary packages
+      when: ansible_os_family == 'Debian'
       block:
         - name: Install missing dependencies
           ansible.builtin.apt:
@@ -17,7 +18,8 @@
               - ca-certificates   # for Gitlab-Runner download
             state: present
             update_cache: yes
-    - when: ansible_distribution == 'Debian'
+    - name: Set up iptables
+      when: ansible_distribution == 'Debian'
       block:
         - name: "Install missing dependencies"
           ansible.builtin.apt:
