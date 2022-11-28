@@ -27,7 +27,7 @@ platforms:
     tty: true
 lint: |
   yamllint --strict --format colored .
-  ansible-lint -v --force-color --exclude .cache/ .
+  ansible-lint -v --force-color --exclude .cache/ . ./molecule
 provisioner:
   name: ansible
   playbooks:
