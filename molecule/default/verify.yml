@@ -83,7 +83,7 @@
         - gitlab_runner_ssh_private_key | default("") | length > 0
 
     - name: Read flatcar linux config
-      ansible.builtin.command: cat /etc/gitlab-runner/flatcar-linux-config.yml
+      ansible.builtin.command: cat /etc/gitlab-runner/ignition.json
       register: flatcar_linux_config
       changed_when: false
 
