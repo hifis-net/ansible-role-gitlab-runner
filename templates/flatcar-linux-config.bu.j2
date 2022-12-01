@@ -1,9 +1,11 @@
 {#
-# SPDX-FileCopyrightText: 2020 Helmholtz Centre for Environmental Research (UFZ)
-# SPDX-FileCopyrightText: 2020 Helmholtz-Zentrum Dresden - Rossendorf (HZDR)
+# SPDX-FileCopyrightText: 2022 Helmholtz Centre for Environmental Research (UFZ)
+# SPDX-FileCopyrightText: 2022 Helmholtz-Zentrum Dresden - Rossendorf (HZDR)
 #
 # SPDX-License-Identifier: Apache-2.0
 #}
+variant: flatcar
+version: 1.0.0
 passwd:
   users:
     - name: core
@@ -11,16 +13,14 @@ passwd:
         - {{ gitlab_runner_ssh_keypair.public_key }}
 storage:
   files:
-    - filesystem: root
-      path: /etc/resolv.conf
+    - path: /etc/resolv.conf
       mode: 0644
       contents:
         inline: |
 {% for nameserver in gitlab_runner_namerservers %}
           nameserver {{ nameserver }}
 {% endfor %}
-    - filesystem: root
-      path: /opt/docker/daemon.json
+    - path: /opt/docker/daemon.json
       mode: 0644
       contents:
         inline: |
@@ -32,10 +32,20 @@ storage:
 {% endif %}
             "mtu": {{ gitlab_runner_mtu }}
           }
-locksmith:
-  reboot_strategy: "off"
+    - path: /etc/flatcar/update.conf
+      contents:
+        inline: |
+                    REBOOT_STRATEGY=off
+      mode: 0420
 systemd:
   units:
+    - name: docker.service
+      enabled: true
+      dropins:
+        - name: 10-docker-opts.conf
+          contents: |
+            [Service]
+            Environment="DOCKER_OPTS=--mtu={{ gitlab_runner_mtu }}{% if gitlab_runner_registry_mirror is defined %} --registry-mirror={{ gitlab_runner_registry_mirror }}{% endif %}"
     - name: binfmt-init.service
       enabled: true
       contents: |
@@ -54,6 +64,3 @@ systemd:
 
         [Install]
         WantedBy=multi-user.target
-docker:
-  flags:
-    - --mtu={{ gitlab_runner_mtu }}

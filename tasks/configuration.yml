@@ -34,14 +34,14 @@
 - name: Download and install container-linux-config-transpiler
   ansible.builtin.get_url:
     url: "{{ gitlab_runner_transpiler_binary_url }}"
-    dest: /usr/local/bin/ct
+    dest: /usr/local/bin/butane
     mode: "0755"
     checksum: "{{ gitlab_runner_transpiler_binary_checksum }}"
 
 - name: Place the container linux configuration on the host
   ansible.builtin.template:
-    src: flatcar-linux-config.yml.j2
-    dest: /etc/gitlab-runner/flatcar-linux-config.yml
+    src: flatcar-linux-config.bu.j2
+    dest: /etc/gitlab-runner/flatcar-linux-config.bu
     owner: root
     group: root
     mode: 0644
@@ -73,7 +73,7 @@
       check_mode: no
 
     - name: "Dry-run of transpile the flatcar linux configuration"
-      ansible.builtin.command: "ct -in-file /etc/gitlab-runner/flatcar-linux-config.yml -out-file {{ (temp_directory.path, 'ignition.json') | path_join }}"
+      ansible.builtin.command: "butane -o {{ (temp_directory.path, 'ignition.json') | path_join }} /etc/gitlab-runner/flatcar-linux-config.bu"
       changed_when: false
       check_mode: no
 
