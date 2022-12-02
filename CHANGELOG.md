@@ -1,5 +1,24 @@
 # Changelog
 
+## [v1.5.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.5.0) (2022-12-02)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.4.0...v1.5.0)
+
+**Implemented enhancements:**
+
+- Switch to butane instead of container-linux-config-transpiler [\#107](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/107)
+
+**Closed issues:**
+
+- Molecule folder not linted by molecule lint [\#105](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/105)
+
+**Merged pull requests:**
+
+- Bump reuse from 1.0.0 to 1.1.0 [\#109](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/109) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Switch from ct to using butane [\#108](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/108) ([tobiashuste](https://github.com/tobiashuste))
+- Lint folder molecule by molecule lint and fix linting violations [\#106](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/106) ([christianhueserhzdr](https://github.com/christianhueserhzdr))
+- Bump ansible-lint from 6.8.6 to 6.8.7 [\#103](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/103) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.4.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.4.0) (2022-11-18)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.3.1...v1.4.0)
@@ -19,6 +38,7 @@
 
 - Allow to configure cpus, memory and gpus [\#100](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/100) ([tobiashuste](https://github.com/tobiashuste))
 - Allow to configure docker devices and security\_opts [\#98](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/98) ([tobiashuste](https://github.com/tobiashuste))
+- Bump ansible from 6.5.0 to 6.6.0 [\#96](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/96) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump ansible-lint from 6.8.2 to 6.8.6 [\#95](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/95) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump molecule from 4.0.2 to 4.0.3 [\#93](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/93) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Use setup-python action version 4 [\#91](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/91) ([tobiashuste](https://github.com/tobiashuste))
