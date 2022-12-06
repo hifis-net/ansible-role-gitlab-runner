@@ -388,7 +388,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "molecule"
-version = "4.0.3"
+version = "4.0.4"
 description = "Molecule aids in the development and testing of Ansible roles"
 category = "dev"
 optional = false
@@ -777,7 +777,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "1ac7fdf960f8954ba3002bdeabcde8884fbbf99a814eaeb4d897c5f8b236fa0a"
+content-hash = "431f296c152400c2c597bd347b1c929c8b42cb048f38657c53a4cb1a11caa0e8"
 
 [metadata.files]
 ansible = [
@@ -1042,8 +1042,8 @@ markupsafe = [
     {file = "MarkupSafe-2.1.1.tar.gz", hash = "sha256:7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"},
 ]
 molecule = [
-    {file = "molecule-4.0.3-py3-none-any.whl", hash = "sha256:3ddf33a8b3a3fb33b75cf1c31a410834eda42dbc23d6161fbdb7b0e72009f4ce"},
-    {file = "molecule-4.0.3.tar.gz", hash = "sha256:b5a78a77f29f1deecf768dfbffafc21b419d9520123468191438ec4c72eaef69"},
+    {file = "molecule-4.0.4-py3-none-any.whl", hash = "sha256:437a0829c3273f542e0db09516ae743607e6a2eda4d8cbdfb407edda3e0facb2"},
+    {file = "molecule-4.0.4.tar.gz", hash = "sha256:aab00c1ba62a42d77edd1a51528dfbb46abca70df7c7147fda0925ee4fe7deda"},
 ]
 molecule-podman = [
     {file = "molecule-podman-2.0.3.tar.gz", hash = "sha256:cea2eacac54f129824530d35469ddd7bff109a94ebcd8408828af8c0dabf5c7a"},
