@@ -25,10 +25,14 @@ storage:
       contents:
         inline: |
           {
-{% if gitlab_runner_registry_mirror is defined %}
-            "registry-mirrors": [
-              "{{ gitlab_runner_registry_mirror }}"
-            ],
+{% set registry_mirrors_list = [] %}
+{% if gitlab_runner_registry_mirrors is defined %}
+  {% set registry_mirrors_list = gitlab_runner_registry_mirrors %}
+{% elif gitlab_runner_registry_mirror is defined %}
+  {% set registry_mirrors_list = [gitlab_runner_registry_mirror] %}
+{% endif %}
+{% if registry_mirrors_list | length > 0 %}
+            "registry-mirrors": {{ registry_mirrors_list | to_json }},
 {% endif %}
             "mtu": {{ gitlab_runner_mtu }}
           }
@@ -45,7 +49,7 @@ systemd:
         - name: 10-docker-opts.conf
           contents: |
             [Service]
-            Environment="DOCKER_OPTS=--mtu={{ gitlab_runner_mtu }}{% if gitlab_runner_registry_mirror is defined %} --registry-mirror={{ gitlab_runner_registry_mirror }}{% endif %}"
+            Environment="DOCKER_OPTS=--mtu={{ gitlab_runner_mtu }}{% if registry_mirrors_list | length > 0 %}{% for registry_mirror in registry_mirrors_list %} --registry-mirror={{ registry_mirror }}{% endfor %}{% endif %}"
     - name: binfmt-init.service
       enabled: true
       contents: |
