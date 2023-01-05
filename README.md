@@ -109,6 +109,15 @@ gitlab_runner_namerservers:
 The DNS nameservers to be used by the Openstack Flatcar virtual machine.
 
 ```yaml
+gitlab_runner_registry_mirrors:
+  - "https://registry-mirror-1.example"
+  - "https://registry-mirror-2.example"
+```
+
+(Optional) A list of Docker registry mirrors to be used.
+Takes precedence over the `gitlab_runner_registry_mirror` variable.
+
+```yaml
 gitlab_runner_registry_mirror: "https://registry-mirror.example"
 ```
 
@@ -287,7 +296,8 @@ to the list of your runner's `machine_options`.
 `gitlab_runner_mtu` needs to be set to the correct value.
 
 Also you can configure Docker-in-Docker to make use of a registry mirror by
-setting `gitlab_runner_registry_mirror` to the required value.
+setting `gitlab_runner_registry_mirrors` or`gitlab_runner_registry_mirror`
+to the required value.
 This is optional.
 
 To make this all work you finally need to mount a file in your runner volume
