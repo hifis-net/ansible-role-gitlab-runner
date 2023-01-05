@@ -1,5 +1,16 @@
 # Changelog
 
+## [v1.6.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.6.0) (2023-01-05)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.5.0...v1.6.0)
+
+**Merged pull requests:**
+
+- Do not cancel jobs when a matrix job is failing [\#114](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/114) ([tobiashuste](https://github.com/tobiashuste))
+- Allow to define a list of registry mirrors [\#113](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/113) ([tobiashuste](https://github.com/tobiashuste))
+- Bump ansible from 6.6.0 to 6.7.0 [\#112](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/112) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump molecule from 4.0.3 to 4.0.4 [\#111](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/111) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.5.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.5.0) (2022-12-02)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.4.0...v1.5.0)
