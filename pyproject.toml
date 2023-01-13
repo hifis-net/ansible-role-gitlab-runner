@@ -11,7 +11,7 @@ authors = ["Tobias Huste <t.huste@hzdr.de>"]
 license = "Apache-2.0"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 ansible = "^6.7.0"
 
 [tool.poetry.dev-dependencies]
