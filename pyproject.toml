@@ -15,7 +15,7 @@ python = "^3.9"
 ansible = "^7.1.0"
 
 [tool.poetry.dev-dependencies]
-ansible-lint = "^6.8.7"
+ansible-lint = { version = "^6.10.2", markers = "platform_system != 'Windows'" }
 yamllint = "^1.29.0"
 reuse = "^1.1.0"
 molecule = {version = "^4.0.4", extras = ["podman"]}
