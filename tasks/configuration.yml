@@ -26,7 +26,7 @@
         mode: 0600
 
 - name: "Create SSH key pair for communicating with Runners."
-  community.crypto.openssh_keypair:
+  community.crypto.openssh_keypair:  # noqa: args[module]
     path: "{{ gitlab_runner_ssh_private_key_path }}"
     type: "{{ gitlab_runner_ssh_key_type | default('ed25519') }}"
   register: gitlab_runner_ssh_keypair
