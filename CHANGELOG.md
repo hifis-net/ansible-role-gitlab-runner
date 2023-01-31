@@ -1,5 +1,22 @@
 # Changelog
 
+## [v1.6.1](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.6.1) (2023-01-31)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.6.0...v1.6.1)
+
+**Fixed bugs:**
+
+- Butane download link not valid for arm64 architecture [\#121](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/121)
+- Download correct binaries for non x86\_64 architectures [\#122](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/122) ([tobiashuste](https://github.com/tobiashuste))
+
+**Merged pull requests:**
+
+- Bump ansible-lint from 6.10.2 to 6.11.0 [\#120](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/120) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Update ansible-lint by using workaround [\#119](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/119) ([tobiashuste](https://github.com/tobiashuste))
+- Bump ansible from 6.7.0 to 7.1.0 [\#118](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/118) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Require at least Python 3.9 to support the latest Ansible [\#117](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/117) ([tobiashuste](https://github.com/tobiashuste))
+- Bump yamllint from 1.28.0 to 1.29.0 [\#116](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/116) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.6.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.6.0) (2023-01-05)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.5.0...v1.6.0)
