@@ -1026,14 +1026,14 @@ test = ["commentjson", "packaging", "pytest"]
 
 [[package]]
 name = "reuse"
-version = "1.1.0"
+version = "1.1.2"
 description = "reuse is a tool for compliance with the REUSE recommendations."
 category = "dev"
 optional = false
 python-versions = ">=3.6.2,<4.0.0"
 files = [
-    {file = "reuse-1.1.0-cp311-cp311-manylinux_2_36_x86_64.whl", hash = "sha256:b0f3fb9091ff513af04b555d14a4c529ab05f6a575ab192dd9b68244f1e0721d"},
-    {file = "reuse-1.1.0.tar.gz", hash = "sha256:7a054f6e372ad02d0b1b07368030fc38746b50ed45f5422a81994e7a88b52f1f"},
+    {file = "reuse-1.1.2-cp311-cp311-manylinux_2_36_x86_64.whl", hash = "sha256:d3cf6981e9b2855845a0cf323526fd1cde94a640ea1d8dce22d4156788b282bc"},
+    {file = "reuse-1.1.2.tar.gz", hash = "sha256:80eb6e5ab5f73c784b5a9153e61a282045f6f9292124e1b55d4a7265dbad4246"},
 ]
 
 [package.dependencies]
@@ -1273,4 +1273,4 @@ setuptools = "*"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "8fe0a623a804b5cf70b5baa8f9b86025a159d7b2b9ec48ef7d1a2ef782c90fea"
+content-hash = "13bce409b81047f393aad6750ab1d0dd7fcaf18ba124bbb768144220a4821a99"
