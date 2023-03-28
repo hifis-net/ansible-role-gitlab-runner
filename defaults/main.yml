@@ -14,9 +14,9 @@ gitlab_gpg_key_id: "F6403F6544A38863DAA0B6E03F01618A51312F3F"
 
 gitlab_gpg_old_key_ids: []
 
-gitlab_runner_docker_machine_binary_url: "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/releases/v0.16.2-gitlab.15/downloads/docker-machine-Linux-{{ ansible_architecture }}"
+gitlab_runner_docker_machine_binary_url: "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/releases/v0.16.2-gitlab.20/downloads/docker-machine-Linux-{{ ansible_architecture }}"
 
-gitlab_runner_docker_machine_binary_checksum: "sha256:dc92e2d2a293d66545eb0719d4816d5ebc7ac9ba5495823bbf4eb01c6da37a6e"
+gitlab_runner_docker_machine_binary_checksum: "sha256:4eb1bdf119496d35fd6f61be8235343919563ef16865aace390e6837aafee25a"
 
 gitlab_runner_transpiler_binary_url: "https://github.com/coreos/butane/releases/download/v0.17.0/butane-{{ ansible_architecture }}-unknown-linux-gnu"
 
