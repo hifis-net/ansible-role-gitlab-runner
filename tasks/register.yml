@@ -71,5 +71,6 @@
     {% endif %}
   when: gitlab_runner.name not in configured_runners.stderr
   no_log: True
+  changed_when: True
 
 ...
