@@ -88,13 +88,13 @@ The checksum of the downloaded docker-machine binary. This must correspond to th
 ### Flatcar Linux configuration
 
 ```yaml
-gitlab_runner_transpiler_binary_url: https://github.com/coreos/container-linux-config-transpiler/releases/download/v0.9.0/ct-v0.9.0-x86_64-unknown-linux-gnu
+gitlab_runner_transpiler_binary_url: "https://github.com/coreos/butane/releases/download/v0.17.0/butane-{{ ansible_architecture }}-unknown-linux-gnu"
 ```
 
 The URL to the configuration transpiler binary that shall be used.
 
 ```yaml
-gitlab_runner_transpiler_binary_checksum: "sha256:31f4c3bd2219ba82b743bcbb4afab34a3e11e8a6512cefef407d9b6da0192adb"
+gitlab_runner_transpiler_binary_checksum: "sha256:ce0df25ade8a9b5f570636281897479af06894d9f2e10aa07ae211231503ce1d"
 ```
 
 The checksum of the download transpiler binary. This must correspond to the file
