@@ -1,5 +1,26 @@
 # Changelog
 
+## [v1.7.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.7.0) (2023-03-30)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.6.1...v1.7.0)
+
+**Closed issues:**
+
+- Use Butane 0.17.0 by default [\#139](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/139)
+- Update default docker-machine binary [\#137](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/137)
+
+**Merged pull requests:**
+
+- Bump ansible from 7.3.0 to 7.4.0 [\#141](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/141) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Use Butane 0.17.0 per default [\#140](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/140) ([tobiashuste](https://github.com/tobiashuste))
+- Use Docker-Machine v0.16.2-gitlab.20 by default [\#138](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/138) ([tobiashuste](https://github.com/tobiashuste))
+- Bump ansible-lint from 6.12.2 to 6.14.3 [\#136](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/136) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump yamllint from 1.29.0 to 1.30.0 [\#135](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/135) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 7.2.0 to 7.3.0 [\#131](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/131) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible-lint from 6.11.0 to 6.12.2 [\#128](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/128) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump reuse from 1.1.0 to 1.1.2 [\#127](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/127) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 7.1.0 to 7.2.0 [\#125](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/125) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.6.1](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.6.1) (2023-01-31)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.6.0...v1.6.1)
