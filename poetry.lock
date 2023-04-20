@@ -702,37 +702,34 @@ files = [
 
 [[package]]
 name = "molecule"
-version = "4.0.4"
+version = "5.0.0"
 description = "Molecule aids in the development and testing of Ansible roles"
 category = "dev"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 files = [
-    {file = "molecule-4.0.4-py3-none-any.whl", hash = "sha256:437a0829c3273f542e0db09516ae743607e6a2eda4d8cbdfb407edda3e0facb2"},
-    {file = "molecule-4.0.4.tar.gz", hash = "sha256:aab00c1ba62a42d77edd1a51528dfbb46abca70df7c7147fda0925ee4fe7deda"},
+    {file = "molecule-5.0.0-py3-none-any.whl", hash = "sha256:dda35ac90cde6e7a9741779e8a78b911a3f39ca5a33dd3ee33429aa62253fba7"},
+    {file = "molecule-5.0.0.tar.gz", hash = "sha256:6238023d90b5c3392714686849776f42a049d9f3e44075d36ead9f8ff88c260d"},
 ]
 
 [package.dependencies]
 ansible-compat = ">=2.2.0"
+ansible-core = ">=2.12.10"
 click = ">=8.0,<9"
 click-help-colors = ">=0.9"
 cookiecutter = ">=1.7.3"
 enrich = ">=1.2.7"
 Jinja2 = ">=2.11.3"
 jsonschema = ">=4.9.1"
-molecule-podman = {version = ">=1.0.1", optional = true, markers = "extra == \"podman\""}
 packaging = "*"
 pluggy = ">=0.7.1,<2.0"
 PyYAML = ">=5.1"
 rich = ">=9.5.1"
 
 [package.extras]
-docker = ["molecule-docker (>=1.0.0)"]
-docs = ["Sphinx (>=5.0.0,<6.0.0)", "ansible-core (>=2.12.0)", "jinja2 (<3.2.0)", "simplejson (>=3.17.2)", "sphinx-ansible-theme (>=0.8.0,<0.10.0)", "sphinx-notfound-page (>=0.7.1)"]
-lint = ["check-jsonschema (>=0.18.3)", "flake8 (>=3.8.4)", "jsonschema (>=4.16.0)", "pre-commit (>=2.10.1)", "yamllint"]
-podman = ["molecule-podman (>=1.0.1)"]
-test = ["ansi2html (>=1.6.0)", "coverage (>=6.2)", "filelock", "pexpect (>=4.8.0,<5)", "pytest (>=6.1.2)", "pytest-cov (>=2.10.1)", "pytest-html (>=3.0.0)", "pytest-mock (>=3.3.1)", "pytest-plus (>=0.2)", "pytest-testinfra (>=6.1.0)", "pytest-xdist (>=2.1.0)"]
-windows = ["pywinrm"]
+docs = ["mkdocs-ansible[lock] (>=0.1.4)", "pipdeptree (>=2.4.0)"]
+lock = ["ansible-compat (==3.0.2)", "ansible-core (==2.14.4)", "arrow (==1.2.3)", "attrs (==23.1.0)", "binaryornot (==0.4.4)", "certifi (==2022.12.7)", "cffi (==1.15.1)", "chardet (==5.1.0)", "charset-normalizer (==3.1.0)", "click (==8.1.3)", "click-help-colors (==0.9.1)", "cookiecutter (==2.1.1)", "cryptography (==40.0.2)", "enrich (==1.2.7)", "idna (==3.4)", "jinja2 (==3.1.2)", "jinja2-time (==0.2.0)", "jsonschema (==4.17.3)", "markdown-it-py (==2.2.0)", "markupsafe (==2.1.2)", "mdurl (==0.1.2)", "packaging (==23.1)", "pluggy (==1.0.0)", "pycparser (==2.21)", "pygments (==2.15.1)", "pyrsistent (==0.19.3)", "python-dateutil (==2.8.2)", "python-slugify (==8.0.1)", "pyyaml (==6.0)", "requests (==2.28.2)", "resolvelib (==0.8.1)", "rich (==13.3.4)", "six (==1.16.0)", "subprocess-tee (==0.4.1)", "text-unidecode (==1.3)", "urllib3 (==1.26.15)"]
+test = ["ansi2html (>=1.8.0)", "ansible-lint (>=6.12.1)", "check-jsonschema", "coverage (>=7.0.3)", "filelock (>=3.9.0)", "pexpect (>=4.8.0,<5)", "pytest (>=7.2.0)", "pytest-mock (>=3.10.0)", "pytest-plus (>=0.4.0)", "pytest-testinfra (>=7.0.0)", "pytest-xdist (>=3.1.0)"]
 
 [[package]]
 name = "molecule-podman"
@@ -1274,4 +1271,4 @@ setuptools = "*"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "67f38c2eba23b453d78c5dd366aff91ed65d7f9f310ca5a7bff3a12025b22324"
+content-hash = "c2e29d7232289d90d86e79505744023ce631b2481cbf12f24acc9dc21a456644"
