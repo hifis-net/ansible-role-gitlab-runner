@@ -31,7 +31,9 @@ jobs:
         uses: ./.github/workflows/prepare-action
 
       - name: Lint code.
-        run: poetry run molecule lint
+        run: |
+          poetry run yamllint --strict --format colored .
+          poetry run ansible-lint -v --force-color --exclude .cache/ . ./molecule
 
   license_compliance:
     name: Check license compliance with reuse.
