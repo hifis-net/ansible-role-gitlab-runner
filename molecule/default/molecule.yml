@@ -25,9 +25,6 @@ platforms:
     privileged: true  # Required to run Docker in Podman
     systemd: true
     tty: true
-lint: |
-  yamllint --strict --format colored .
-  ansible-lint -v --force-color --exclude .cache/ . ./molecule
 provisioner:
   name: ansible
   playbooks:
