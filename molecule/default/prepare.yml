@@ -16,6 +16,7 @@
               - sudo              # for `become` privilege escalation
               - iproute2          # for gathering network facts
               - ca-certificates   # for Gitlab-Runner download
+              - gpg
             state: present
             update_cache: yes
     - name: Set up iptables

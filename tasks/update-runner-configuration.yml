@@ -5,65 +5,70 @@
 
 ---
 
-- name: Set concurrent limit value
-  ansible.builtin.lineinfile:
-    dest: "{{ tmp_runner_config_file.path }}"
-    regexp: '^\s*limit =.*'
-    line: '  limit = {{ gitlab_runner.limit | default(0) }}'
-    state: present
-    insertafter: '^\s*name ='
-    backrefs: no
-  check_mode: no
-  notify:
-    - Restart GitLab-Runner
+- name: Configure global section
+  when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
+  block:
+    - name: Set concurrent limit value
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^\s*limit =.*'
+        line: '  limit = {{ gitlab_runner.limit | default(0) }}'
+        state: present
+        insertafter: '^\s*name ='
+        backrefs: no
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
 
-- name: Set output_limit value
-  ansible.builtin.lineinfile:
-    dest: "{{ tmp_runner_config_file.path }}"
-    regexp: '^\s*output_limit =.*'
-    line: '  output_limit = {{ gitlab_runner.output_limit | default(4096) }}'
-    state: present
-    insertafter: '^\s*limit ='
-    backrefs: no
-  check_mode: no
-  notify:
-    - Restart GitLab-Runner
+    - name: Set output_limit value
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^\s*output_limit =.*'
+        line: '  output_limit = {{ gitlab_runner.output_limit | default(4096) }}'
+        state: present
+        insertafter: '^\s*limit ='
+        backrefs: no
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
 
-- name: Set url value
-  ansible.builtin.lineinfile:
-    dest: "{{ tmp_runner_config_file.path }}"
-    regexp: '^(\s*)url =.*'
-    line: '\1url = "{{ gitlab_runner.url }}"'
-    state: present
-    backrefs: yes
-  check_mode: no
-  notify:
-    - Restart GitLab-Runner
+    - name: Set url value
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)url =.*'
+        line: '\1url = "{{ gitlab_runner.url }}"'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
 
-- name: Set executor value
-  ansible.builtin.lineinfile:
-    dest: "{{ tmp_runner_config_file.path }}"
-    regexp: '^(\s*)executor =.*'
-    line: '\1executor = "{{ gitlab_runner.executor }}"'
-    state: present
-    backrefs: yes
-  check_mode: no
-  notify:
-    - Restart GitLab-Runner
+    - name: Set executor value
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)executor =.*'
+        line: '\1executor = "{{ gitlab_runner.executor }}"'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
 
-- name: "Configure environment variables"
-  ansible.builtin.lineinfile:
-    dest: "{{ tmp_runner_config_file.path }}"
-    regexp: '^(\s*)environment =.*'
-    line: '\1environment = {{ gitlab_runner.environment | default([]) | to_json }}'
-    state: present
-    backrefs: yes
-  check_mode: no
-  notify:
-    - Restart GitLab-Runner
+    - name: "Configure environment variables"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)environment =.*'
+        line: '\1environment = {{ gitlab_runner.environment | default([]) | to_json }}'
+        state: present
+        backrefs: yes
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
 
 - name: Configure [runners.docker] section
-  when: '"docker" in gitlab_runner.executor'
+  when:
+    - '"docker" in gitlab_runner.executor'
+    - "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
   block:
     - name: Set default docker image
       ansible.builtin.lineinfile:
@@ -170,7 +175,9 @@
         - Restart GitLab-Runner        
 
 - name: Configure [runners.machine] section
-  when: 'gitlab_runner.executor == "docker+machine"'
+  when:
+    - 'gitlab_runner.executor == "docker+machine"'
+    - "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
   block:
     - name: "Configure idle count"
       ansible.builtin.lineinfile:
@@ -244,7 +251,9 @@
         - Restart GitLab-Runner
 
 - name: Configure [runners.cache] section
-  when: '(gitlab_runner.cache_type | default("")) == "s3"'
+  when:
+    - '(gitlab_runner.cache_type | default("")) == "s3"'
+    - "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
   block:
     - name: Configure cache type
       ansible.builtin.lineinfile:

@@ -52,6 +52,7 @@
         name: "{{ gitlab_runner_package_name }}"
         state: present
         update_cache: yes
+      when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
 
 - name: Gather the package facts
   ansible.builtin.package_facts:
