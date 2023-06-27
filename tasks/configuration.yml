@@ -30,6 +30,7 @@
     path: "{{ gitlab_runner_ssh_private_key_path }}"
     type: "{{ gitlab_runner_ssh_key_type | default('ed25519') }}"
   register: gitlab_runner_ssh_keypair
+  when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
 
 - name: Download and install container-linux-config-transpiler
   ansible.builtin.get_url:
@@ -46,6 +47,7 @@
     group: root
     mode: 0644
   register: "flatcar_config_task"
+  when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
   notify:
     - "Transpile the flatcar linux configuration"
 

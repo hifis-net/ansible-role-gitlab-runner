@@ -112,3 +112,18 @@ provisioner:
             cache_insecure: "false"
 verifier:
   name: ansible
+scenario:
+  name: default
+  test_sequence:
+    - destroy
+    - dependency
+    - syntax
+    - create
+    - prepare
+    - check
+    - converge
+    - idempotence
+    - check
+    - side_effect
+    - verify
+    - destroy

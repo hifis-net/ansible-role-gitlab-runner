@@ -13,6 +13,7 @@
     line: '\1concurrent = {{ gitlab_runner_concurrent }}'
     state: present
     backrefs: yes
+  when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
   notify:
     - Restart GitLab-Runner
 
@@ -23,6 +24,7 @@
     line: 'listen_address = "{{ gitlab_runner_listen_address }}"'
     state: present
     insertafter: '^\s*concurrent =.*'
+  when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
   notify:
     - Restart GitLab-Runner
 
@@ -31,6 +33,7 @@
   ansible.builtin.slurp:
     src: "{{ gitlab_runner_config_path }}"
   register: runner_config_base64
+  when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
 
 - name: "Create a temporary working directory"
   ansible.builtin.tempfile:
@@ -39,14 +42,17 @@
   register: tmp_runner_config_dir
   check_mode: no
   changed_when: false
+  when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
 
 - name: "Split runner configuration"
   ansible.builtin.set_fact:
     runner_configs: "{{ (runner_config_base64['content'] | b64decode).split('[[runners]]\n') }}"
+  when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
 
 - name: "Update configuration for each runner individually"
   ansible.builtin.include_tasks: separate-runner-configuration.yml
   no_log: true
+  when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
   loop: "{{ runner_configs }}"
   loop_control:
     loop_var: runner_config
@@ -62,5 +68,6 @@
     owner: "{{ gitlab_runner_config_owner | default('root') }}"
     group: "{{ gitlab_runner_config_group | default('root') }}"
     mode: 0600
+  when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
 
 ...
