@@ -12,6 +12,7 @@ SPDX-License-Identifier: Apache-2.0
 [![Ansible Galaxy Role](https://img.shields.io/ansible/role/55703?color=orange)](https://galaxy.ansible.com/hifis/gitlab_runner)
 [![Ansible Galaxy Quality Score](https://img.shields.io/ansible/quality/55703)](https://galaxy.ansible.com/hifis/gitlab_runner)
 [![GitLab Release (latest by SemVer)](https://img.shields.io/github/v/release/hifis-net/ansible-role-gitlab-runner?color=blue&sort=semver)](https://github.com/hifis-net/ansible-role-gitlab-runner/releases)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8090043.svg)](https://doi.org/10.5281/zenodo.8090043)
 
 This Ansible role provides a setup for GitLab CI in Openstack.
 
@@ -26,45 +27,59 @@ None.
 ```yaml
 gitlab_runner_version: 16.1.0
 ```
-
 The version of GitLab-Runner to install.
 
 ```yaml
 gitlab_runner_apt_repo: "deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main"
 ```
-
-If this is specified the package will be installed from a `.deb`-file.
-If `://` is in the path, Ansible will attempt to download deb before installing.
+The repository URL where to install the packages from.
 
 ```yaml
 gitlab_runner_deb_file: ""
 ```
-
-Identifier of GPG key that was used to sign the packages.
+If this is specified the package will be installed from a `.deb`-file.
+If `://` is in the path, Ansible will attempt to download deb before installing.
 
 ```yaml
 gitlab_gpg_key_id: "F6403F6544A38863DAA0B6E03F01618A51312F3F"
 ```
+Identifier of GPG key that was used to sign the packages.
 
-A list to specify expired GPG keys that should be absent.
 
 ```yaml
 gitlab_gpg_old_key_ids: []
 ```
-
-The repository URL where to install the packages from.
+A list to specify expired GPG keys that should be absent.
 
 ```yaml
 gitlab_runner_concurrent: 1
 ```
-
 Limits how many jobs can run concurrently. The maximum number is all defined runners.
 `0` does not mean unlimited.
 
 ```yaml
+gitlab_runner_enable_session_server: false
+```
+Boolean flag to control whether the session_server should be configured.
+
+```yaml
+gitlab_runner_session_server_listen_address: "0.0.0.0:8093"
+```
+An internal URL (`host:port`) for the session server.
+
+```yaml
+gitlab_runner_session_server_advertise_address: "0.0.0.0:8093"
+```
+The URL (`host:port`) to access the session server. GitLab Runner exposes it to GitLab.
+
+```yaml
+gitlab_runner_session_server_timeout: 1800
+```
+Number of seconds the session can stay active after the job completes.
+
+```yaml
 gitlab_runner_install_docker: true
 ```
-
 Decide wether to install Docker via
 [geerlingguy.docker](https://galaxy.ansible.com/geerlingguy/docker) role.
 Docker is required for the `docker` executor but not for the

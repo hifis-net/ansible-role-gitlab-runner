@@ -20,11 +20,50 @@
 - name: "Set listen_address value"
   ansible.builtin.lineinfile:
     dest: "{{ gitlab_runner_config_path }}"
-    regexp: '^(\s*)listen_address =.*'
+    regexp: '^listen_address =.*'
     line: 'listen_address = "{{ gitlab_runner_listen_address }}"'
     state: present
     insertafter: '^\s*concurrent =.*'
   when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
+  notify:
+    - Restart GitLab-Runner
+
+- name: "Set session_server listen_address value"
+  ansible.builtin.lineinfile:
+    dest: "{{ gitlab_runner_config_path }}"
+    regexp: '^\[session_server\]\n(\s*)listen_address =.*'
+    line: '  listen_address = "{{ gitlab_runner_session_server_listen_address }}"'
+    state: present
+    insertbefore: '^\s*session_timeout =.*'
+  when:
+    - "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
+    - "gitlab_runner_enable_session_server"
+  notify:
+    - Restart GitLab-Runner
+
+- name: "Set session_server advertise_address value"
+  ansible.builtin.lineinfile:
+    dest: "{{ gitlab_runner_config_path }}"
+    regexp: '^(\s*)advertise_address =.*'
+    line: '  advertise_address = "{{ gitlab_runner_session_server_advertise_address }}"'
+    state: present
+    insertbefore: '^  session_timeout = .*'
+  when:
+    - "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
+    - "gitlab_runner_enable_session_server"
+  notify:
+    - Restart GitLab-Runner
+
+- name: "Set session_server session_timeout value"
+  ansible.builtin.lineinfile:
+    dest: "{{ gitlab_runner_config_path }}"
+    regexp: '^(\s*)session_timeout =.*'
+    line: '\1session_timeout = {{ gitlab_runner_session_server_timeout }}'
+    backrefs: yes
+    state: present
+  when:
+    - "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
+    - "gitlab_runner_enable_session_server"
   notify:
     - Restart GitLab-Runner
 
