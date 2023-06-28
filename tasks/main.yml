@@ -41,8 +41,9 @@
 - name: "Include tasks to register the runner"
   ansible.builtin.include_tasks: register.yml
   when:
-    - gitlab_runner.registration_token | default('')
-    - gitlab_runner.registration_token | length > 0
+    - "not gitlab_runner_is_initial_dryrun"
+    - "gitlab_runner.registration_token | default('')"
+    - "gitlab_runner.registration_token | length > 0"
   no_log: true
   loop: "{{ gitlab_runner_list }}"
   loop_control:
