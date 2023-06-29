@@ -33,7 +33,7 @@ jobs:
       - name: Lint code.
         run: |
           poetry run yamllint --strict --format colored .
-          poetry run ansible-lint -v --force-color --exclude .cache/ . ./molecule
+          poetry run ansible-lint -v --force-color --exclude=.cache/ . ./molecule
 
   license_compliance:
     name: Check license compliance with reuse.
