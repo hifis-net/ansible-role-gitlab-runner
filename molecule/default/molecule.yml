@@ -45,6 +45,7 @@ provisioner:
         gitlab_runner_registry_mirrors:
           - "https://registry-mirror1.example"
           - "https://registry-mirror2.example"
+        gitlab_runner_enable_session_server: true
         gitlab_runner_list:
           - name: "test01"
             url: "https://gitlab.com"
