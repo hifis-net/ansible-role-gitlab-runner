@@ -1,5 +1,45 @@
 # Changelog
 
+## [v1.8.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.8.0) (2023-07-03)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.7.0...v1.8.0)
+
+**Implemented enhancements:**
+
+- Add support for Debian 12 [\#168](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/168)
+- Add support for session\_server config  [\#165](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/165)
+- Errors on first run in check\_mode [\#159](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/159)
+- feat: add support for Debian 12 [\#170](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/170) ([tobiashuste](https://github.com/tobiashuste))
+- feat: add initial dry-run support [\#158](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/158) ([Normo](https://github.com/Normo))
+
+**Fixed bugs:**
+
+- fix: skip registration tasks in initial dry run [\#166](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/166) ([tobiashuste](https://github.com/tobiashuste))
+
+**Closed issues:**
+
+- Remove official support for unsupported Ansible versions [\#172](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/172)
+- Remove official support for Ubuntu 18.04 [\#167](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/167)
+- Provide citation metadata [\#160](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/160)
+
+**Merged pull requests:**
+
+- chore: update ansible-lint and update poetry reference [\#174](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/174) ([tobiashuste](https://github.com/tobiashuste))
+- chore: set minimum ansible version to 2.13 [\#173](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/173) ([Normo](https://github.com/Normo))
+- feat: enable session\_server configuration [\#171](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/171) ([Normo](https://github.com/Normo))
+- chore!: drop official support for Ubuntu 18.04 [\#169](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/169) ([tobiashuste](https://github.com/tobiashuste))
+- Bump ansible-lint from 6.15.0 to 6.17.0 [\#164](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/164) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump molecule from 5.0.1 to 5.1.0 [\#163](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/163) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 8.0.0 to 8.1.0 [\#162](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/162) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore: add CITATION.cff [\#161](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/161) ([Normo](https://github.com/Normo))
+- Bump ansible from 7.4.0 to 8.0.0 [\#157](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/157) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump yamllint from 1.30.0 to 1.32.0 [\#155](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/155) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump molecule from 5.0.0 to 5.0.1 [\#151](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/151) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump molecule-plugins from 23.4.0 to 23.4.1 [\#150](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/150) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible-lint from 6.14.6 to 6.15.0 [\#147](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/147) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump molecule from 4.0.4 to 5.0.0 [\#146](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/146) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible-lint from 6.14.3 to 6.14.6 [\#145](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/145) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.7.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.7.0) (2023-03-30)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.6.1...v1.7.0)
