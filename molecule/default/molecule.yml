@@ -80,6 +80,7 @@ provisioner:
             docker_volumes: ["/cache", "/certs/client", "/opt/docker/daemon.json:/etc/docker/daemon.json:ro"]
             docker_image: "python:3.8"
             docker_shm_size: 2147483648
+            docker_disable_cache: True
             tags: ["docker", "hifis"]
             locked: True
             limit: 10

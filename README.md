@@ -198,6 +198,7 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `docker_gpus`             | `all`                           | Specify GPUs to make available in Docker containers. Unset by default.                                 |
 | `docker_privileged`       | `False`                         | Specify, if the container runs in privileged mode (insecure). Default is `False`.                      |
 | `docker_tls_verify`       | `True`                          | Specify, if TLS connections to the Docker daemon should be verified. Default is `False`.               |
+| `docker_disable_cache`    | `False`                         | Specify, to disable the use of automatically created docker volumes for caching.                       |
 | `run_untagged`            | `False`                         | Specify, if the runner can run jobs without tags.                                                      |
 | `locked`                  | `True`                          | Specify, whether the runner is locked to the current project.                                          |
 | `limit`                   | `0`                             | Limit how many jobs can be handled concurrently by this token. Default is `0` (no limit).              |
