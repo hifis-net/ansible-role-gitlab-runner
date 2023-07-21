@@ -1,5 +1,19 @@
 # Changelog
 
+## [v1.9.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.9.0) (2023-07-21)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.8.0...v1.9.0)
+
+**Implemented enhancements:**
+
+- Allow to disable local Docker volumes based cache [\#181](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/181)
+
+**Merged pull requests:**
+
+- feat: allow to disable local docker cache [\#182](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/182) ([Normo](https://github.com/Normo))
+- chore\(deps-dev\): bump reuse from 1.1.2 to 2.1.0 [\#180](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/180) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ansible from 8.1.0 to 8.2.0 [\#179](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/179) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.8.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.8.0) (2023-07-03)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.7.0...v1.8.0)
@@ -25,6 +39,7 @@
 **Merged pull requests:**
 
 - chore: update ansible-lint and update poetry reference [\#174](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/174) ([tobiashuste](https://github.com/tobiashuste))
+- chore: prepare release v1.8.0 [\#176](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/176) ([Normo](https://github.com/Normo))
 - chore: set minimum ansible version to 2.13 [\#173](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/173) ([Normo](https://github.com/Normo))
 - feat: enable session\_server configuration [\#171](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/171) ([Normo](https://github.com/Normo))
 - chore!: drop official support for Ubuntu 18.04 [\#169](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/169) ([tobiashuste](https://github.com/tobiashuste))
