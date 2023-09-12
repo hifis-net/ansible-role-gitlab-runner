@@ -12,7 +12,7 @@ license = "Apache-2.0"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-ansible = "^8.2.0"
+ansible = "^8.4.0"
 
 [tool.poetry.dev-dependencies]
 ansible-lint = { version = "^6.18.0", markers = "platform_system != 'Windows'" }
