@@ -1,5 +1,23 @@
 # Changelog
 
+## [v1.10.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.10.0) (2023-10-13)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.9.0...v1.10.0)
+
+**Fixed bugs:**
+
+- Update Flatcar configuration [\#193](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/193)
+
+**Merged pull requests:**
+
+- chore\(deps-dev\): bump ansible-lint from 6.18.0 to 6.20.3 [\#195](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/195) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Make Flatcar configuration compatible with most recent release [\#194](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/194) ([tobiashuste](https://github.com/tobiashuste))
+- chore\(deps\): bump ansible from 8.2.0 to 8.5.0 [\#192](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/192) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/checkout from 3 to 4 [\#190](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/190) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps-dev\): bump molecule from 5.1.0 to 6.0.2 [\#189](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/189) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps-dev\): bump ansible-lint from 6.17.2 to 6.18.0 [\#188](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/188) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps-dev\): bump molecule-plugins from 23.4.1 to 23.5.0 [\#184](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/184) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.9.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.9.0) (2023-07-21)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.8.0...v1.9.0)
