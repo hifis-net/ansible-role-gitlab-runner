@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #}
 variant: flatcar
-version: 1.0.0
+version: 1.1.0
 passwd:
   users:
     - name: core
@@ -14,6 +14,7 @@ passwd:
 storage:
   files:
     - path: /etc/resolv.conf
+      overwrite: true
       mode: 0644
       contents:
         inline: |
@@ -37,6 +38,7 @@ storage:
             "mtu": {{ gitlab_runner_mtu }}
           }
     - path: /etc/flatcar/update.conf
+      overwrite: true
       contents:
         inline: |
                     REBOOT_STRATEGY=off
