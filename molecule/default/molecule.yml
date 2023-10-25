@@ -43,8 +43,10 @@ provisioner:
         gitlab_runner_ssh_public_key: "test_key.pub"
         gitlab_runner_ssh_private_key: "test_key"
         gitlab_runner_registry_mirrors:
-          - "https://registry-mirror1.example"
+          - "http://registry-mirror1.example"
           - "https://registry-mirror2.example"
+        gitlab_runner_insecure_registries:
+          - "registry-mirror1.example"
         gitlab_runner_enable_session_server: true
         gitlab_runner_list:
           - name: "test01"
