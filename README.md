@@ -125,12 +125,19 @@ The DNS nameservers to be used by the Openstack Flatcar virtual machine.
 
 ```yaml
 gitlab_runner_registry_mirrors:
-  - "https://registry-mirror-1.example"
+  - "http://registry-mirror-1.example"
   - "https://registry-mirror-2.example"
 ```
 
 (Optional) A list of Docker registry mirrors to be used.
 Takes precedence over the `gitlab_runner_registry_mirror` variable.
+
+```yaml
+gitlab_runner_insecure_registries:
+  - "registry-mirror-1.example"
+```
+
+(Optional) A list of Docker registries or mirrors that are considered to be insecure.
 
 ```yaml
 gitlab_runner_registry_mirror: "https://registry-mirror.example"

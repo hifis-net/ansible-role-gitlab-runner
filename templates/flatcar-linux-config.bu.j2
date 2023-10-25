@@ -35,6 +35,9 @@ storage:
 {% if registry_mirrors_list | length > 0 %}
             "registry-mirrors": {{ registry_mirrors_list | to_json }},
 {% endif %}
+{% if gitlab_runner_insecure_registries | length > 0 %}
+            "insecure-registries": {{ gitlab_runner_insecure_registries | to_json }},
+{% endif %}
             "mtu": {{ gitlab_runner_mtu }}
           }
     - path: /etc/flatcar/update.conf
