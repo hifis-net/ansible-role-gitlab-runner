@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.11.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.11.0) (2023-10-25)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.10.0...v1.11.0)
+
+**Implemented enhancements:**
+
+- Allow to configure insecure registries in Flatcar config [\#202](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/202)
+
+**Merged pull requests:**
+
+- feat: configure insecure registries in Flatcar config [\#201](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/201) ([tobiashuste](https://github.com/tobiashuste))
+- chore\(deps-dev\): bump ansible-lint from 6.20.3 to 6.21.1 [\#200](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/200) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.10.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.10.0) (2023-10-13)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.9.0...v1.10.0)
@@ -8,8 +21,13 @@
 
 - Update Flatcar configuration [\#193](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/193)
 
+**Closed issues:**
+
+- Release version 1.10.0 [\#196](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/196)
+
 **Merged pull requests:**
 
+- chore: prepare release of v1.10.0 [\#197](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/197) ([tobiashuste](https://github.com/tobiashuste))
 - chore\(deps-dev\): bump ansible-lint from 6.18.0 to 6.20.3 [\#195](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/195) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Make Flatcar configuration compatible with most recent release [\#194](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/194) ([tobiashuste](https://github.com/tobiashuste))
 - chore\(deps\): bump ansible from 8.2.0 to 8.5.0 [\#192](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/192) ([dependabot[bot]](https://github.com/apps/dependabot))
