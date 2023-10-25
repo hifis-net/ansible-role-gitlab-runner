@@ -150,6 +150,17 @@
       check_mode: no
       notify:
         - Restart GitLab-Runner
+    - name: "Configure network_mtu parameter"
+      when: "gitlab_runner.docker_network_mtu is defined"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)network_mtu =.*'
+        line: '    network_mtu = "{{ gitlab_runner.docker_network_mtu }}"'
+        state: present
+        insertafter: '^\s*shm_size =.*'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
     - name: "Configure cpus parameter"
       when: "gitlab_runner.docker_cpus is defined"
       ansible.builtin.lineinfile:
@@ -182,7 +193,7 @@
         backrefs: yes
       check_mode: no
       notify:
-        - Restart GitLab-Runner        
+        - Restart GitLab-Runner
 
 - name: Configure [runners.machine] section
   when:
