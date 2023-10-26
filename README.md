@@ -203,6 +203,7 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `docker_cpus`             | `2`                             | Number of CPUs. Unset by default.                                                                      |
 | `docker_memory`           | `2g`                            | Docker container memory limit. Unset by default.                                                       |
 | `docker_gpus`             | `all`                           | Specify GPUs to make available in Docker containers. Unset by default.                                 |
+| `docker_network_mtu`      | `1442`                          | A custom MTU is necessary in some environments like VMs in Openstack. Requires Gitlab-Runner >= `16.5` |
 | `docker_privileged`       | `False`                         | Specify, if the container runs in privileged mode (insecure). Default is `False`.                      |
 | `docker_tls_verify`       | `True`                          | Specify, if TLS connections to the Docker daemon should be verified. Default is `False`.               |
 | `docker_disable_cache`    | `False`                         | Specify, to disable the use of automatically created docker volumes for caching.                       |
@@ -213,7 +214,7 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `machine_name`            | `"auto-scale-%s"`               | The machine name template. (You need to include `%s`).                                                 |
 | `machine_options`         | See the machine example.        | Additional machine creation options.                                                                   |
 | `machine_idle_count`      | `2`                             | Number of machines that need to be created and waiting in Idle state. Default is `0`.                  |
-| `machine_idle_time `      | `1800`                          | Time (in seconds) for machine to be in Idle state before it is removed. Default is `0`.                |
+| `machine_idle_time`       | `1800`                          | Time (in seconds) for machine to be in Idle state before it is removed. Default is `0`.                |
 | `machine_max_growth_rate` | `1`                             | The maximum number of machines that can be added to the runner in parallel. Default is `0` (no limit). |
 | `machine_max_builds`      | `1`                             | Maximum job (build) count before machine is removed. Default is `0`.                                   |
 | `cache_type`              | `"s3"`                          | Type of caching to use. Currently only `s3` is supported by this role.                                 |
@@ -222,7 +223,7 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `cache_secret_key`        | `"secret"`                      | The secret key specified for your S3 instance.                                                         |
 | `cache_bucket_name`       | `"bucket-name"`                 | Name of the storage bucket where cache is stored.                                                      |
 | `cache_insecure`          | `"false"`                       | Set to `"true"` if the S3 service is available by HTTP. Default is `"false"`.                          |
- 
+
 #### Docker Example
 
 ```yaml
