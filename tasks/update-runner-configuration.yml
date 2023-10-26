@@ -155,7 +155,7 @@
       ansible.builtin.lineinfile:
         dest: "{{ tmp_runner_config_file.path }}"
         regexp: '^(\s*)network_mtu =.*'
-        line: '    network_mtu = "{{ gitlab_runner.docker_network_mtu }}"'
+        line: '    network_mtu = {{ gitlab_runner.docker_network_mtu }}'
         state: present
         insertafter: '^\s*shm_size =.*'
       check_mode: no
