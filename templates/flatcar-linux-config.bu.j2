@@ -28,9 +28,9 @@ storage:
           {
 {% set registry_mirrors_list = [] %}
 {% if gitlab_runner_registry_mirrors is defined %}
-  {% set registry_mirrors_list = gitlab_runner_registry_mirrors %}
+  {%- set registry_mirrors_list = gitlab_runner_registry_mirrors %}
 {% elif gitlab_runner_registry_mirror is defined %}
-  {% set registry_mirrors_list = [gitlab_runner_registry_mirror] %}
+  {%- set registry_mirrors_list = [gitlab_runner_registry_mirror] %}
 {% endif %}
 {% if registry_mirrors_list | length > 0 %}
             "registry-mirrors": {{ registry_mirrors_list | to_json }},
