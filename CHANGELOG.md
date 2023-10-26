@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.12.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.12.0) (2023-10-26)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.11.0...v1.12.0)
+
+**Implemented enhancements:**
+
+- Allow configuration of network\_mtu in Docker executor [\#205](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/205)
+
+**Merged pull requests:**
+
+- refactor: strip whitespaces before registry-mirrors in flatcar template [\#207](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/207) ([Normo](https://github.com/Normo))
+- feat: allow to configure network\_mtu parameter [\#206](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/206) ([tobiashuste](https://github.com/tobiashuste))
+
 ## [v1.11.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.11.0) (2023-10-25)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.10.0...v1.11.0)
@@ -10,6 +23,7 @@
 
 **Merged pull requests:**
 
+- chore: prepare release of v1.11.0 [\#203](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/203) ([tobiashuste](https://github.com/tobiashuste))
 - feat: configure insecure registries in Flatcar config [\#201](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/201) ([tobiashuste](https://github.com/tobiashuste))
 - chore\(deps-dev\): bump ansible-lint from 6.20.3 to 6.21.1 [\#200](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/200) ([dependabot[bot]](https://github.com/apps/dependabot))
 
