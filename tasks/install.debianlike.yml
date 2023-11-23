@@ -47,11 +47,12 @@
         mode: '0644'
       when: "ansible_distribution == 'Debian'"
 
-    - name: Install gitlab-runner
+    - name: Install gitlab-runner with downgrade option
       ansible.builtin.apt:
         name: "{{ gitlab_runner_package_name }}"
         state: present
         update_cache: yes
+        allow_downgrade: true
       when: "not gitlab_runner_is_initial_dryrun"  # skip if run for the first time in check mode
 
 - name: Gather the package facts
