@@ -1,5 +1,20 @@
 # Changelog
 
+## [v1.13.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.13.0) (2023-11-23)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.12.0...v1.13.0)
+
+**Implemented enhancements:**
+
+- Allow to downgrade GitLab-Runner package [\#214](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/214)
+
+**Merged pull requests:**
+
+- feat: allow to downgrade gitlab-runner package [\#215](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/215) ([tobiashuste](https://github.com/tobiashuste))
+- chore\(deps\): bump ansible from 8.5.0 to 8.6.1 [\#213](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/213) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps-dev\): bump yamllint from 1.32.0 to 1.33.0 [\#212](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/212) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps-dev\): bump ansible-lint from 6.21.1 to 6.22.0 [\#210](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/210) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.12.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.12.0) (2023-10-26)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.11.0...v1.12.0)
@@ -11,6 +26,7 @@
 **Merged pull requests:**
 
 - refactor: strip whitespaces before registry-mirrors in flatcar template [\#207](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/207) ([Normo](https://github.com/Normo))
+- chore: prepare release of version 1.12.0 [\#208](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/208) ([tobiashuste](https://github.com/tobiashuste))
 - feat: allow to configure network\_mtu parameter [\#206](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/206) ([tobiashuste](https://github.com/tobiashuste))
 
 ## [v1.11.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.11.0) (2023-10-25)
