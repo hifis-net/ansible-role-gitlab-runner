@@ -8,10 +8,10 @@ SPDX-License-Identifier: Apache-2.0
 # GitLab CI Openstack
 
 [![CI](https://github.com/hifis-net/ansible-role-gitlab-runner/actions/workflows/ci.yml/badge.svg)](https://github.com/hifis-net/ansible-role-gitlab-runner/actions/workflows/ci.yml)
+[![Ansible Role: hifis.gitlab_runner](https://img.shields.io/badge/role-hifis.gitlab__runner-blue)](https://galaxy.ansible.com/ui/standalone/roles/hifis/gitlab_runner/)
+[![Ansible Role Downloads](https://img.shields.io/ansible/role/d/hifis/gitlab_runner)](https://galaxy.ansible.com/ui/standalone/roles/hifis/gitlab_runner/)
+[![GitHub Release (latest by SemVer)](https://img.shields.io/github/v/release/hifis-net/ansible-role-gitlab-runner?color=blue&sort=semver)](https://github.com/hifis-net/ansible-role-gitlab-runner/releases)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/hifis-net/ansible-role-gitlab-runner/blob/main/LICENSE.md)
-[![Ansible Galaxy Role](https://img.shields.io/ansible/role/55703?color=orange)](https://galaxy.ansible.com/hifis/gitlab_runner)
-[![Ansible Galaxy Quality Score](https://img.shields.io/ansible/quality/55703)](https://galaxy.ansible.com/hifis/gitlab_runner)
-[![GitLab Release (latest by SemVer)](https://img.shields.io/github/v/release/hifis-net/ansible-role-gitlab-runner?color=blue&sort=semver)](https://github.com/hifis-net/ansible-role-gitlab-runner/releases)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8090043.svg)](https://doi.org/10.5281/zenodo.8090043)
 
 This Ansible role provides a setup for GitLab CI in Openstack.
