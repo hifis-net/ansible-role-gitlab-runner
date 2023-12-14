@@ -68,6 +68,9 @@
     --cache-s3-access-key "{{ gitlab_runner.cache_access_key }}"
     --cache-s3-secret-key "{{ gitlab_runner.cache_secret_key }}"
     --cache-s3-bucket-name "{{ gitlab_runner.cache_bucket_name }}"
+    {% if gitlab_runner.cache_bucket_location is defined %}
+    --cache-s3-bucket-location "{{ gitlab_runner.cache_bucket_location }}"
+    {% endif %}
     --cache-s3-insecure "{{ gitlab_runner.cache_insecure | default("false") }}"
     {% endif %}
   when: gitlab_runner.name not in configured_runners.stderr

@@ -336,4 +336,16 @@
       check_mode: no
       notify:
         - Restart GitLab-Runner
+    
+    - name: Configure S3 bucket location
+      when: "gitlab_runner.cache_bucket_location is defined"
+      ansible.builtin.lineinfile:
+        dest: "{{ tmp_runner_config_file.path }}"
+        regexp: '^(\s*)BucketLocation =.*'
+        line: '      BucketLocation = "{{ gitlab_runner.cache_bucket_location }}"'
+        state: present
+        insertafter: '^(\s*)Insecure =.*'
+      check_mode: no
+      notify:
+        - Restart GitLab-Runner
 ...
