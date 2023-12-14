@@ -114,6 +114,7 @@ provisioner:
             cache_access_key: "key"
             cache_secret_key: "secret"
             cache_bucket_name: "bucket"
+            cache_bucket_location: "eu-west-1"
             cache_insecure: "false"
 verifier:
   name: ansible

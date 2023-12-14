@@ -222,6 +222,7 @@ specify for registering your GitLab-Runner with this Ansible role.
 | `cache_access_key`        | `"key"`                         | The access key specified for your S3 instance..                                                        |
 | `cache_secret_key`        | `"secret"`                      | The secret key specified for your S3 instance.                                                         |
 | `cache_bucket_name`       | `"bucket-name"`                 | Name of the storage bucket where cache is stored.                                                      |
+| `cache_bucket_location`   | `"eu-west-1"`                   | Name of S3 region. (optional)                                                                          |
 | `cache_insecure`          | `"false"`                       | Set to `"true"` if the S3 service is available by HTTP. Default is `"false"`.                          |
 
 #### Docker Example
