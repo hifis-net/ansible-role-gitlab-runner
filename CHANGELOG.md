@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.14.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.14.0) (2023-12-14)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.13.0...v1.14.0)
+
+**Implemented enhancements:**
+
+- feat: allow to define the s3 bucket location [\#221](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/221) ([tobiashuste](https://github.com/tobiashuste))
+
 ## [v1.13.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.13.0) (2023-11-23)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.12.0...v1.13.0)
@@ -10,6 +18,7 @@
 
 **Merged pull requests:**
 
+- chore: prepare release version 1.13.0 [\#216](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/216) ([tobiashuste](https://github.com/tobiashuste))
 - feat: allow to downgrade gitlab-runner package [\#215](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/215) ([tobiashuste](https://github.com/tobiashuste))
 - chore\(deps\): bump ansible from 8.5.0 to 8.6.1 [\#213](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/213) ([dependabot[bot]](https://github.com/apps/dependabot))
 - chore\(deps-dev\): bump yamllint from 1.32.0 to 1.33.0 [\#212](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/212) ([dependabot[bot]](https://github.com/apps/dependabot))
