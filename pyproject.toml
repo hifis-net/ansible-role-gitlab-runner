@@ -18,7 +18,7 @@ ansible = "^8.7.0"
 ansible-lint = { version = "^6.22.0", markers = "platform_system != 'Windows'" }
 yamllint = "^1.33.0"
 reuse = "^2.1.0"
-molecule = "^6.0.2"
+molecule = "^6.0.3"
 molecule-plugins = {version = "^23.5.0", extras = ["podman"]}
 
 [build-system]
