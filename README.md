@@ -157,6 +157,19 @@ this value.
 properly.
 
 ```yaml
+gitlab_runner_set_default_network_opts: false
+```
+
+This variable enables the declaration of
+[`default-network-opts`](https://docs.docker.com/engine/reference/commandline/dockerd/#default-network-options)
+in the Docker daemon configuration options.
+This helps to prevent docker-compose to create networks with an MTU of 1500,
+even though a lower MTU is required.
+With this change a user should not be required to set the MTU
+on their own in docker-compose files.
+Requires at least Docker 24.
+
+```yaml
 gitlab_runner_ssh_public_key: "./files/id_ed25519.pub"
 gitlab_runner_ssh_private_key: "./files/id_ed25519"
 ```
