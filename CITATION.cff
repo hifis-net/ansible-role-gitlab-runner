@@ -34,5 +34,5 @@ authors:
     orcid: 'https://orcid.org/0000-0002-5028-6663'
 repository-code: 'https://github.com/hifis-net/ansible-role-gitlab-runner'
 repository-artifact: 'https://galaxy.ansible.com/hifis/gitlab_runner'
-version: 'v1.14.0'
-date-released: '2023-12-14'
+version: 'v1.15.0'
+date-released: '2024-02-16'
