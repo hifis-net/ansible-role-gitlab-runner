@@ -73,6 +73,7 @@ provisioner:
         gitlab_runner_ssh_private_key: ""
         gitlab_runner_registry_mirror: "https://registry-mirror.example"
         gitlab_runner_listen_address: "127.0.0.1:9252"
+        gitlab_runner_set_default_network_opts: true
         gitlab_runner_list:
           - name: "test01"
             url: "https://gitlab.com"

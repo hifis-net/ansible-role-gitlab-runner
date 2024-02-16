@@ -30,6 +30,8 @@ gitlab_runner_namerservers:
 
 gitlab_runner_mtu: 1450
 
+gitlab_runner_set_default_network_opts: false
+
 gitlab_runner_config_path: "/etc/gitlab-runner/config.toml"
 
 gitlab_runner_listen_address: ""
