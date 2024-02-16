@@ -704,22 +704,23 @@ testinfra = ["pytest-testinfra (>=8.1.0)"]
 
 [[package]]
 name = "molecule-plugins"
-version = "23.5.0"
+version = "23.5.3"
 description = "Molecule Plugins"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "molecule-plugins-23.5.0.tar.gz", hash = "sha256:f13ea047b8650c892604b81b76382bc80bb4ae25ea50b23f30e81fd9d5802aff"},
-    {file = "molecule_plugins-23.5.0-py3-none-any.whl", hash = "sha256:893dba8d077adb30fcd50a5d082300404ced3bb745451bc0927d4a1ada131d31"},
+    {file = "molecule-plugins-23.5.3.tar.gz", hash = "sha256:a2b1437d532d736e3fbc6db7a69ec533e2334b2115ff9245a0b2772ed9738d23"},
+    {file = "molecule_plugins-23.5.3-py3-none-any.whl", hash = "sha256:87f8ac8d5e9fe1cbdfb784d92b1fd08e7cb11bf02a9391bb34dcb93fadf7a3fc"},
 ]
 
 [package.dependencies]
-molecule = ">=5.0"
+molecule = ">=6.0.0a1"
 
 [package.extras]
 docker = ["docker (>=4.3.1)", "requests", "selinux", "selinux"]
+openstack = ["openstacksdk (>=1.1.0)"]
 selinux = ["selinux", "selinux"]
-test = ["molecule[test]", "pytest-helpers-namespace (>=2019.1.8)"]
+test = ["molecule[test] (>=6.0.0a1)", "pytest-helpers-namespace (>=2019.1.8)"]
 vagrant = ["python-vagrant"]
 
 [[package]]
@@ -1135,4 +1136,4 @@ dev = ["doc8", "flake8", "flake8-import-order", "rstcheck[sphinx]", "sphinx"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "d2fd25fc3a5ed91ef332a56f401232e85b8eedbf8255f1de6b90ee3d34c56675"
+content-hash = "c7d76462bd2f3328fc73bded30346fab8784a86545938ffd0ae07f0473930fc6"

@@ -19,7 +19,7 @@ ansible-lint = { version = "^6.22.0", markers = "platform_system != 'Windows'" }
 yamllint = "^1.35.0"
 reuse = "^3.0.1"
 molecule = "^6.0.3"
-molecule-plugins = {version = "^23.5.0", extras = ["podman"]}
+molecule-plugins = {version = "^23.5.3", extras = ["podman"]}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
