@@ -38,18 +38,21 @@
   loop_control:
     loop_var: gitlab_runner
 
-- name: "Include tasks to register the runner"
-  ansible.builtin.include_tasks: register.yml
-  when:
-    - "not gitlab_runner_is_initial_dryrun"
-    - "gitlab_runner.registration_token | default('')"
-    - "gitlab_runner.registration_token | length > 0"
+- name: "Template config file"
+  ansible.builtin.template:
+    src: "config.toml.j2"
+    dest: "{{ gitlab_runner_config_path }}"
+    owner: "{{ gitlab_runner_config_owner | default('root') }}"
+    group: "{{ gitlab_runner_config_group | default('root') }}"
+    mode: "0600"
+  notify: "Restart GitLab-Runner"
   no_log: true
-  loop: "{{ gitlab_runner_list }}"
-  loop_control:
-    loop_var: gitlab_runner
 
-- name: "Include tasks to update an existing runner configuration"
-  ansible.builtin.include_tasks: update-configuration.yml
+- name: "Start GitLab-Runner"
+  ansible.builtin.service:
+    name: "gitlab-runner"
+    state: "started"
+  when: "not gitlab_runner_is_initial_dryrun"
+
 
 ...

@@ -13,5 +13,6 @@
   ansible.builtin.service:
     name: gitlab-runner
     state: restarted
+  when: not gitlab_runner_is_initial_dryrun
 
 ...

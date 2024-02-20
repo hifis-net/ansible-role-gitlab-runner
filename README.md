@@ -199,44 +199,43 @@ Each list entry corresponds to one registered GitLab-Runner.
 Below table lists and describes all available configuration options you can
 specify for registering your GitLab-Runner with this Ansible role.
 
-| Key                       | Example                         | Description                                                                                            |
-|---------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------|
-| `name`                    | `"my-docker-runner"`            | The name of the registered runner.                                                                     |
-| `url`                     | `"https://gitlab.com"`          | The URL of the GitLab instance you want to register the runner with.                                   |
-| `description`             | `"My first Docker runner"`      | Description of the runner.                                                                             |
-| `registration_token`      | `"MY_SECURE_TOKEN"`             | The registration token required to register the runner.                                                |
-| `tags`                    | `["docker", "hifis"]`           | List of runner tags.                                                                                   |
-| `executor`                | `docker`                        | Specify, the runner [executor](https://docs.gitlab.com/runner/executors/#selecting-the-executor).      |
-| `environment`             | `["DOCKER_TLS_CERTDIR=/certs"]` | Append or overwrite environment variables.                                                             |
-| `docker_image`            | `"python:3.8"`                  | Specify the default docker image to be used. Required for `docker` and `docker+machine` executor.      |
-| `docker_security_opts`    | `["seccomp=unconfined"]`        | Configure Docker security options.                                                                     |
-| `docker_devices`          | `["/dev/kfd", "/dev/dri"]`      | Add a host device to the container. Same syntax as the Docker `--device` flag.                         |
-| `docker_volumes`          | `["/cache", "/certs/client"]`   | Additional volumes that should be mounted. Same syntax as the Docker -v flag.                          |
-| `docker_shm_size`         | `2147483648`                    | Shared memory size for images (in bytes). Default is 0 resulting in a fallback to the Docker default.  |
-| `docker_cpus`             | `2`                             | Number of CPUs. Unset by default.                                                                      |
-| `docker_memory`           | `2g`                            | Docker container memory limit. Unset by default.                                                       |
-| `docker_gpus`             | `all`                           | Specify GPUs to make available in Docker containers. Unset by default.                                 |
-| `docker_network_mtu`      | `1442`                          | A custom MTU is necessary in some environments like VMs in Openstack. Requires Gitlab-Runner >= `16.5` |
-| `docker_privileged`       | `False`                         | Specify, if the container runs in privileged mode (insecure). Default is `False`.                      |
-| `docker_tls_verify`       | `True`                          | Specify, if TLS connections to the Docker daemon should be verified. Default is `False`.               |
-| `docker_disable_cache`    | `False`                         | Specify, to disable the use of automatically created docker volumes for caching.                       |
-| `run_untagged`            | `False`                         | Specify, if the runner can run jobs without tags.                                                      |
-| `locked`                  | `True`                          | Specify, whether the runner is locked to the current project.                                          |
-| `limit`                   | `0`                             | Limit how many jobs can be handled concurrently by this token. Default is `0` (no limit).              |
-| `machine_driver`          | `"openstack"`                   | The driver to use when creating the machine via `docker-machine`.                                      |
-| `machine_name`            | `"auto-scale-%s"`               | The machine name template. (You need to include `%s`).                                                 |
-| `machine_options`         | See the machine example.        | Additional machine creation options.                                                                   |
-| `machine_idle_count`      | `2`                             | Number of machines that need to be created and waiting in Idle state. Default is `0`.                  |
-| `machine_idle_time`       | `1800`                          | Time (in seconds) for machine to be in Idle state before it is removed. Default is `0`.                |
-| `machine_max_growth_rate` | `1`                             | The maximum number of machines that can be added to the runner in parallel. Default is `0` (no limit). |
-| `machine_max_builds`      | `1`                             | Maximum job (build) count before machine is removed. Default is `0`.                                   |
-| `cache_type`              | `"s3"`                          | Type of caching to use. Currently only `s3` is supported by this role.                                 |
-| `cache_server_address`    | `"https://s3.hifis.net"`        | A `host:port` for the S3-compatible server.                                                            |
-| `cache_access_key`        | `"key"`                         | The access key specified for your S3 instance..                                                        |
-| `cache_secret_key`        | `"secret"`                      | The secret key specified for your S3 instance.                                                         |
-| `cache_bucket_name`       | `"bucket-name"`                 | Name of the storage bucket where cache is stored.                                                      |
-| `cache_bucket_location`   | `"eu-west-1"`                   | Name of S3 region. (optional)                                                                          |
-| `cache_insecure`          | `"false"`                       | Set to `"true"` if the S3 service is available by HTTP. Default is `"false"`.                          |
+| Key                         | Example                         | Description                                                                                                                    |
+|-----------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| `name`                      | `"my-docker-runner"`            | The name of the registered runner.                                                                                             |
+| `url`                       | `"https://gitlab.com"`          | The URL of the GitLab instance you want to register the runner with.                                                           |
+| `description`               | `"My first Docker runner"`      | Description of the runner.                                                                                                     |
+| `authentication_token`      | `"MY_SECURE_TOKEN"`             | The runner authentication token required to register the runner.                                                               |
+| `executor`                  | `docker`                        | Specify, the runner [executor](https://docs.gitlab.com/runner/executors/#selecting-the-executor).                              |
+| `limit`                     | `0`                             | Limit how many jobs can be handled concurrently by this token. Default is `0` (no limit).                                      |
+| `environment`               | `["DOCKER_TLS_CERTDIR=/certs"]` | Append or overwrite environment variables.                                                                                     |
+| `docker_image`              | `"python:3.8"`                  | Specify the default docker image to be used. Required for `docker` and `docker+machine` executor.                              |
+| `docker_security_opts`      | `["seccomp=unconfined"]`        | Configure Docker security options.                                                                                             |
+| `docker_devices`            | `["/dev/kfd", "/dev/dri"]`      | Add a host device to the container. Same syntax as the Docker `--device` flag.                                                 |
+| `docker_volumes`            | `["/cache", "/certs/client"]`   | Additional volumes that should be mounted. Same syntax as the Docker -v flag.                                                  |
+| `docker_shm_size`           | `2147483648`                    | Shared memory size for images (in bytes). Default is 0 resulting in a fallback to the Docker default.                          |
+| `docker_cpus`               | `2`                             | Number of CPUs. Unset by default.                                                                                              |
+| `docker_memory`             | `2g`                            | Docker container memory limit. Unset by default.                                                                               |
+| `docker_gpus`               | `all`                           | Specify GPUs to make available in Docker containers. Unset by default.                                                         |
+| `docker_network_mtu`        | `1442`                          | A custom MTU is necessary in some environments like VMs in Openstack. Requires Gitlab-Runner >= `16.5`                         |
+| `docker_privileged`         | `False`                         | Specify, if the container runs in privileged mode (insecure). Default is `False`.                                              |
+| `docker_tls_verify`         | `True`                          | Specify, if TLS connections to the Docker daemon should be verified. Default is `False`.                                       |
+| `docker_disable_cache`      | `False`                         | Specify, to disable the use of automatically created docker volumes for caching.                                               |
+| `machine_driver`            | `"openstack"`                   | The driver to use when creating the machine via `docker-machine`.                                                              |
+| `machine_name`              | `"auto-scale-%s"`               | The machine name template. (You need to include `%s`).                                                                         |
+| `machine_options`           | See the machine example.        | Additional machine creation options.                                                                                           |
+| `machine_idle_count`        | `2`                             | Number of machines that need to be created and waiting in Idle state. Default is `0`.                                          |
+| `machine_idle_scale_factor` | `0.0`                           | *(Experimental)* Number of Idle machines as a factor of the number of machines currently in use. Default is `0.0`.             |
+| `machine_idle_count_min`    | `1`                             | Minimal number of machines that need to be created and waiting in Idle state when the IdleScaleFactor is in use. Default is 1. |
+| `machine_idle_time`         | `1800`                          | Time (in seconds) for machine to be in Idle state before it is removed. Default is `0`.                                        |
+| `machine_max_growth_rate`   | `1`                             | The maximum number of machines that can be added to the runner in parallel. Default is `0` (no limit).                         |
+| `machine_max_builds`        | `1`                             | Maximum job (build) count before machine is removed. Default is `0`.                                                           |
+| `cache_type`                | `"s3"`                          | Type of caching to use. Currently only `s3` is supported by this role.                                                         |
+| `cache_server_address`      | `"https://s3.hifis.net"`        | A `host:port` for the S3-compatible server.                                                                                    |
+| `cache_access_key`          | `"key"`                         | The access key specified for your S3 instance..                                                                                |
+| `cache_secret_key`          | `"secret"`                      | The secret key specified for your S3 instance.                                                                                 |
+| `cache_bucket_name`         | `"bucket-name"`                 | Name of the storage bucket where cache is stored.                                                                              |
+| `cache_bucket_location`     | `"eu-west-1"`                   | Name of S3 region. (optional)                                                                                                  |
+| `cache_insecure`            | `"false"`                       | Set to `"true"` if the S3 service is available by HTTP. Default is `"false"`.                                                  |
 
 #### Docker Example
 
@@ -245,14 +244,11 @@ gitlab_runner_list:
     - name: "my-docker-runner"
       url: "https://gitlab.com"
       description: "My first Docker runner via Ansible."
-      registration_token: ${REGISTRATION_TOKEN}
-      tags: ["docker", "hifis"]
+      authentication_token: ${AUTHENTICATION_TOKEN}
       executor: "docker"
       environment: ["CI_CPUS=8", "DOCKER_TLS_CERTDIR=/certs"]
       docker_image: "python:3.8"
       docker_volumes: ["/cache", "/certs/client"]
-      run_untagged: False
-      locked: True
       limit: 5
       # Optional cache configuration, only S3 is supported for now
       cache_type: "s3"
@@ -279,13 +275,10 @@ gitlab_runner_list:
     - name: "test01"
       url: "https://gitlab.com"
       description: "Molecule test runner"
-      registration_token: "REGISTRATION_TOKEN"
+      authentication_token: "AUTHENTICATION_TOKEN"
       executor: "docker+machine"
       docker_image: "python:3.8"
       docker_volumes: ["/cache", "/certs/client"]
-      tags: ["docker", "hifis"]
-      run_untagged: False
-      locked: True
       machine_idle_count: 2
       machine_idle_time: 3600
       machine_max_growth_rate: 2
@@ -353,18 +346,10 @@ GitLab-Runner for Openstack depends on `docker-machine` requiring docker to be a
 
 - Docker - [geerlingguy.docker](https://galaxy.ansible.com/geerlingguy/docker)
 
-## Example Playbook
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
 ## License
 
 [Apache-2.0](LICENSES/Apache-2.0.txt)
 
 ## Author Information
 
-This role was created by [HIFIS Software Services](https://software.hifis.net/).
+This role was created by [HIFIS Software Services](https://hifis.net/).
