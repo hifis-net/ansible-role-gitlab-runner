@@ -66,5 +66,5 @@
   when:
     - gitlab_runner_deb_file | length > 0
     - "'gitlab-runner' not in ansible_facts.packages or
-      ansible_facts.packages['gitlab-runner'][0].version is version(gitlab_runner_version, 'ne')"
+      ansible_facts.packages['gitlab-runner'][0].version is version(gitlab_runner_pkg_version, 'ne')"
 ...
