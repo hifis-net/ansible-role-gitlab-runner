@@ -91,7 +91,7 @@ jobs:
         run: XDG_RUNTIME_DIR=/run/user/$UID poetry run molecule test
         env:
           MOLECULE_IMAGE: ${{ matrix.image }}
-          REGISTRATION_TOKEN: ${{ secrets.registration_token }}
+          AUTHENTICATION_TOKEN: ${{ secrets.authentication_token }}
 
   release:
     name: Release new version on Ansible Galaxy

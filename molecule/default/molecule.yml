@@ -37,7 +37,7 @@ provisioner:
           gitlab_runner_concurrent: 4
     host_vars:
       instancegitlabciopenstack1:
-        gitlab_runner_version: "16.5.0"
+        gitlab_runner_version: "16.9.0-1"
         gitlab_runner_deb_file: "https://packages.gitlab.com/runner/gitlab-runner/packages/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }}/gitlab-runner_{{ gitlab_runner_version }}_amd64.deb/download.deb"
         gitlab_runner_install_docker: true
         gitlab_runner_ssh_public_key: "test_key.pub"
@@ -52,7 +52,7 @@ provisioner:
           - name: "test01"
             url: "https://gitlab.com"
             description: "Molecule test runner"
-            registration_token: ${REGISTRATION_TOKEN}
+            authentication_token: ${AUTHENTICATION_TOKEN}
             executor: "docker"
             environment: ["CI_CPUS=8", "DOCKER_TLS_CERTDIR=/certs"]
             docker_security_opts: ["seccomp=unconfined"]
@@ -67,7 +67,7 @@ provisioner:
             locked: True
             limit: 10
       instancegitlabciopenstack2:
-        gitlab_runner_version: "16.5.0"
+        gitlab_runner_version: "16.9.0-1"
         gitlab_runner_install_docker: false
         gitlab_runner_ssh_public_key: ""
         gitlab_runner_ssh_private_key: ""
@@ -78,7 +78,7 @@ provisioner:
           - name: "test01"
             url: "https://gitlab.com"
             description: "Molecule test runner"
-            registration_token: ${REGISTRATION_TOKEN}
+            authentication_token: ${AUTHENTICATION_TOKEN}
             executor: "docker+machine"
             environment: ["CI_CPUS=8", "DOCKER_TLS_CERTDIR=/certs"]
             docker_volumes: ["/cache", "/certs/client", "/opt/docker/daemon.json:/etc/docker/daemon.json:ro"]
