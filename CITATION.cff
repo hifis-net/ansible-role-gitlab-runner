@@ -35,4 +35,4 @@ authors:
 repository-code: 'https://github.com/hifis-net/ansible-role-gitlab-runner'
 repository-artifact: 'https://galaxy.ansible.com/hifis/gitlab_runner'
 version: 'v2.0.0'
-date-released: '2024-02-28'
+date-released: '2024-02-29'
