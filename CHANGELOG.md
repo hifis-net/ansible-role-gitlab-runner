@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2.0.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v2.0.0) (2024-02-29)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.15.0...v2.0.0)
+
+**UPGRADE NOTES AND BREAKING CHANGES:**
+
+As of this release the role switched to the new runner registration workflow.
+The ability to pass a [deprecated](https://docs.gitlab.com/ee/security/token_overview.html#runner-registration-tokens-deprecated) runner registration token has been removed.
+Please use a [runner authentication token](https://docs.gitlab.com/ee/security/token_overview.html#runner-authentication-tokens) to register your runner.
+The `registration_token` parameter has been replaced by `authentication_token`.
+Please make sure that you adjust your config accordingly. [More...](https://docs.gitlab.com/ee/ci/runners/new_creation_workflow.html)
+
+**Implemented enhancements:**
+
+- Allow to remove session\_server configuration [\#175](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/175)
+- Allow to remove the cache configuration [\#4](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/4)
+
+**Closed issues:**
+
+- Apply new gitlab-runner package version scheme [\#234](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/234)
+- gitlab-runner registration token deprecated [\#104](https://github.com/hifis-net/ansible-role-gitlab-runner/issues/104)
+
+**Merged pull requests:**
+
+- fix: apply new runner version scheme [\#236](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/236) ([Normo](https://github.com/Normo))
+- Deploy runner configuration via a template file  [\#233](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/233) ([Normo](https://github.com/Normo))
+- chore\(deps-dev\): bump yamllint from 1.35.0 to 1.35.1 [\#232](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/232) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.15.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v1.15.0) (2024-02-16)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.14.0...v1.15.0)
