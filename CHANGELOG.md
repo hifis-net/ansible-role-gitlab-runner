@@ -24,6 +24,7 @@ Please make sure that you adjust your config accordingly. [More...](https://docs
 
 **Merged pull requests:**
 
+- chore: prepare release v2.0.0 [\#237](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/237) ([Normo](https://github.com/Normo))
 - fix: apply new runner version scheme [\#236](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/236) ([Normo](https://github.com/Normo))
 - Deploy runner configuration via a template file  [\#233](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/233) ([Normo](https://github.com/Normo))
 - chore\(deps-dev\): bump yamllint from 1.35.0 to 1.35.1 [\#232](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/232) ([dependabot[bot]](https://github.com/apps/dependabot))
