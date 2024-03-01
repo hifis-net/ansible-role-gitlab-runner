@@ -17,6 +17,7 @@
               - iproute2          # for gathering network facts
               - ca-certificates   # for Gitlab-Runner download
               - gpg
+              - python3-debian
             state: present
             update_cache: yes
     - name: Set up iptables

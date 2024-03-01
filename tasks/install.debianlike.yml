@@ -18,25 +18,16 @@
   when: gitlab_runner_deb_file | length == 0
 
   block:
-    - name: Add runner/gitlab-runner GPG key
-      ansible.builtin.apt_key:
-        url: https://packages.gitlab.com/runner/gitlab-runner/gpgkey
-        id: "{{ gitlab_gpg_key_id }}"
-        state: present
-
-    - name: Remove old runner/gitlab-runner GPG key
-      ansible.builtin.apt_key:
-        id: "{{ item }}"
-        state: absent
-      loop: "{{ gitlab_gpg_old_key_ids }}"
-
-    - name: Add packages repository packages.gitlab.com/runner/gitlab-runner
-      ansible.builtin.apt_repository:
-        repo: "{{ gitlab_runner_apt_repo }}"
-        state: present
-        mode: '0644'
-        filename: gitlab-runner
-        update_cache: yes
+    - name: "Add packages repository packages.gitlab.com/runner/gitlab-runner"
+      ansible.builtin.deb822_repository:
+        name: "gitlab-runner"
+        types: "deb"
+        uris: "https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/"
+        suites: "{{ ansible_distribution_release }}"
+        components: "main"
+        signed_by: "https://packages.gitlab.com/runner/gitlab-runner/gpgkey"
+        state: "present"
+        enabled: true
 
     - name: "Use APT pinning for Debian os"
       ansible.builtin.template:
