@@ -1,5 +1,13 @@
 # Changelog
 
+## [v2.0.1](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v2.0.1) (2024-03-04)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v2.0.0...v2.0.1)
+
+**Fixed bugs:**
+
+- Allow to renew GPG repository key with same ID [\#240](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/240) ([tobiashuste](https://github.com/tobiashuste))
+
 ## [v2.0.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v2.0.0) (2024-02-29)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v1.15.0...v2.0.0)
