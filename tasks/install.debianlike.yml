@@ -18,17 +18,17 @@
   when: gitlab_runner_deb_file | length == 0
 
   block:
-    - name: Add runner/gitlab-runner GPG key
-      ansible.builtin.apt_key:
-        url: https://packages.gitlab.com/runner/gitlab-runner/gpgkey
-        id: "{{ gitlab_gpg_key_id }}"
-        state: present
-
     - name: Remove old runner/gitlab-runner GPG key
       ansible.builtin.apt_key:
         id: "{{ item }}"
         state: absent
       loop: "{{ gitlab_gpg_old_key_ids }}"
+
+    - name: Add runner/gitlab-runner GPG key
+      ansible.builtin.apt_key:
+        url: https://packages.gitlab.com/runner/gitlab-runner/gpgkey
+        id: "{{ gitlab_gpg_key_id }}"
+        state: present
 
     - name: Add packages repository packages.gitlab.com/runner/gitlab-runner
       ansible.builtin.apt_repository:
