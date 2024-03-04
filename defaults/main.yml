@@ -12,8 +12,6 @@ gitlab_runner_apt_repo: "deb https://packages.gitlab.com/runner/gitlab-runner/{{
 
 gitlab_runner_deb_file: ""
 
-gitlab_gpg_key_id: "F6403F6544A38863DAA0B6E03F01618A51312F3F"
-
 gitlab_gpg_old_key_ids: []
 
 gitlab_runner_docker_machine_binary_url: "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/releases/v0.16.2-gitlab.20/downloads/docker-machine-Linux-{{ ansible_architecture }}"
