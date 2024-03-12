@@ -94,13 +94,13 @@ Docker is required for the `docker` executor but not for the
 ### Docker-machine variables
 
 ```yaml
-gitlab_runner_docker_machine_binary_url: "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/releases/v0.16.2-gitlab.20/downloads/docker-machine-Linux-{{ ansible_architecture }}"
+gitlab_runner_docker_machine_binary_url: "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/releases/v0.16.2-gitlab.25/downloads/docker-machine-Linux-{{ ansible_architecture }}"
 ```
 
 The URL where to download the docker-machine binary file from.
 
 ```yaml
-gitlab_runner_docker_machine_binary_checksum: "sha256:4eb1bdf119496d35fd6f61be8235343919563ef16865aace390e6837aafee25a"
+gitlab_runner_docker_machine_binary_checksum: "sha256:04cc18c8f6ee0d71614064fa81116f20f3a37af53eeebf19bfb832ab9c46d3a0"
 ```
 
 The checksum of the downloaded docker-machine binary. This must correspond to the file downloaded via the
