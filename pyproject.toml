@@ -9,6 +9,7 @@ version = "2.0.1"
 description = "This role provides a setup for GitLab CI in Openstack."
 authors = ["Tobias Huste <t.huste@hzdr.de>"]
 license = "Apache-2.0"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.9"
