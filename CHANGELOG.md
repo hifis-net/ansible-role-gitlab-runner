@@ -1,5 +1,15 @@
 # Changelog
 
+## [v2.0.2](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v2.0.2) (2024-03-12)
+
+[Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v2.0.1...v2.0.2)
+
+**Merged pull requests:**
+
+- Get rid of Poetry warning [\#245](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/245) ([tobiashuste](https://github.com/tobiashuste))
+- Update Butane to version 0.20.0 [\#244](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/244) ([tobiashuste](https://github.com/tobiashuste))
+- Install most recent docker-machine version 0.16.2-gitlab.25 [\#243](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/243) ([tobiashuste](https://github.com/tobiashuste))
+
 ## [v2.0.1](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v2.0.1) (2024-03-04)
 
 [Full Changelog](https://github.com/hifis-net/ansible-role-gitlab-runner/compare/v2.0.0...v2.0.1)
@@ -7,6 +17,10 @@
 **Fixed bugs:**
 
 - Allow to renew GPG repository key with same ID [\#240](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/240) ([tobiashuste](https://github.com/tobiashuste))
+
+**Merged pull requests:**
+
+- Prepare release 2.0.1 [\#241](https://github.com/hifis-net/ansible-role-gitlab-runner/pull/241) ([tobiashuste](https://github.com/tobiashuste))
 
 ## [v2.0.0](https://github.com/hifis-net/ansible-role-gitlab-runner/tree/v2.0.0) (2024-02-29)
 
